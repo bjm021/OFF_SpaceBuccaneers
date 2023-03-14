@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1295020303486058233, guid: b9bcfefe4b02f4fc7af1d0c8e6a4516c,
     type: 3}
-  cost: 0
+  cost: 100
   health: 10
   moveSpeed: 1
   attack: 2

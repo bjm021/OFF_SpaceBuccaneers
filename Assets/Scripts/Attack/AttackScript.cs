@@ -3,12 +3,14 @@ using UnityEngine;
 
 public abstract class AttackScript : MonoBehaviour
 {
+    public int Damage { get; private set; }
     public float Cooldown { get; private set; }
     public float AttackRange { get; private set; }
     private bool _inCooldown = false;
 
-    public void Initialize(float cooldown, float attackRange)
+    public void Initialize(int damage, float cooldown, float attackRange)
     {
+        Damage = damage;
         Cooldown = cooldown;
         AttackRange = attackRange;
     }
