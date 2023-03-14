@@ -8,19 +8,27 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
 {
     private enum AggressiveState
     {
-        GoingTo, Attacking, DoneAttacking
+        GoingTo, Attacking, DoneAttacking, ReSearch
     }
     
     private AggressiveState _state = AggressiveState.GoingTo;
     private NavMeshAgent _agent;
     private GameObject _currentlyAttacking;
+    private Unit.UnitOwner owner;
     public void Start()
     {
+        owner = GetComponent<Unit>().Owner;
         _agent = GetComponent<NavMeshAgent>();
+        FindAndGoToUnit();
+    }
+
+    private void FindAndGoToUnit()
+    {
         var minDistance = math.INFINITY;
         foreach (var unit in AIManager.Instance.GetUnits())
         {
             if (unit == gameObject) continue;
+            if (unit.GetComponent<Unit>().Owner == owner) continue;
             var dist = Vector3.Distance(unit.transform.position, gameObject.transform.position);
             if (dist < minDistance)
             {
@@ -28,7 +36,13 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
                 _currentlyAttacking = unit;
             }
         }
-        
+
+        if (_currentlyAttacking == null)
+        {
+            _state = AggressiveState.ReSearch;
+            return;
+        }
+
         _agent.SetDestination(_currentlyAttacking.transform.position);
         _agent.isStopped = false;
         _state = AggressiveState.GoingTo;
@@ -53,6 +67,9 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         else if (_state == AggressiveState.DoneAttacking)
         {
             // TODO - Go back to going to state
+        } else if(_state == AggressiveState.ReSearch)
+        {
+            FindAndGoToUnit();
         }
     }
 

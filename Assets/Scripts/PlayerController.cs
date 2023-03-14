@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         if (value.isPressed)
         {
             var ray = _mainCamera.ScreenPointToRay(Pointer.current.position.ReadValue());
-            Physics.Raycast(ray, out var hit);
+            if (!Physics.Raycast(ray, out var hit)) return;
 
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("NavMesh")) // If player clicked on the game plane
             {
@@ -34,8 +34,10 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     Debug.Log($"Spawn unit {_selectedUnitIndex} at {hit.point}");
-                    // Spawn selected Unit at mouse position if there are enough resources
-                    _selectedUnitIndex = 0;
+                    if (UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], Unit.UnitOwner.Player))
+                    {
+                        _selectedUnitIndex = 0;
+                    }
                 }
             }
             else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Unit")) // If player clicked on a unit
