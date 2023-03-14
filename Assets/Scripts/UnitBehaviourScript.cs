@@ -8,7 +8,7 @@ public class UnitBehaviourScript : MonoBehaviour
 
     [SerializeField] private ScriptableObject ai;
 
-    private IAIBehaviour behaviourScript;
+    public IAIBehaviour behaviourScript;
 
     private void Start()
     {
@@ -16,11 +16,15 @@ public class UnitBehaviourScript : MonoBehaviour
         {
             behaviourScript = unitAI.behaviour switch
             {
-                AIBehaviourType.PASSIVE => gameObject.AddComponent<PassiveAI>(),
-                _ => behaviourScript
+                AIBehaviourType.Passive => gameObject.AddComponent<PassiveAI>(),
+                AIBehaviourType.Mining => gameObject.AddComponent<MiningAI>(),
+                AIBehaviourType.Aggressive => gameObject.AddComponent<AggressiveAI>(),
+                AIBehaviourType.StandStill => gameObject.AddComponent<StandStillAI>(),
+                _ => behaviourScript 
             };
         }
 
+        AIManager.Instance.AddUnit(gameObject);
         behaviourScript.Start();
     }
 }

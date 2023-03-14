@@ -4,6 +4,26 @@ using UnityEngine;
 
 public class AsteroidManager : MonoBehaviour
 {
+    #region Singleton
+
+    public static AsteroidManager Instance { get; private set; }
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            Initialize();
+        }
+        else
+        {
+            Debug.LogWarning("More than one instance of AsteroidManager found!");
+            Destroy(gameObject);
+        }
+    }
+    
+    #endregion
+    
     [SerializeField] private GameObject asteroidPrefab;
     [SerializeField] private int asteroidCount;
     [SerializeField] private float asteroidSpawnRadius;
@@ -11,7 +31,7 @@ public class AsteroidManager : MonoBehaviour
     private List<GameObject> asteroids = new List<GameObject>();
     public List<GameObject> Asteroids => asteroids;
     
-    private void Start()
+    private void Initialize()
     {
         for (int i = 0; i < asteroidCount; i++)
         {
