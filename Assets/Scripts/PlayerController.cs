@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         if (value.isPressed)
         {
             var ray = _mainCamera.ScreenPointToRay(Pointer.current.position.ReadValue());
-            Physics.Raycast(ray, out var hit);
+            if (!Physics.Raycast(ray, out var hit)) return;
 
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("NavMesh")) // If player clicked on the game plane
             {

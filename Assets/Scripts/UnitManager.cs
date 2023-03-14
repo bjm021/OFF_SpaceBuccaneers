@@ -40,8 +40,7 @@ public class UnitManager : MonoBehaviour
         var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
         var unit = unitGo.GetComponent<Unit>();
         
-        unit.UnitClass = unitClass;
-        unit.Owner = owner;
+        unit.Initialize(unitClass, owner);
         return true;
     }
 }

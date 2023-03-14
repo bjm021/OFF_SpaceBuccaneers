@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class Unit : MonoBehaviour
 {
     public enum UnitOwner
@@ -8,17 +10,29 @@ public class Unit : MonoBehaviour
         Player,
         Enemy
     }
+    
 
-    public IAIBehaviour BehaviourScript;
-    public UnitClass UnitClass { get; set; }
-    public UnitOwner Owner { get; set; }
+    public UnitClass UnitClass { get; private set; }
+    public UnitOwner Owner { get; private set; }
+    public IAIBehaviour BehaviourScript { get; private set; }
 
     private int _currentHealth;
-
-    private void Start()
+    private NavMeshAgent _navMeshAgent;
+    
+    public void Initialize(UnitClass unitClass, UnitOwner owner)
     {
-        _currentHealth = UnitClass.Health;
+        _navMeshAgent = GetComponent<NavMeshAgent>();
         
+        UnitClass = unitClass;
+        Owner = owner;
+        
+        _currentHealth = UnitClass.Health;
+        _navMeshAgent.speed = UnitClass.MoveSpeed;
+        _navMeshAgent.stoppingDistance = UnitClass.AttackRange - 0.5f;
+        
+        // TODO: Set attack range of attack script
+        // TODO: Set attack cooldown of attack script
+
         BehaviourScript = UnitClass.behaviour switch
         {
             UnitClass.AIBehaviourType.Passive => gameObject.AddComponent<PassiveAI>(),
