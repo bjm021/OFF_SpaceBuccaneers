@@ -18,12 +18,12 @@ public class Unit : MonoBehaviour
 
     private int _currentHealth;
     private NavMeshAgent _navMeshAgent;
-    private AttackScript _attackScript;
+    private Attack _attack;
     
     public void Initialize(UnitClass unitClass, UnitOwner owner)
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
-        _attackScript = GetComponent<AttackScript>();
+        _attack = GetComponent<Attack>();
         
         UnitClass = unitClass;
         Owner = owner;
@@ -33,7 +33,7 @@ public class Unit : MonoBehaviour
         _navMeshAgent.speed = UnitClass.MoveSpeed;
         _navMeshAgent.stoppingDistance = UnitClass.AttackRange - 0.5f;
         
-        _attackScript.Initialize(UnitClass.Attack, UnitClass.AttackCooldown, UnitClass.AttackRange);
+        _attack.Initialize(UnitClass.Attack, UnitClass.AttackCooldown, UnitClass.AttackRange);
 
         BehaviourScript = UnitClass.behaviour switch
         {
