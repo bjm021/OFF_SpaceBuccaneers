@@ -15,6 +15,7 @@ public class Unit : MonoBehaviour
     public UnitClass UnitClass { get; private set; }
     public UnitOwner Owner { get; private set; }
     public IAIBehaviour BehaviourScript { get; private set; }
+    public bool Dead { get; private set; }
 
     private int _currentHealth;
     private NavMeshAgent _navMeshAgent;
@@ -27,6 +28,7 @@ public class Unit : MonoBehaviour
         
         UnitClass = unitClass;
         Owner = owner;
+        Dead = false;
         
         _currentHealth = UnitClass.Health;
         
@@ -47,17 +49,19 @@ public class Unit : MonoBehaviour
         BehaviourScript.Start();
     }
 
-    public void TakeDamage(int damage)
+    public int TakeDamage(int damage)
     {
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {
             Die();
         }
+        return _currentHealth;
     }
 
     private void Die()
     {
+        AIManager.Instance.RemoveUnit(gameObject);
         Destroy(gameObject);
     }
 }
