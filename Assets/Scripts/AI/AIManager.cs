@@ -60,7 +60,7 @@ public class AIManager : MonoBehaviour
         {
             foreach (var unit in units)
             {
-                unit.GetComponent<UnitBehaviourScript>().behaviourScript.UpdateState();
+                unit.GetComponent<Unit>().behaviourScript.UpdateState();
             }
 
             yield return new WaitForSeconds(updateInterval);

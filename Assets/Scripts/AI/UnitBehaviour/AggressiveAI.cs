@@ -29,6 +29,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             }
         }
         
+        Debug.Log("Going to attack: " + _currentlyAttacking.name + " at distance: " + minDistance + "");
         _agent.SetDestination(_currentlyAttacking.transform.position);
         _agent.isStopped = false;
         _state = AggressiveState.GoingTo;
