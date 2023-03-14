@@ -31,7 +31,7 @@ public class AIManager : MonoBehaviour
     #endregion
     
     private List<GameObject> units = new List<GameObject>();
-    
+    private List<GameObject> toRemoveInNextIteration = new List<GameObject>();
     public void AddUnit(GameObject unit)
     {
         units.Add(unit);
@@ -39,7 +39,9 @@ public class AIManager : MonoBehaviour
     
     public void RemoveUnit(GameObject unit)
     {
-        units.Remove(unit);
+        // Da ansonsten die Liste während des Iterierens verändert wird
+        // und Unity dann abbricht
+        toRemoveInNextIteration.Add(unit);
     }
     
     public List<GameObject> GetUnits()
@@ -58,8 +60,13 @@ public class AIManager : MonoBehaviour
     {
         while (true)
         {
+            foreach (var unit in toRemoveInNextIteration)
+            {
+                units.Remove(unit);
+            }
             foreach (var unit in units)
             {
+                if (unit == null || toRemoveInNextIteration.Contains(unit)) continue;
                 unit.GetComponent<Unit>().BehaviourScript.UpdateState();
             }
 

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "UnitClass", menuName = "UnitClass", order = 0)]
@@ -11,6 +12,8 @@ public class UnitClass : ScriptableObject
     [SerializeField] private float attackRange;
     [SerializeField] private float attackCooldown;
     [SerializeField] public AIBehaviourType behaviour;
+    [Tooltip("The number of Resources mined per Time Units")] [SerializeField] public int miningRate;
+    [Tooltip("The number of seconds a mining time unit should take")][SerializeField] private float miningTimeUnitLength = 1;
     
     public GameObject UnitPrefab => unitPrefab;
     public int Cost => cost;
@@ -19,6 +22,8 @@ public class UnitClass : ScriptableObject
     public int Attack => attack;
     public float AttackRange => attackRange;
     public float AttackCooldown => attackCooldown;
+    public int MiningRate => miningRate;
+    public float MiningTimeUnitLength => miningTimeUnitLength;
     
     public enum AIBehaviourType
     {

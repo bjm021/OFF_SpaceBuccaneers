@@ -8,17 +8,22 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
 {
     private enum AggressiveState
     {
-        GoingTo, Attacking, DoneAttacking, ReSearch
+        GoingTo, Attacking, DoneAttacking, ReSearch, WaitingForAttack
     }
     
     private AggressiveState _state = AggressiveState.GoingTo;
     private NavMeshAgent _agent;
     private GameObject _currentlyAttacking;
+    private Unit _currentlyAttackingUnit;
+    private Attack _attack;
+    private Unit _unit;
     private Unit.UnitOwner owner;
     public void Start()
     {
         owner = GetComponent<Unit>().Owner;
         _agent = GetComponent<NavMeshAgent>();
+        _attack = GetComponent<Attack>();
+        _unit = GetComponent<Unit>();
         FindAndGoToUnit();
     }
 
@@ -27,13 +32,16 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         var minDistance = math.INFINITY;
         foreach (var unit in AIManager.Instance.GetUnits())
         {
+            Unit tmpUnit = unit.GetComponent<Unit>(); 
             if (unit == gameObject) continue;
-            if (unit.GetComponent<Unit>().Owner == owner) continue;
+            if (tmpUnit.Owner == owner) continue;
+            if (tmpUnit.Dead) continue; 
             var dist = Vector3.Distance(unit.transform.position, gameObject.transform.position);
             if (dist < minDistance)
             {
                 minDistance = dist;
                 _currentlyAttacking = unit;
+                _currentlyAttackingUnit = tmpUnit;
             }
         }
 
@@ -50,26 +58,77 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
 
     public void UpdateState()
     {
-        if (_state == AggressiveState.GoingTo)
+        if (_state == AggressiveState.GoingTo)  
         {
-            if (_agent.remainingDistance < 1)
+            if (_currentlyAttackingUnit.Dead || _currentlyAttacking == null || _currentlyAttackingUnit == null) 
             {
-                // TODO - Attacking Script here!
-                _agent.isStopped = true;
+                _state = AggressiveState.GoingTo;
+                FindAndGoToUnit();
                 return;
             }
+            if (_agent.remainingDistance <= _attack.AttackRange)
+            {
+                DoAttack();
+                return;
+            }
+            _agent.isStopped = false;
             _agent.SetDestination(_currentlyAttacking.transform.position);
         }
         else if (_state == AggressiveState.Attacking)
         {
-            // TODO - Check if enemy dies
+            if (_currentlyAttackingUnit.Dead || _currentlyAttacking == null || _currentlyAttackingUnit == null)
+            {
+                _state = AggressiveState.GoingTo;
+                FindAndGoToUnit();
+                return;
+            }
+            if (Vector3.Distance(_currentlyAttacking.transform.position, gameObject.transform.position) > _attack.AttackRange)
+            {
+                _state = AggressiveState.GoingTo;
+                _agent.isStopped = false;
+                _agent.SetDestination(_currentlyAttacking.transform.position);
+                return;
+            }
+            DoAttack();
         }
         else if (_state == AggressiveState.DoneAttacking)
         {
             // TODO - Go back to going to state
-        } else if(_state == AggressiveState.ReSearch)
+        } 
+        else if(_state == AggressiveState.ReSearch)
         {
             FindAndGoToUnit();
+        }
+        else if (_state == AggressiveState.WaitingForAttack)
+        {
+            DoAttack();
+        }
+    }
+
+    private void DoAttack()
+    {
+        if (_currentlyAttackingUnit.Dead) 
+        {
+            _state = AggressiveState.GoingTo;
+            FindAndGoToUnit();
+            return;
+        }
+        if (!_attack.IsReady())
+        {
+            _state = AggressiveState.WaitingForAttack;
+            return;
+        }
+        _agent.isStopped = true;
+        var dead = _attack.DoAttack(_currentlyAttacking);
+
+        if (dead)
+        {
+            _state = AggressiveState.ReSearch;
+            _agent.isStopped = false;
+        }
+        else
+        {
+            _state = AggressiveState.Attacking;
         }
     }
 
