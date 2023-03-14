@@ -1,19 +1,38 @@
+using System;
 using UnityEngine;
 
-public class Unit : ScriptableObject
+public class Unit : MonoBehaviour
 {
-    [SerializeField] private int health;
-    [SerializeField] private float moveSpeed;
+    public enum UnitOwner
+    {
+        Player,
+        Enemy
+    }
+
+    [SerializeField] private UnitClass unitClass;
+    [SerializeField] private UnitOwner owner;
     
+    public UnitClass UnitClass => unitClass;
+    public UnitOwner Owner => owner;
     
+    private int _currentHealth;
+
+    private void Awake()
+    {
+        _currentHealth = unitClass.Health;
+    }
     
-    [SerializeField] private int attack;
-    [SerializeField] private float attackRange;
-    [SerializeField] private float attackCooldown;
-    
-    public int Health => health;
-    public float MoveSpeed => moveSpeed;
-    public int Attack => attack;
-    public float AttackRange => attackRange;
-    public float AttackCooldown => attackCooldown;
+    public void TakeDamage(int damage)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 }
