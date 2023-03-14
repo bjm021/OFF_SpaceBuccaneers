@@ -86,5 +86,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6777282256803240714}
   m_SourcePrefab: {fileID: 100100000, guid: 5edc8f525abbb5249bc33e6a3f4fe123, type: 3}
+--- !u!1 &2761939288586683382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068368581015813799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6777282256803240714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2761939288586683382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wobbleAxis:
+    x: 1
+    y: 1
+    z: 1
+  wobbleSpeed: 1
+  wobbleAmount: 0.1
+  rotationAxis:
+    x: 1
+    y: 1
+    z: 1
+  rotationSpeed: 1
+  rotationAmount: 10
