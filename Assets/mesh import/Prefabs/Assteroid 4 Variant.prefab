@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3068368581015813799
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 160.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 160.98999
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 160.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.13
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.16
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.44038147
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.88927007
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.12233991
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.017202953
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 51.172
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -167.252
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -158.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      propertyPath: m_Name
+      value: Assteroid 4 Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6777282256803240714}
+  m_SourcePrefab: {fileID: 100100000, guid: 5edc8f525abbb5249bc33e6a3f4fe123, type: 3}
+--- !u!1 &2761939288586683382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5edc8f525abbb5249bc33e6a3f4fe123,
+    type: 3}
+  m_PrefabInstance: {fileID: 3068368581015813799}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6777282256803240714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2761939288586683382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wobbleAxis:
+    x: 1
+    y: 1
+    z: 1
+  wobbleSpeed: 1
+  wobbleAmount: 0.1
+  rotationAxis:
+    x: 1
+    y: 1
+    z: 1
+  rotationSpeed: 1
+  rotationAmount: 10

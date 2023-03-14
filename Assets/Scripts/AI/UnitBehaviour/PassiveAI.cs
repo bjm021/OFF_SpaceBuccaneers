@@ -8,12 +8,14 @@ public class PassiveAI : MonoBehaviour, IAIBehaviour
     private NavMeshAgent agent;
     public void Start()
     {
-        Debug.Log("Passive Start");
         agent = GetComponent<NavMeshAgent>(); 
-        agent.SetDestination(new Vector3(10, 0, 0));
+        // TODO - Map End Marker or sth.
+        if (GetComponent<Unit>().Owner == Unit.UnitOwner.Enemy) agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
+        if (GetComponent<Unit>().Owner == Unit.UnitOwner.Player) agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
+
     }
 
-    public void Move()
+    public void UpdateState()
     {
     }
 }

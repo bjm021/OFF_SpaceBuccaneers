@@ -1,19 +1,63 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Unit : ScriptableObject
+[RequireComponent(typeof(NavMeshAgent))]
+public class Unit : MonoBehaviour
 {
-    [SerializeField] private int health;
-    [SerializeField] private float moveSpeed;
+    public enum UnitOwner
+    {
+        Player,
+        Enemy
+    }
     
+
+    public UnitClass UnitClass { get; private set; }
+    public UnitOwner Owner { get; private set; }
+    public IAIBehaviour BehaviourScript { get; private set; }
+
+    private int _currentHealth;
+    private NavMeshAgent _navMeshAgent;
+    private Attack _attack;
     
-    
-    [SerializeField] private int attack;
-    [SerializeField] private float attackRange;
-    [SerializeField] private float attackCooldown;
-    
-    public int Health => health;
-    public float MoveSpeed => moveSpeed;
-    public int Attack => attack;
-    public float AttackRange => attackRange;
-    public float AttackCooldown => attackCooldown;
+    public void Initialize(UnitClass unitClass, UnitOwner owner)
+    {
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _attack = GetComponent<Attack>();
+        
+        UnitClass = unitClass;
+        Owner = owner;
+        
+        _currentHealth = UnitClass.Health;
+        
+        _navMeshAgent.speed = UnitClass.MoveSpeed;
+        _navMeshAgent.stoppingDistance = UnitClass.AttackRange - 0.5f;
+        
+        _attack.Initialize(UnitClass.Attack, UnitClass.AttackCooldown, UnitClass.AttackRange);
+
+        BehaviourScript = UnitClass.behaviour switch
+        {
+            UnitClass.AIBehaviourType.Passive => gameObject.AddComponent<PassiveAI>(),
+            UnitClass.AIBehaviourType.Mining => gameObject.AddComponent<MiningAI>(),
+            UnitClass.AIBehaviourType.Aggressive => gameObject.AddComponent<AggressiveAI>(),
+            UnitClass.AIBehaviourType.StandStill => gameObject.AddComponent<StandStillAI>(),
+            _ => BehaviourScript 
+        };
+        AIManager.Instance.AddUnit(gameObject);
+        BehaviourScript.Start();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
 }

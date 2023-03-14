@@ -6,5 +6,5 @@ using UnityEngine.EventSystems;
 public interface IAIBehaviour
 {
     public void Start();
-    public void Move();
+    public void UpdateState();
 }
