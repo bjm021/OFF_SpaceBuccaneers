@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public abstract class AttackScript : MonoBehaviour
+public abstract class Attack : MonoBehaviour
 {
     public int Damage { get; private set; }
     public float Cooldown { get; private set; }
@@ -15,7 +15,7 @@ public abstract class AttackScript : MonoBehaviour
         AttackRange = attackRange;
     }
     
-    public void Attack(GameObject target)
+    public void DoAttack(GameObject target)
     {
         if (_inCooldown) return;
         if (Vector3.Distance(gameObject.transform.position, target.transform.position) > AttackRange) return;
