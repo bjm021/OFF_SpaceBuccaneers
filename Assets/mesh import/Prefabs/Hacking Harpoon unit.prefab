@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7747940522220984048}
   - component: {fileID: 8949444414168830557}
   m_Layer: 0
-  m_Name: Hacking Harpoon
+  m_Name: Hacking Harpoon unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
