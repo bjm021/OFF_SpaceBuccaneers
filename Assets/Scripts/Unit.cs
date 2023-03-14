@@ -9,34 +9,26 @@ public class Unit : MonoBehaviour
         Enemy
     }
 
-    [SerializeField] private UnitClass unitClass;
-    [SerializeField] private UnitOwner owner;
-    
-    public UnitClass UnitClass => unitClass;
-    public UnitOwner Owner => owner;
-    
+    public IAIBehaviour BehaviourScript;
+    public UnitClass UnitClass { get; set; }
+    public UnitOwner Owner { get; set; }
+
     private int _currentHealth;
-    
-    public IAIBehaviour behaviourScript;
-
-
-    private void Awake()
-    {
-        _currentHealth = unitClass.Health;
-    }
 
     private void Start()
     {
-        behaviourScript = unitClass.behaviour switch
+        _currentHealth = UnitClass.Health;
+        
+        BehaviourScript = UnitClass.behaviour switch
         {
             UnitClass.AIBehaviourType.Passive => gameObject.AddComponent<PassiveAI>(),
             UnitClass.AIBehaviourType.Mining => gameObject.AddComponent<MiningAI>(),
             UnitClass.AIBehaviourType.Aggressive => gameObject.AddComponent<AggressiveAI>(),
             UnitClass.AIBehaviourType.StandStill => gameObject.AddComponent<StandStillAI>(),
-            _ => behaviourScript 
+            _ => BehaviourScript 
         };
         AIManager.Instance.AddUnit(gameObject);
-        behaviourScript.Start();
+        BehaviourScript.Start();
     }
 
     public void TakeDamage(int damage)

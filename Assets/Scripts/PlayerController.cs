@@ -34,8 +34,10 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     Debug.Log($"Spawn unit {_selectedUnitIndex} at {hit.point}");
-                    // Spawn selected Unit at mouse position if there are enough resources
-                    _selectedUnitIndex = 0;
+                    if (UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], Unit.UnitOwner.Player))
+                    {
+                        _selectedUnitIndex = 0;
+                    }
                 }
             }
             else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Unit")) // If player clicked on a unit
