@@ -74,16 +74,22 @@ public class AsteroidManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        foreach (var spawnPoints in asteroidSpawnPoints)
+        if (asteroidSpawnPoints.Length > 0)
         {
-            Gizmos.DrawWireSphere(spawnPoints.position, asteroidSpawnRadius + 0.1f);
+            Gizmos.color = Color.yellow;
+            foreach (var spawnPoints in asteroidSpawnPoints)
+            {
+                Gizmos.DrawWireSphere(spawnPoints.position, asteroidSpawnRadius + 0.1f);
+            }
         }
-        
-        Gizmos.color = Color.magenta;
-        foreach (var spawnPoints in specialAsteroidSpawnPoints)
+
+        if (specialAsteroidSpawnPoints.Length > 0)
         {
-            Gizmos.DrawWireSphere(spawnPoints.position, specialAsteroidSpawnRadius + 0.1f);
+            Gizmos.color = Color.magenta;
+            foreach (var spawnPoints in specialAsteroidSpawnPoints)
+            {
+                Gizmos.DrawWireSphere(spawnPoints.position, specialAsteroidSpawnRadius + 0.1f);
+            }
         }
     }
 }

@@ -21,3 +21,5 @@ MonoBehaviour:
   attackRange: 0
   attackCooldown: 0
   behaviour: 0
+  miningRate: 0
+  miningTimeUnitLength: 0

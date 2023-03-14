@@ -33,7 +33,7 @@ public class Unit : MonoBehaviour
         _currentHealth = UnitClass.Health;
         
         _navMeshAgent.speed = UnitClass.MoveSpeed;
-        _navMeshAgent.stoppingDistance = UnitClass.AttackRange - 0.5f;
+        _navMeshAgent.stoppingDistance = UnitClass.AttackRange - 1;
         
         _attack.Initialize(UnitClass.Attack, UnitClass.AttackCooldown, UnitClass.AttackRange);
 
