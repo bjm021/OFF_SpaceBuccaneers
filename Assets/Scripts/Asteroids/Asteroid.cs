@@ -32,7 +32,7 @@ public class Asteroid : MonoBehaviour
     private void Die()
     { 
         if (this == null) return;
-        StopCoroutine(_moveRoutine);
+        if (_moveRoutine != null) StopCoroutine(_moveRoutine);
         AsteroidManager.Instance.Asteroids.Remove(gameObject);
         Destroy(gameObject);
     }
