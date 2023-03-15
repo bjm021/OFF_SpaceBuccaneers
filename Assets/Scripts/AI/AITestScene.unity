@@ -550,10 +550,10 @@ MonoBehaviour:
   specialAsteroidSpawnRadius: 10
   continuousAsteroidRate: 2
   continuousAsteroidTimeUnit: 2
-  maxAsteroidOnScreen: 0
+  maxAsteroidOnScreen: 10
   continuousSpecialAsteroidRate: 2
   continuousSpecialAsteroidTimeUnit: 8
-  maxSpecialAsteroidOnScreen: 0
+  maxSpecialAsteroidOnScreen: 10
 --- !u!1 &460740027
 GameObject:
   m_ObjectHideFlags: 0

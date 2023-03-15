@@ -39,6 +39,7 @@ public class Unit : MonoBehaviour
             UnitClass.AIBehaviourType.Aggressive => gameObject.AddComponent<AggressiveAI>(),
             UnitClass.AIBehaviourType.StandStill => gameObject.AddComponent<StandStillAI>(),
             UnitClass.AIBehaviourType.SpecialMining => gameObject.AddComponent<SpecialMiningAI>(),
+            UnitClass.AIBehaviourType.SpecialPrioritisingAggressive => gameObject.AddComponent<SpecialPrioritisingAggressiveAI>(),
             _ => BehaviourScript 
         };
         AIManager.Instance.AddUnit(gameObject);
@@ -47,16 +48,19 @@ public class Unit : MonoBehaviour
 
     public int TakeDamage(int damage)
     {
+        Debug.Log("IM; TAKINFG VAN EJKL:Ö_SDFM;N:BSF K:JBNLSF ;BMNVHSF; BJMSF");
         _currentHealth -= damage;
         if (_currentHealth <= 0)
         {
-            Die();
+            Debug.Log("DIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+             Die();
         }
         return _currentHealth;
     }
 
     private void Die()
     {
+        Debug.Log("Unit shall die");
         if (SpawnedBy != null ) SpawnedBy.SpawnedUnits.Remove(gameObject);
         AIManager.Instance.RemoveUnit(gameObject);
         Destroy(gameObject);

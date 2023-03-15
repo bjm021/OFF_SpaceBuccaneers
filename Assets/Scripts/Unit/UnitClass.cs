@@ -5,12 +5,14 @@ using UnityEngine;
 public class UnitClass : ScriptableObject
 {
     [SerializeField] private GameObject unitPrefab;
+    [SerializeField] bool special;
     [SerializeField] private int cost;
     [SerializeField] private int health;
     [SerializeField] private float moveSpeed;
     [SerializeField] private int attack;
     [SerializeField] private float attackRange;
     [SerializeField] private float attackSeekRange;
+    [Tooltip("If SpecialPrioritisingAggresiveAI how far should the search radius be for Special units")][SerializeField] private float specialAttackSeekRange;
     [SerializeField] private float attackCooldown;
     [SerializeField] public AIBehaviourType behaviour;
     [Tooltip("The number of Resources mined per Time Units")] [SerializeField] public int miningRate;
@@ -30,9 +32,11 @@ public class UnitClass : ScriptableObject
     public float AttackSeekRange => attackSeekRange;
     public float MiningRange => miningRange;
     public float MothershipAttackDistance => mothershipAttackDistance; 
+    public bool Special => special;
+    public float SpecialAttackSeekRange => specialAttackSeekRange;
     
     public enum AIBehaviourType
     {
-        Passive, Aggressive, Mining, StandStill, SpecialMining
+        Passive, Aggressive, Mining, StandStill, SpecialMining, SpecialPrioritisingAggressive
     }
 }

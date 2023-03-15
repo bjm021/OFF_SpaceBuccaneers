@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1295020303486058233, guid: 0c38ae2c84bdf5a46a3883bfa421da4d,
     type: 3}
+  special: 0
   cost: 0
   health: 10
   moveSpeed: 10
-  attack: 0
+  attack: 10
   attackRange: 10
-  attackSeekRange: 30
-  attackCooldown: 0
+  attackSeekRange: 20
+  specialAttackSeekRange: 70
+  attackCooldown: 1
   behaviour: 1
   miningRate: 0
   miningTimeUnitLength: 0

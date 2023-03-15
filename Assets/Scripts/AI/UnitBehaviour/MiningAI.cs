@@ -25,12 +25,23 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
             }
             else
             {
-                _agent.SetDestination(_currentasteroid.transform.position);
+                if (_currentasteroid == null || _currentAsteroidManager == null || _currentAsteroidManager.Dead)
+                {
+                    FindAndGoToClosestAsteroid();
+                    _state = MiningState.GoingTo;
+                    return;
+                }
             }
         }
         else if (_state == MiningState.Mining)
         {
             // do nothing because coroutine is running
+            if (_currentasteroid == null || _currentAsteroidManager == null || _currentAsteroidManager.Dead)
+            {
+                FindAndGoToClosestAsteroid();
+                _state = MiningState.GoingTo;
+                return;
+            }
             _agent.SetDestination(_currentasteroid.transform.position);
         }
         else if (_state == MiningState.Waiting)
