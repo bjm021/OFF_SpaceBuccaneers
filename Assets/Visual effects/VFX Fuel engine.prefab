@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 5423636637909604909}
   - component: {fileID: 2759859793935977804}
   m_Layer: 0
-  m_Name: VFX pulsar engine
+  m_Name: VFX Fuel engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
