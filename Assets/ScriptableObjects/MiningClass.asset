@@ -19,8 +19,9 @@ MonoBehaviour:
   moveSpeed: 5
   attack: 0
   attackRange: 0
+  attackSeekRange: 0
   attackCooldown: 0
   behaviour: 2
   miningRate: 1
-  miningTimeUnitLength: 1
-  miningRange: 3
+  miningTimeUnitLength: 10
+  miningRange: 4

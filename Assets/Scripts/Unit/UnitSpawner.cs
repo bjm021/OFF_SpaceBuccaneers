@@ -12,7 +12,10 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private float spawnDelay = 1;
     [SerializeField] private int spawnCount = 1;
     [SerializeField] private int absoluteCount = -1;
+    [SerializeField] private int unitsOnScreenLimit = 10;
     
+    public List<GameObject> SpawnedUnits { get; } = new List<GameObject>();
+
     private void Start()
     {
         StartCoroutine(SpawnUnits());
@@ -24,16 +27,17 @@ public class UnitSpawner : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(spawnDelay);
-
+            
             for (int i = 0; i < spawnCount; i++)
             {
+                if (SpawnedUnits.Count >= unitsOnScreenLimit) continue;
                 if (absoluteCount != -1 && spawnCounter >= absoluteCount) yield break;
                 var position = spawnPoint.Length > 0
                     ? spawnPoint[Random.Range(0, spawnPoint.Length)].position
                     : transform.position;
                 position += Random.insideUnitSphere * spawnRadius;
                 position = new Vector3(position.x, 0, position.z);
-                UnitManager.Instance.SpawnUnit(position, unitClass, owner);
+                UnitManager.Instance.SpawnUnit(position, unitClass, owner, this);
                 spawnCounter += spawnCount;
             }
         }

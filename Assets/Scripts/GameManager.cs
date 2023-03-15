@@ -178,4 +178,36 @@ public class GameManager : MonoBehaviour
             AddResource(Player.PlayerTwo, ResourceType.Metal, metalAutoGenerationAmount);
         }
     }
+    
+    public GameObject GetEnemyMothership(Unit.UnitOwner player)
+    {
+        switch (player)
+        {
+            case Unit.UnitOwner.PlayerOne:
+                return PlayerTwoMothership.gameObject;
+            case Unit.UnitOwner.PlayerTwo:
+                return PlayerOneMothership.gameObject;
+            default:
+                return null;
+        }
+    }
+
+    public void EndGame(Unit.UnitOwner losingPlayer)
+    {
+        Unit.UnitOwner winningPlayer;
+        switch (losingPlayer)
+        {
+            case Unit.UnitOwner.PlayerOne:
+                winningPlayer = Unit.UnitOwner.PlayerTwo;
+                break;
+            case Unit.UnitOwner.PlayerTwo:
+                winningPlayer = Unit.UnitOwner.PlayerOne;
+                break;
+        }
+        
+        AIManager.Instance.StopAI();
+        Time.timeScale = 0;
+
+        // TODO - Something like UIManager.Instance.ShowEndGameScreen(winningPlayer);
+    }
 }
