@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1669,6 +1669,7 @@ GameObject:
   - component: {fileID: 506148611}
   - component: {fileID: 506148614}
   - component: {fileID: 506148613}
+  - component: {fileID: 506148615}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1741,6 +1742,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506148610}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &506148615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506148610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90df020f012b42c8b9c110d964f8789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: 0
+  maxHealth: 1000
 --- !u!1 &544469593
 GameObject:
   m_ObjectHideFlags: 0
@@ -6343,6 +6358,7 @@ GameObject:
   - component: {fileID: 1863594470}
   - component: {fileID: 1863594473}
   - component: {fileID: 1863594472}
+  - component: {fileID: 1863594474}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -6415,6 +6431,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863594469}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1863594474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863594469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90df020f012b42c8b9c110d964f8789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: 1
+  maxHealth: 1000
 --- !u!1 &1867936409
 GameObject:
   m_ObjectHideFlags: 0
