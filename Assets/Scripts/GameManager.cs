@@ -191,4 +191,23 @@ public class GameManager : MonoBehaviour
                 return null;
         }
     }
+
+    public void EndGame(Unit.UnitOwner losingPlayer)
+    {
+        Unit.UnitOwner winningPlayer;
+        switch (losingPlayer)
+        {
+            case Unit.UnitOwner.PlayerOne:
+                winningPlayer = Unit.UnitOwner.PlayerTwo;
+                break;
+            case Unit.UnitOwner.PlayerTwo:
+                winningPlayer = Unit.UnitOwner.PlayerOne;
+                break;
+        }
+        
+        AIManager.Instance.StopAI();
+        Time.timeScale = 0;
+
+        // TODO - Something like UIManager.Instance.ShowEndGameScreen(winningPlayer);
+    }
 }
