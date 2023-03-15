@@ -26,7 +26,7 @@ public class UnitClass : ScriptableObject
     public float AttackRange => attackRange;
     public float AttackCooldown => attackCooldown;
     public int MiningRate => miningRate;
-    public float MiningTimeUnitLength => miningTimeUnitLength = 10f;
+    public float MiningTimeUnitLength => miningTimeUnitLength;
     public float AttackSeekRange => attackSeekRange;
     public float MiningRange => miningRange;
     public float MothershipAttackDistance => mothershipAttackDistance; 

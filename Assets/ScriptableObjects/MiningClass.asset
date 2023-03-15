@@ -16,12 +16,13 @@ MonoBehaviour:
     type: 3}
   cost: 0
   health: 10
-  moveSpeed: 5
+  moveSpeed: 10
   attack: 0
   attackRange: 0
   attackSeekRange: 0
   attackCooldown: 0
   behaviour: 2
-  miningRate: 1
-  miningTimeUnitLength: 10
+  miningRate: 2
+  miningTimeUnitLength: 2
   miningRange: 4
+  mothershipAttackDistance: 5
