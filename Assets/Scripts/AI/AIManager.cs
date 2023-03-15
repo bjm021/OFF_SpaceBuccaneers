@@ -76,6 +76,7 @@ public class AIManager : MonoBehaviour
 
     public void StopAI()
     {
+        if (updateRoutine == null) return;
         StopCoroutine(updateRoutine);
         updateRoutine = null;
     }
