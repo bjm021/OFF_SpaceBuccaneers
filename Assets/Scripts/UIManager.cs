@@ -67,4 +67,17 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
+    
+    public void DisplayWinScreen(GameManager.Player player)
+    {
+        switch (player)
+        {
+            case GameManager.Player.PlayerOne:
+                Debug.Log("Player One Wins!");
+                break;
+            case GameManager.Player.PlayerTwo:
+                Debug.Log("Player Two Wins!");
+                break;
+        }
+    }
 }

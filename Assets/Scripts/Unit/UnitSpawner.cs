@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private UnitClass unitClass;
-    [SerializeField] private Unit.UnitOwner owner;
+    [SerializeField] private GameManager.Player owner;
     [SerializeField] private Transform[] spawnPoint;
     [SerializeField] private float spawnRadius = 1;
     [SerializeField] private float spawnDelay = 1;
@@ -47,10 +47,10 @@ public class UnitSpawner : MonoBehaviour
     {
         switch (owner)
         {
-            case Unit.UnitOwner.PlayerOne:
+            case GameManager.Player.PlayerOne:
                 Gizmos.color = Color.blue;
                 break;
-            case Unit.UnitOwner.PlayerTwo:
+            case GameManager.Player.PlayerTwo:
                 Gizmos.color = Color.red;
                 break;
         }
