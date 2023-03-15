@@ -46,16 +46,13 @@ public class GameManager : MonoBehaviour
         Metal, Crystals
     }
     
+    public Mothership PlayerOneMothership { get; set; }
+    public Mothership PlayerTwoMothership { get; set; }
+    
     public int PlayerOneMetal { get; private set; }
     public int PlayerOneCrystals { get; private set; }
     public int PlayerTwoMetal { get; private set; }
     public int PlayerTwoCrystals { get; private set; }
-    
-    
-    public void Start()
-    {
-        StartRound();
-    }
     
     public void AddResource(Player player, ResourceType resourceType, int amount)
     {
@@ -119,6 +116,11 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateResourceText(player, resourceType, amount);
     }
     
+    public void Start()
+    {
+        StartRound();
+    }
+    
     public void StartRound()
     {
         _isInRound = true;
@@ -130,7 +132,19 @@ public class GameManager : MonoBehaviour
     {
         _isInRound = false;
     }
-    
+
+    public void MothershipDestroyed(Mothership mothership)
+    {
+        if (mothership == PlayerOneMothership)
+        {
+            Debug.Log("Player 2 wins!");
+        }
+        else if (mothership == PlayerTwoMothership)
+        {
+            Debug.Log("Player 1 wins!");
+        }
+    }
+
     private IEnumerator Round()
     {
         int time = roundLength;
