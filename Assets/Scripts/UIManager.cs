@@ -30,6 +30,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text playerOneCrystalText;
     [SerializeField] private TMP_Text playerTwoMetalText;
     [SerializeField] private TMP_Text playerTwoCrystalText;
+    [Space]
+    [SerializeField] private GameObject pauseMenu;
+    [Space]
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private TMP_Text winScreenText;
 
     public void UpdateTimeText(int time)
     {
@@ -67,16 +72,32 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
-    
-    public void DisplayWinScreen(GameManager.Player player)
+
+    public void TogglePauseMenu()
     {
-        switch (player)
+        if (pauseMenu.activeSelf == false)
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+    public void DisplayWinScreen(GameManager.Player winner)
+    {
+        winScreen.SetActive(true);
+        
+        switch (winner)
         {
             case GameManager.Player.PlayerOne:
-                Debug.Log("Player One Wins!");
+                winScreenText.text = "Player One Won!";
                 break;
             case GameManager.Player.PlayerTwo:
-                Debug.Log("Player Two Wins!");
+                winScreenText.text = "Player Two Won!";
                 break;
         }
     }

@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] private bool isMainMenu;
+    [Space]
     [SerializeField] private AudioMixer audioMixer;
-    
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
@@ -22,24 +23,30 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
-        _masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0);
-        _musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0);
-        _sfxVolume = PlayerPrefs.GetFloat("SfxVolume", 0);
-        _pirateMode = PlayerPrefs.GetInt("PirateMode", 0) == 1;
+        if (isMainMenu)
+        {
+            _masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0);
+            _musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0);
+            _sfxVolume = PlayerPrefs.GetFloat("SfxVolume", 0);
+            _pirateMode = PlayerPrefs.GetInt("PirateMode", 0) == 1;
         
-        masterVolumeSlider.value = Mathf.Pow(10, _masterVolume / 20);
-        musicVolumeSlider.value = Mathf.Pow(10, _musicVolume / 20);
-        sfxVolumeSlider.value = Mathf.Pow(10, _sfxVolume / 20);
-        pirateModeToggle.isOn = _pirateMode;
-        pirateModeText.SetActive(_pirateMode);
+            masterVolumeSlider.value = Mathf.Pow(10, _masterVolume / 20);
+            musicVolumeSlider.value = Mathf.Pow(10, _musicVolume / 20);
+            sfxVolumeSlider.value = Mathf.Pow(10, _sfxVolume / 20);
+            pirateModeToggle.isOn = _pirateMode;
+            pirateModeText.SetActive(_pirateMode);
+        }
     }
 
     private void OnDestroy()
     {
-        PlayerPrefs.SetFloat("MasterVolume", _masterVolume);
-        PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
-        PlayerPrefs.SetFloat("SfxVolume", _sfxVolume);
-        PlayerPrefs.SetInt("PirateMode", _pirateMode ? 1 : 0);
+        if (isMainMenu)
+        {
+            PlayerPrefs.SetFloat("MasterVolume", _masterVolume);
+            PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
+            PlayerPrefs.SetFloat("SfxVolume", _sfxVolume);
+            PlayerPrefs.SetInt("PirateMode", _pirateMode ? 1 : 0);
+        }
     }
 
     public void LoadScene(int sceneIndex)
