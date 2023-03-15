@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     Debug.Log($"Spawn unit {_selectedUnitIndex} at {hit.point}");
-                    if (UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], Unit.UnitOwner.Player))
+                    if (UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], Unit.UnitOwner.PlayerOne))
                     {
                         _selectedUnitIndex = 0;
                     }

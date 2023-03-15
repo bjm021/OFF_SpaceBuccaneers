@@ -51,10 +51,9 @@ public class AsteroidManager : MonoBehaviour
                 ? asteroidSpawnPoints[Random.Range(0, asteroidSpawnPoints.Length)].position
                 : transform.position;
             position += Random.insideUnitSphere * asteroidSpawnRadius;
+            position = new Vector3(position.x, 0, position.z);
             var asteroid = Instantiate(asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)], position, 
                 Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
-
-            asteroid.transform.position = new Vector3(asteroid.transform.position.x, 0, asteroid.transform.position.z);
             _asteroids.Add(asteroid);
         }
         
@@ -64,10 +63,10 @@ public class AsteroidManager : MonoBehaviour
                 ? specialAsteroidSpawnPoints[Random.Range(0, specialAsteroidSpawnPoints.Length)].position
                 : transform.position;
             position += Random.insideUnitSphere * specialAsteroidSpawnRadius;
+            position = new Vector3(position.x, 0, position.z);
             var asteroid = Instantiate(specialAsteroidPrefabs[Random.Range(0, specialAsteroidPrefabs.Length)], position, 
                 Quaternion.Euler(0, Random.Range(0, 360), 0));
-
-            asteroid.transform.position = new Vector3(asteroid.transform.position.x, 0, asteroid.transform.position.z);
+            
             _specialAsteroids.Add(asteroid);
         }
     }

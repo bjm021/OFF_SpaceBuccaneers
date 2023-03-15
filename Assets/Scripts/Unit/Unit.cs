@@ -7,8 +7,8 @@ public class Unit : MonoBehaviour
 {
     public enum UnitOwner
     {
-        Player,
-        Enemy
+        PlayerOne,
+        PlayerTwo
     }
     
 

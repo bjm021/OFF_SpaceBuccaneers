@@ -7,7 +7,7 @@ public class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private UnitClass unitClass;
     [SerializeField] private Unit.UnitOwner owner;
-    [FormerlySerializedAs("spawnPositions")] [SerializeField] private Transform[] spawnPoint;
+    [SerializeField] private Transform[] spawnPoint;
     [SerializeField] private float spawnRadius = 1;
     [SerializeField] private float spawnDelay = 1;
     [SerializeField] private int spawnCount = 1;
@@ -39,9 +39,18 @@ public class UnitSpawner : MonoBehaviour
         }
     }
     
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        switch (owner)
+        {
+            case Unit.UnitOwner.PlayerOne:
+                Gizmos.color = Color.blue;
+                break;
+            case Unit.UnitOwner.PlayerTwo:
+                Gizmos.color = Color.red;
+                break;
+        }
+        
         foreach (var spawnPoints in spawnPoint)
         {
             Gizmos.DrawWireSphere(spawnPoints.position, spawnRadius + 0.1f);
