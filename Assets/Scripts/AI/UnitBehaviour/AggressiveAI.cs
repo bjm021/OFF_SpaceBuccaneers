@@ -17,10 +17,10 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
     private Unit _currentlyAttackingUnit;
     private Attack _attack;
     private Unit _unit;
-    private Unit.UnitOwner owner;
+    private GameManager.Player _owner;
     public void Start()
     {
-        owner = GetComponent<Unit>().Owner;
+        _owner = GetComponent<Unit>().Owner;
         _agent = GetComponent<NavMeshAgent>();
         _attack = GetComponent<Attack>();
         _unit = GetComponent<Unit>();
@@ -35,7 +35,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             if (unit == null) continue;
             Unit tmpUnit = unit.GetComponent<Unit>(); 
             if (unit == gameObject) continue;
-            if (tmpUnit.Owner == owner) continue;
+            if (tmpUnit.Owner == _owner) continue;
             if (tmpUnit.Dead) continue; 
             var dist = Vector3.Distance(unit.transform.position, gameObject.transform.position);
             if (dist > _unit.UnitClass.AttackSeekRange) continue;
@@ -129,7 +129,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             _state = AggressiveState.WaitingForAttack;
             return;
         }
-        _agent.isStopped = true;
+        _agent.isStopped = true; 
         var dead = _attack.DoAttack(_currentlyAttacking);
 
         if (dead)
@@ -147,8 +147,8 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
     private void EnterReSearchState()
     {
         _state = AggressiveState.ReSearch;
-        if (_unit.Owner == Unit.UnitOwner.PlayerTwo) _agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
-        if (_unit.Owner == Unit.UnitOwner.PlayerOne) _agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
+        if (_unit.Owner == GameManager.Player.PlayerTwo) _agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
+        if (_unit.Owner == GameManager.Player.PlayerOne) _agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
         _agent.isStopped = false;
     }
 

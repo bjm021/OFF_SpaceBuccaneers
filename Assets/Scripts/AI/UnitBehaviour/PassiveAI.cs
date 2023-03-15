@@ -10,8 +10,8 @@ public class PassiveAI : MonoBehaviour, IAIBehaviour
     {
         agent = GetComponent<NavMeshAgent>(); 
         // TODO - Map End Marker or sth.
-        if (GetComponent<Unit>().Owner == Unit.UnitOwner.PlayerTwo) agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
-        if (GetComponent<Unit>().Owner == Unit.UnitOwner.PlayerOne) agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
+        if (GetComponent<Unit>().Owner == GameManager.Player.PlayerTwo) agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
+        if (GetComponent<Unit>().Owner == GameManager.Player.PlayerOne) agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
 
     }
 
