@@ -547,10 +547,13 @@ MonoBehaviour:
   specialAsteroidCount: 0
   specialAsteroidSpawnPoints:
   - {fileID: 290239972}
-  specialAsteroidSpawnRadius: 0
-  continuousAsteroidRate: 1
-  continuousAsteroidTimeUnit: 5
-  maxAsteroidOnScreen: 10
+  specialAsteroidSpawnRadius: 10
+  continuousAsteroidRate: 2
+  continuousAsteroidTimeUnit: 2
+  maxAsteroidOnScreen: 0
+  continuousSpecialAsteroidRate: 2
+  continuousSpecialAsteroidTimeUnit: 8
+  maxSpecialAsteroidOnScreen: 0
 --- !u!1 &460740027
 GameObject:
   m_ObjectHideFlags: 0
