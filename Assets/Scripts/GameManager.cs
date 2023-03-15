@@ -178,4 +178,17 @@ public class GameManager : MonoBehaviour
             AddResource(Player.PlayerTwo, ResourceType.Metal, metalAutoGenerationAmount);
         }
     }
+    
+    public GameObject GetEnemyMothership(Unit.UnitOwner player)
+    {
+        switch (player)
+        {
+            case Unit.UnitOwner.PlayerOne:
+                return PlayerTwoMothership.gameObject;
+            case Unit.UnitOwner.PlayerTwo:
+                return PlayerOneMothership.gameObject;
+            default:
+                return null;
+        }
+    }
 }

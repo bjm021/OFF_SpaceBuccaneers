@@ -20,9 +20,20 @@ public class NormalShoot : Attack
         StartCoroutine(DestroyBeam(beam));
         
 
-        var targetUnit = target.GetComponent<Unit>();
-
-        return targetUnit.TakeDamage(Damage) <= 0;
+        //var targetUnit = target.GetComponent<Unit>();
+        
+        if (target.TryGetComponent(out Unit targetUnit))
+        {
+            return targetUnit.TakeDamage(Damage) <= 0;
+        } 
+        else
+        {
+            var mothership = target.GetComponent<Mothership>();
+            return mothership.TakeDamage(Damage) <= 0;
+        }
+        
+       
+        
     }
     
     private IEnumerator DestroyBeam(LineRenderer beam)
