@@ -739,6 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e83acd50fa44e399db90124e74e338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainMenu: 1
   audioMixer: {fileID: 24100000, guid: bb74d10d2e49c465194eb3914c9e18f7, type: 2}
   masterVolumeSlider: {fileID: 1624349706}
   musicVolumeSlider: {fileID: 1420597365}

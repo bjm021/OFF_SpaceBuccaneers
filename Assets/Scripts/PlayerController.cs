@@ -54,13 +54,19 @@ public class PlayerController : MonoBehaviour
     
     public void SetSelectedUnitIndex(int index)
     {
+        if (index == _selectedUnitIndex)
+        {
+            _selectedUnitIndex = 0;
+            Debug.Log("Deselected Unit");
+        }
+        
         _selectedUnitIndex = index;
         Debug.Log($"Selected unit index: {_selectedUnitIndex}");
     }
     
     public void OnEscape(InputValue value)
     {
-        SetSelectedUnitIndex(0);
+        UIManager.Instance.TogglePauseMenu();
     }
     
     public void OnSelectUnit1(InputValue value)
