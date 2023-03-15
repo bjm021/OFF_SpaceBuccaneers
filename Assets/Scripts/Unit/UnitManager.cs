@@ -7,7 +7,7 @@ public class UnitManager : MonoBehaviour
     #region Singleton
 
     public static UnitManager Instance { get; private set; }
-    
+
     private void Awake()
     {
         if (Instance == null)
@@ -21,26 +21,32 @@ public class UnitManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     #endregion
-    
+
     [SerializeField] private List<UnitClass> unitClasses = new List<UnitClass>();
     public List<UnitClass> UnitClasses => unitClasses;
-    
+
     private void Initialize()
     {
         // Do nothing
     }
-    
-    public bool SpawnUnit(Vector3 position, UnitClass unitClass, Unit.UnitOwner owner)
-    {
-        // TODO: Check if player has enough resources to spawn unit, if not return false
-        // Also remove resources from player
 
-        var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
-        var unit = unitGo.GetComponent<Unit>();
-        
-        unit.Initialize(unitClass, owner);
-        return true;
+    public bool SpawnUnit(Vector3 position, UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy = null)
+    {
+        {
+            // TODO: Check if player has enough resources to spawn unit, if not return false
+            // Also remove resources from player
+
+            var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
+            if (spawnedBy != null)
+            {
+                spawnedBy.SpawnedUnits.Add(unitGo);
+            }
+            var unit = unitGo.GetComponent<Unit>();
+
+            unit.Initialize(unitClass, owner, spawnedBy);
+            return true;
+        }
     }
 }

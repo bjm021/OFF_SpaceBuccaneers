@@ -17,10 +17,10 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
     private Unit _currentlyAttackingUnit;
     private Attack _attack;
     private Unit _unit;
-    private Unit.UnitOwner owner;
+    private GameManager.Player _owner;
     public void Start()
     {
-        owner = GetComponent<Unit>().Owner;
+        _owner = GetComponent<Unit>().Owner;
         _agent = GetComponent<NavMeshAgent>();
         _attack = GetComponent<Attack>();
         _unit = GetComponent<Unit>();
@@ -35,7 +35,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             if (unit == null) continue;
             Unit tmpUnit = unit.GetComponent<Unit>(); 
             if (unit == gameObject) continue;
-            if (tmpUnit.Owner == owner) continue;
+            if (tmpUnit.Owner == _owner) continue;
             if (tmpUnit.Dead) continue; 
             var dist = Vector3.Distance(unit.transform.position, gameObject.transform.position);
             if (dist > _unit.UnitClass.AttackSeekRange) continue;
@@ -49,7 +49,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
 
         if (_currentlyAttacking == null)
         {
-            _state = AggressiveState.ReSearch;
+            EnterReSearchState();
             return;
         }
 
@@ -60,6 +60,15 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
 
     public void UpdateState()
     {
+        var motherShipDist = Vector3.Distance(gameObject.transform.position, GameManager.Instance.GetEnemyMothership(_unit.Owner).transform.position);
+        if (motherShipDist <= _unit.UnitClass.MothershipAttackDistance)
+        {
+            Debug.Log("Attacking mothership");
+            _agent.isStopped = true;
+            _agent.speed = 0;
+            AttackMotherhip(GameManager.Instance.GetEnemyMothership(_unit.Owner));
+        }
+        
         if (_state == AggressiveState.GoingTo)  
         {
             if (_currentlyAttackingUnit.Dead || _currentlyAttacking == null || _currentlyAttackingUnit == null) 
@@ -126,9 +135,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         if (dead)
         {
             _state = AggressiveState.ReSearch;
-            if (_unit.Owner == Unit.UnitOwner.PlayerTwo) _agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
-            if (_unit.Owner == Unit.UnitOwner.PlayerOne) _agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
-            _agent.isStopped = false;
+            return;
         }
         else
         {
@@ -136,6 +143,20 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         }
     }
 
+
+    private void EnterReSearchState()
+    {
+        _state = AggressiveState.ReSearch;
+        if (_unit.Owner == GameManager.Player.PlayerTwo) _agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
+        if (_unit.Owner == GameManager.Player.PlayerOne) _agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
+        _agent.isStopped = false;
+    }
+
+
+    public bool AttackMotherhip(GameObject mothership)
+    {
+        return _attack.AttackMothership(mothership);
+    }
 
 
 }

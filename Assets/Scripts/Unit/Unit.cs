@@ -5,23 +5,17 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Unit : MonoBehaviour
 {
-    public enum UnitOwner
-    {
-        PlayerOne,
-        PlayerTwo
-    }
-    
-
     public UnitClass UnitClass { get; private set; }
-    public UnitOwner Owner { get; private set; }
+    public GameManager.Player Owner { get; private set; }
     public IAIBehaviour BehaviourScript { get; private set; }
     public bool Dead { get; private set; }
+    public UnitSpawner SpawnedBy { get; private set; } = null;
 
     private int _currentHealth;
     private NavMeshAgent _navMeshAgent;
     private Attack _attack;
     
-    public void Initialize(UnitClass unitClass, UnitOwner owner)
+    public void Initialize(UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy)
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _attack = GetComponent<Attack>();
@@ -29,7 +23,8 @@ public class Unit : MonoBehaviour
         UnitClass = unitClass;
         Owner = owner;
         Dead = false;
-        
+        SpawnedBy = spawnedBy;
+
         _currentHealth = UnitClass.Health;
         
         _navMeshAgent.speed = UnitClass.MoveSpeed;
@@ -62,6 +57,7 @@ public class Unit : MonoBehaviour
 
     private void Die()
     {
+        if (SpawnedBy != null ) SpawnedBy.SpawnedUnits.Remove(gameObject);
         AIManager.Instance.RemoveUnit(gameObject);
         Destroy(gameObject);
     }

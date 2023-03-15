@@ -5,36 +5,38 @@ using UnityEngine;
 
 public class Mothership : MonoBehaviour
 {
-    [SerializeField] private Unit.UnitOwner owner;
+    [SerializeField] private GameManager.Player owner;
     [SerializeField] private int maxHealth;
 
-    private int _currentHealth;
+    public int CurrentHealth { get; private set; }
     
-    private void Awake()
+    private void Start()  
     {
         switch (owner)
         {
-            case Unit.UnitOwner.PlayerOne:
+            case GameManager.Player.PlayerOne:
                 GameManager.Instance.PlayerOneMothership = this;
                 break;
-            case Unit.UnitOwner.PlayerTwo:
+            case GameManager.Player.PlayerTwo:
                 GameManager.Instance.PlayerTwoMothership = this;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
         
-        _currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
     
-    public void TakeDamage(int amount)
+    public int TakeDamage(int amount)
     {
-        _currentHealth -= amount;
+        CurrentHealth -= amount;
 
-        if (_currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Die();
         }
+
+        return CurrentHealth;
     }
     
     private void Die()

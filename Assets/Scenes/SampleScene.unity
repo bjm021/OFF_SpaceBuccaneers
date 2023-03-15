@@ -211,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -221,6 +221,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -834,10 +839,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 110
   field of view: 60
   orthographic: 1
-  orthographic size: 50
+  orthographic size: 50.000015
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1372,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -1382,6 +1387,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2950,7 +2960,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2059968087dcb84448fd559ba24e917c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4588,7 +4598,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -4598,6 +4608,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4669,7 +4684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2059968087dcb84448fd559ba24e917c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4770,7 +4785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitClasses:
-  - {fileID: 11400000, guid: ea93adf3e4abf4585b9d6db63a9919d1, type: 2}
+  - {fileID: 11400000, guid: bcc7bdac27337324c9df85d51e7f9d1f, type: 2}
 --- !u!1001 &1618734335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4853,7 +4868,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -4863,6 +4878,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5118,7 +5138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfdab48350c0b049bd703d0adb9ca2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateInterval: 1
+  updateInterval: 0.31
 --- !u!1 &1703273281
 GameObject:
   m_ObjectHideFlags: 0
@@ -5455,7 +5475,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -5465,6 +5485,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5837,7 +5862,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -5847,6 +5872,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6064,6 +6094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
+      propertyPath: owner
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
       propertyPath: unitClass
       value: 
       objectReference: {fileID: 11400000, guid: bcc7bdac27337324c9df85d51e7f9d1f,
@@ -6076,7 +6111,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -6086,6 +6121,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6291,7 +6331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bf6783fe05b62a54ab970bd42dccab5b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6618,7 +6658,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bf6783fe05b62a54ab970bd42dccab5b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6754,7 +6794,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -6764,6 +6804,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7265,7 +7310,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -7275,6 +7320,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7509,7 +7559,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -7519,6 +7569,11 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: absoluteCount
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []

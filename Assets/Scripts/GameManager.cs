@@ -131,17 +131,31 @@ public class GameManager : MonoBehaviour
     public void EndRound()
     {
         _isInRound = false;
+
+        if (PlayerOneMothership.CurrentHealth > PlayerTwoMothership.CurrentHealth)
+        {
+            Debug.Log("Player 1 wins!");
+            EndGame(Player.PlayerOne);
+        }
+        else if (PlayerOneMothership.CurrentHealth < PlayerTwoMothership.CurrentHealth)
+        {
+            Debug.Log("Player 2 wins!");
+        }
+        else if (PlayerOneMothership.CurrentHealth == PlayerTwoMothership.CurrentHealth)
+        {
+            Debug.Log("Draw!");
+        }
     }
 
     public void MothershipDestroyed(Mothership mothership)
     {
         if (mothership == PlayerOneMothership)
         {
-            Debug.Log("Player 2 wins!");
+            EndGame(Player.PlayerTwo);
         }
         else if (mothership == PlayerTwoMothership)
         {
-            Debug.Log("Player 1 wins!");
+            EndGame(Player.PlayerOne);
         }
     }
 
@@ -177,5 +191,37 @@ public class GameManager : MonoBehaviour
             AddResource(Player.PlayerOne, ResourceType.Metal, metalAutoGenerationAmount);
             AddResource(Player.PlayerTwo, ResourceType.Metal, metalAutoGenerationAmount);
         }
+    }
+    
+    public GameObject GetEnemyMothership(Player player)
+    {
+        switch (player)
+        {
+            case Player.PlayerOne:
+                return PlayerTwoMothership.gameObject;
+            case Player.PlayerTwo:
+                return PlayerOneMothership.gameObject;
+            default:
+                return null;
+        }
+    }
+
+    public void EndGame(Player losingPlayer)
+    {
+        Player winningPlayer;
+        switch (losingPlayer)
+        {
+            case Player.PlayerOne:
+                winningPlayer = Player.PlayerTwo;
+                break;
+            case Player.PlayerTwo:
+                winningPlayer = Player.PlayerOne;
+                break;
+        }
+        
+        AIManager.Instance.StopAI();
+        Time.timeScale = 0;
+
+        // TODO - Something like UIManager.Instance.ShowEndGameScreen(winningPlayer);
     }
 }
