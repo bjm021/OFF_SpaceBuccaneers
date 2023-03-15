@@ -10,7 +10,7 @@ public class Mothership : MonoBehaviour
 
     private int _currentHealth;
     
-    private void Awake()
+    private void Start()  
     {
         switch (owner)
         {
@@ -27,7 +27,7 @@ public class Mothership : MonoBehaviour
         _currentHealth = maxHealth;
     }
     
-    public void TakeDamage(int amount)
+    public int TakeDamage(int amount)
     {
         _currentHealth -= amount;
 
@@ -35,6 +35,8 @@ public class Mothership : MonoBehaviour
         {
             Die();
         }
+
+        return _currentHealth;
     }
     
     private void Die()

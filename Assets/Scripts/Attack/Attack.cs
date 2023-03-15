@@ -30,6 +30,15 @@ public abstract class Attack : MonoBehaviour
         StartCoroutine(CooldownRoutine());
         return result;
     }
+
+    public bool AttackMothership(GameObject mothership)
+    {
+        if (_inCooldown) return false;
+        _inCooldown = true;
+        var result = SpecificAttack(mothership);
+        StartCoroutine(CooldownRoutine());
+        return result;
+    }
     
     private IEnumerator CooldownRoutine()
     {
@@ -37,6 +46,12 @@ public abstract class Attack : MonoBehaviour
         _inCooldown = false;
     }
     
+    /**
+     * Diese Methode muss pro Attacke implementiert werden.
+     * Man muss checken ob targen eine normale Unit oder ein Mothership ist.
+     *
+     * Der return type gibt an ob das Ziel gestorben ist.
+     */
     public abstract bool SpecificAttack(GameObject target);
     
     public bool IsReady()
