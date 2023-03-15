@@ -73,4 +73,10 @@ public class AIManager : MonoBehaviour
             yield return new WaitForSeconds(updateInterval);
         }
     }
+
+    public void StopAI()
+    {
+        StopCoroutine(updateRoutine);
+        updateRoutine = null;
+    }
 }
