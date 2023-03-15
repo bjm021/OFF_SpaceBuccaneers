@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -191,6 +191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mothership (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6451803762716815700, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      propertyPath: owner
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6969,7 +6974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdfdab48350c0b049bd703d0adb9ca2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateInterval: 0.31
+  updateInterval: 0.5
 --- !u!1 &1703273281
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 163536518949024148}
   - component: {fileID: -6301354860588197313}
   - component: {fileID: -5524263619480735668}
-  - component: {fileID: 3718490384228389114}
+  - component: {fileID: 422656906057672327}
   m_Layer: 0
   m_Name: BasicShip
   m_TagString: Untagged
@@ -69,7 +69,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3718490384228389114
+--- !u!114 &422656906057672327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295020303486058233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff93dfeaff1644198dc9795d17dafe6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b66635f202e0474681538c8eb9e61f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5206985245705193643
