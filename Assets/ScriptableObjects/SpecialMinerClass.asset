@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
-  m_Name: MiningClass
+  m_Name: SpecialMinerClass
   m_EditorClassIdentifier: 
   unitPrefab: {fileID: 1295020303486058233, guid: b9bcfefe4b02f4fc7af1d0c8e6a4516c,
     type: 3}
@@ -20,7 +20,7 @@ MonoBehaviour:
   attack: 0
   attackRange: 0
   attackCooldown: 0
-  behaviour: 2
+  behaviour: 4
   miningRate: 1
   miningTimeUnitLength: 1
   miningRange: 3

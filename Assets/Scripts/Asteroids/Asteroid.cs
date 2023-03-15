@@ -17,7 +17,6 @@ public class Asteroid : MonoBehaviour
     
     public int Mine(int damage)
     {
-        Debug.Log("MINE " + damage + "");
         _currentResources -= damage;
         if (_currentResources <= 0)
         {

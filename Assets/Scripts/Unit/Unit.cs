@@ -7,8 +7,8 @@ public class Unit : MonoBehaviour
 {
     public enum UnitOwner
     {
-        Player,
-        Enemy
+        PlayerOne,
+        PlayerTwo
     }
     
 
@@ -43,6 +43,7 @@ public class Unit : MonoBehaviour
             UnitClass.AIBehaviourType.Mining => gameObject.AddComponent<MiningAI>(),
             UnitClass.AIBehaviourType.Aggressive => gameObject.AddComponent<AggressiveAI>(),
             UnitClass.AIBehaviourType.StandStill => gameObject.AddComponent<StandStillAI>(),
+            UnitClass.AIBehaviourType.SpecialMining => gameObject.AddComponent<SpecialMiningAI>(),
             _ => BehaviourScript 
         };
         AIManager.Instance.AddUnit(gameObject);

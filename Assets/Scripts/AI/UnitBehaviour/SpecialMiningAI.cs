@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MiningAI : MonoBehaviour, IAIBehaviour
+public class SpecialMiningAI : MonoBehaviour, IAIBehaviour
 { 
     private enum MiningState { GoingTo, Mining, Waiting, Setup };
     private MiningState _state = MiningState.Setup;
@@ -30,12 +30,13 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
         }
         else if (_state == MiningState.Waiting)
         {
-            FindAndGoToClosestAsteroid();
+            FindAndGoToClosestSpecialAsteroid();
         }
     }
     
     private IEnumerator MiningCoroutine()
     {
+        Debug.Log("Mining Coroutine Started");
         while (true)
         {
             var remaining = _currentAsteroidManager.Mine(_unit.UnitClass.MiningRate);
@@ -54,7 +55,7 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
     {
         _unit = GetComponent<Unit>();
         _agent = GetComponent<NavMeshAgent>();
-        FindAndGoToClosestAsteroid();
+        FindAndGoToClosestSpecialAsteroid();
     } 
     
     private IEnumerator WaitForNavPath()
@@ -63,19 +64,24 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
         _state = MiningState.GoingTo;
     }
 
-    private void FindAndGoToClosestAsteroid()
+    private void FindAndGoToClosestSpecialAsteroid()
     {
+        if (AsteroidManager.Instance.SpecialAsteroids.Count == 0)
+        {
+            _state = MiningState.Waiting;
+            return;
+        }
         GameObject tMin = null;
         var minDist = Mathf.Infinity;
         
-        foreach (var asteroid in AsteroidManager.Instance.Asteroids)
+        foreach (var asteroid in AsteroidManager.Instance.SpecialAsteroids)
         {
             if (_currentasteroid != null && _currentasteroid == asteroid.gameObject) continue;
 
             if (asteroid == null) continue;
             var tmpManager = asteroid.GetComponent<Asteroid>();
             if (tmpManager == null || tmpManager.Dead) continue;
-            
+    
             var dist = Vector3.Distance(asteroid.gameObject.transform.position, gameObject.transform.position);
             if (!(dist < minDist)) continue;
             tMin = asteroid.gameObject;
@@ -87,10 +93,9 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
             _state = MiningState.Waiting;
             return;
         }
-        
         _currentasteroid = tMin;
         _currentAsteroidManager = tMin.GetComponent<Asteroid>();
         _agent.SetDestination(tMin.transform.position);
-        StartCoroutine(WaitForNavPath()); 
+        StartCoroutine(WaitForNavPath());
     }
 }
