@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
-  m_Name: TestClass
+  m_Name: Tower
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 1295020303486058233, guid: b9bcfefe4b02f4fc7af1d0c8e6a4516c,
+  unitPrefab: {fileID: 1295020303486058233, guid: 2f1eec0da982c9e4d8ee95c1d5de820c,
     type: 3}
-  cost: 100
-  health: 10
-  moveSpeed: 1
-  attack: 2
-  attackRange: 20
-  attackSeekRange: 0
+  cost: 50
+  health: 300
+  moveSpeed: 0
+  attack: 20
+  attackRange: 35
+  attackSeekRange: 20
   attackCooldown: 3
   behaviour: 1
   miningRate: 0
-  miningTimeUnitLength: 1
-  miningRange: 2.5
-  mothershipAttackDistance: 5
+  miningTimeUnitLength: 0
+  miningRange: 0
+  mothershipAttackDistance: 0

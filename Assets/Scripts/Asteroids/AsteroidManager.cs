@@ -36,7 +36,12 @@ public class AsteroidManager : MonoBehaviour
     [SerializeField] private int specialAsteroidCount;
     [SerializeField] private Transform[] specialAsteroidSpawnPoints;
     [SerializeField] private int specialAsteroidSpawnRadius;
-    
+
+    [Space]
+    [SerializeField] private int continuousAsteroidRate = 2;
+    [SerializeField] private float continuousAsteroidTimeUnit = 30f;
+    [SerializeField] private int maxAsteroidOnScreen = 10;
+
 
     private List<GameObject> _asteroids = new List<GameObject>();
     private List<GameObject> _specialAsteroids = new List<GameObject>();
@@ -69,6 +74,8 @@ public class AsteroidManager : MonoBehaviour
             
             _specialAsteroids.Add(asteroid);
         }
+        
+        StartCoroutine(ContinuousSpawningRoutine());
     }
 
     private void OnDrawGizmos()
@@ -91,4 +98,39 @@ public class AsteroidManager : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator ContinuousSpawningRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(continuousAsteroidTimeUnit);
+            for (int i = 0; i < continuousAsteroidRate; i++)
+            {
+                
+                if (_asteroids.Count >= maxAsteroidOnScreen)
+                {
+                    continue;
+                }
+                
+                var finalPosition = asteroidSpawnPoints.Length > 0
+                    ? asteroidSpawnPoints[Random.Range(0, asteroidSpawnPoints.Length)].position
+                    : transform.position;
+                finalPosition += Random.insideUnitSphere * asteroidSpawnRadius;
+                finalPosition = new Vector3(finalPosition.x, 0, finalPosition.z);
+
+                // random if up or down
+                var initialPositionY = Random.Range(1,100) % 2 == 0 ? 50 : -50;
+                
+                
+                var initialPosition = new Vector3(finalPosition.x, finalPosition.y, initialPositionY);
+                var asteroid = Instantiate(asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)], initialPosition, 
+                    Quaternion.LookRotation(finalPosition-initialPosition, Vector3.up));
+
+                asteroid.GetComponent<Asteroid>().MoveTo(finalPosition);
+                _asteroids.Add(asteroid);
+            }
+        }
+    }
+
+    
 }

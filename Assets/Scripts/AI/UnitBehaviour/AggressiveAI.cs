@@ -129,7 +129,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             _state = AggressiveState.WaitingForAttack;
             return;
         }
-        _agent.isStopped = true;
+        _agent.isStopped = true; 
         var dead = _attack.DoAttack(_currentlyAttacking);
 
         if (dead)
