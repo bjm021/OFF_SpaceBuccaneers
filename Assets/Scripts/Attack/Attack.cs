@@ -34,7 +34,6 @@ public abstract class Attack : MonoBehaviour
     private IEnumerator CooldownRoutine()
     {
         yield return new WaitForSeconds(Cooldown);
-        Debug.Log("Attack is ready");
         _inCooldown = false;
     }
     

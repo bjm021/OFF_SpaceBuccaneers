@@ -17,7 +17,6 @@ public class Asteroid : MonoBehaviour
     
     public int Mine(int damage)
     {
-        Debug.Log("MINE " + damage + "");
         _currentResources -= damage;
         if (_currentResources <= 0)
         {
@@ -28,7 +27,8 @@ public class Asteroid : MonoBehaviour
     }
     
     private void Die()
-    {
+    { 
+        if (this == null) return;
         AsteroidManager.Instance.Asteroids.Remove(gameObject);
         Destroy(gameObject);
     }
