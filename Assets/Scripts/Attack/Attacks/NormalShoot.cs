@@ -7,7 +7,6 @@ public class NormalShoot : Attack
     private LineRenderer _lineRenderer;
     public override bool SpecificAttack(GameObject target)
     {
-        Debug.Log("SHOOOOOOOOOOOOOOOOOOOOTING LASER");
         var beam = gameObject.AddComponent<LineRenderer>();
         beam.startColor = Color.red;
         beam.endColor = Color.red;
