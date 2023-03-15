@@ -5,15 +5,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Unit : MonoBehaviour
 {
-    public enum UnitOwner
-    {
-        PlayerOne,
-        PlayerTwo
-    }
-    
-
     public UnitClass UnitClass { get; private set; }
-    public UnitOwner Owner { get; private set; }
+    public GameManager.Player Owner { get; private set; }
     public IAIBehaviour BehaviourScript { get; private set; }
     public bool Dead { get; private set; }
     public UnitSpawner SpawnedBy { get; private set; } = null;
@@ -22,7 +15,7 @@ public class Unit : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private Attack _attack;
     
-    public void Initialize(UnitClass unitClass, UnitOwner owner, UnitSpawner spawnedBy)
+    public void Initialize(UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy)
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _attack = GetComponent<Attack>();

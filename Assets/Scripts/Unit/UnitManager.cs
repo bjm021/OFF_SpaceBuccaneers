@@ -32,7 +32,7 @@ public class UnitManager : MonoBehaviour
         // Do nothing
     }
 
-    public bool SpawnUnit(Vector3 position, UnitClass unitClass, Unit.UnitOwner owner, UnitSpawner spawnedBy = null)
+    public bool SpawnUnit(Vector3 position, UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy = null)
     {
         {
             // TODO: Check if player has enough resources to spawn unit, if not return false
