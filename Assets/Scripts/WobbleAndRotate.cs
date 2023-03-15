@@ -19,18 +19,18 @@ public class WobbleAndRotate : MonoBehaviour
 
     private void Awake()
     {
-        startPosition = transform.position;
-        startRotation = transform.rotation;
+        startPosition = transform.localPosition;
+        startRotation = transform.localRotation;
     }
 
     private void Update()
     {
-        transform.rotation = Quaternion.Euler(
+        transform.localRotation = Quaternion.Euler(
             rotationAxis.x ? math.sin(Time.time * rotationSpeed) * rotationAmount : 0,
             rotationAxis.y ? math.sin(Time.time * rotationSpeed) * rotationAmount : 0,
             rotationAxis.z ? math.sin(Time.time * rotationSpeed) * rotationAmount : 0) * startRotation;
 
-        transform.position = startPosition + new Vector3(
+        transform.localPosition = startPosition + new Vector3(
             wobbleAxis.x ? math.sin(Time.time * wobbleSpeed) * wobbleAmount : 0,
             wobbleAxis.y ? math.sin(Time.time * wobbleSpeed) * wobbleAmount : 0,
             wobbleAxis.z ? math.sin(Time.time * wobbleSpeed) * wobbleAmount : 0);

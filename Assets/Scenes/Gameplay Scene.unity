@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1617,14 +1617,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wobbleAxis:
     x: 0
-    y: 0
-    z: 1
-  wobbleSpeed: 0.5
+    y: 1
+    z: 0
+  wobbleSpeed: 0.1
   wobbleAmount: 2
   rotationAxis:
     x: 0
-    y: 1
-    z: 0
+    y: 0
+    z: 1
   rotationSpeed: 0.01
   rotationAmount: 90
 --- !u!1 &385877241
@@ -2296,7 +2296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wobbleAxis:
-    x: 1
+    x: 0
     y: 0
     z: 0
   wobbleSpeed: 0.2
@@ -2356,13 +2356,13 @@ MonoBehaviour:
   wobbleAxis:
     x: 1
     y: 0
-    z: 1
+    z: 0
   wobbleSpeed: 0.3
   wobbleAmount: 1
   rotationAxis:
     x: 0
-    y: 1
-    z: 0
+    y: 0
+    z: 1
   rotationSpeed: 0.1
   rotationAmount: 5
 --- !u!212 &544469596
