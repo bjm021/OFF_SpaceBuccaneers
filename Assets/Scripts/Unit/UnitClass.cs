@@ -10,6 +10,7 @@ public class UnitClass : ScriptableObject
     [SerializeField] private float moveSpeed;
     [SerializeField] private int attack;
     [SerializeField] private float attackRange;
+    [SerializeField] private float attackSeekRange;
     [SerializeField] private float attackCooldown;
     [SerializeField] public AIBehaviourType behaviour;
     [Tooltip("The number of Resources mined per Time Units")] [SerializeField] public int miningRate;
@@ -24,8 +25,9 @@ public class UnitClass : ScriptableObject
     public float AttackRange => attackRange;
     public float AttackCooldown => attackCooldown;
     public int MiningRate => miningRate;
-    public float MiningTimeUnitLength => miningTimeUnitLength;
-    
+    public float MiningTimeUnitLength => miningTimeUnitLength = 10f;
+    public float AttackSeekRange => attackSeekRange;
+
     public float MiningRange => miningRange;
     
     public enum AIBehaviourType

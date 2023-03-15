@@ -27,7 +27,8 @@ public class Asteroid : MonoBehaviour
     }
     
     private void Die()
-    {
+    { 
+        if (this == null) return;
         AsteroidManager.Instance.Asteroids.Remove(gameObject);
         Destroy(gameObject);
     }

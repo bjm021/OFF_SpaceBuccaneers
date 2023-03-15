@@ -32,11 +32,13 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         var minDistance = math.INFINITY;
         foreach (var unit in AIManager.Instance.GetUnits())
         {
+            if (unit == null) continue;
             Unit tmpUnit = unit.GetComponent<Unit>(); 
             if (unit == gameObject) continue;
             if (tmpUnit.Owner == owner) continue;
             if (tmpUnit.Dead) continue; 
             var dist = Vector3.Distance(unit.transform.position, gameObject.transform.position);
+            if (dist > _unit.UnitClass.AttackSeekRange) continue;
             if (dist < minDistance)
             {
                 minDistance = dist;
@@ -124,6 +126,8 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         if (dead)
         {
             _state = AggressiveState.ReSearch;
+            if (_unit.Owner == Unit.UnitOwner.PlayerTwo) _agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
+            if (_unit.Owner == Unit.UnitOwner.PlayerOne) _agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
             _agent.isStopped = false;
         }
         else
