@@ -1036,9 +1036,9 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 127.0.0.1
-    Port: 7777
-    ServerListenAddress: 
+    Address: 10.0.1.4
+    Port: 12345
+    ServerListenAddress: 10.0.1.4
   DebugSimulator:
     PacketDelayMS: 0
     PacketJitterMS: 0
@@ -1056,7 +1056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunInBackground: 1
-  LogLevel: 1
+  LogLevel: 0
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 145951730}
