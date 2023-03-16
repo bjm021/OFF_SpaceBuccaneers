@@ -18920,16 +18920,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hacking Harpoon
       objectReference: {fileID: 0}
-    - target: {fileID: 2532897752065671166, guid: f2790145a1259f34697145dc3eb86bc7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7597293551231549942, guid: f2790145a1259f34697145dc3eb86bc7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7747940522220984048, guid: f2790145a1259f34697145dc3eb86bc7,
         type: 3}
       propertyPath: m_RootOrder
