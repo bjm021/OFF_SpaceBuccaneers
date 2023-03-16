@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
   m_Name: EnergySniper
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 1295020303486058233, guid: 861b56adc6f064b839c0df7a9f188217,
+  unitPrefab: {fileID: 5770119711719288360, guid: 6ec513626c40f41bfa012afaa6545755,
     type: 3}
-  special: 0
+  special: 1
   cost: 10
   health: 5
   moveSpeed: 5

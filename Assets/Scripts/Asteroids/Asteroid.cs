@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class Asteroid : MonoBehaviour
@@ -7,23 +8,36 @@ public class Asteroid : MonoBehaviour
     
     [SerializeField] private int minResources;
     [SerializeField] private int maxResources;
+    
+    [SerializeField] private UnityEvent onHalfResources;
     public bool Dead { get; private set; }
     
+    private int _startResources;
     private int _currentResources;
+    
     private void Start()
     {
         Dead = false;
         _currentResources = Random.Range(minResources, maxResources);
+        _startResources = _currentResources;
     }
     
     public int Mine(int damage)
     {
+        int previousResources = _currentResources;
         _currentResources -= damage;
+
+        if (previousResources > _startResources / 2 && _currentResources <= _startResources / 2)
+        {
+            onHalfResources.Invoke();
+        }
+        
         if (_currentResources <= 0)
         {
             Dead = true;
             Die();
         }
+
         return _currentResources;
     }
 

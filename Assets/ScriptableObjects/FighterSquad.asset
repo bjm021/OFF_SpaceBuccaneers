@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
   m_Name: FighterSquad
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 1295020303486058233, guid: 7aa3f71780bcf47d0bb00d6f437eb3e3,
+  unitPrefab: {fileID: 5770119711719288360, guid: 993ef4125970947bfa15edf4496cf17e,
     type: 3}
+  special: 1
   cost: 10
   health: 5
   moveSpeed: 5
   attack: 1
   attackRange: 20
   attackSeekRange: 25
+  specialAttackSeekRange: 0
   attackCooldown: 1
   behaviour: 1
   miningRate: 0

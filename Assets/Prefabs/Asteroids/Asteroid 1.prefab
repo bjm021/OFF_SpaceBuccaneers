@@ -64,6 +64,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minResources: 10
   maxResources: 20
+  onHalfResources:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1009390294254413250}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6254868816861415849}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1001 &8508367665869206486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,6 +99,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4059389418014190180}
     m_Modifications:
+    - target: {fileID: 2368340747188238975, guid: 60364c9a0bead174ea02242873d880e6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7138526740730673089, guid: 60364c9a0bead174ea02242873d880e6,
         type: 3}
       propertyPath: m_Name
@@ -132,14 +164,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8651934197236061716, guid: 60364c9a0bead174ea02242873d880e6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60364c9a0bead174ea02242873d880e6, type: 3}
+--- !u!23 &1009390294254413250 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8651934197236061716, guid: 60364c9a0bead174ea02242873d880e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8508367665869206486}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2182345602344230573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7519591441426853243, guid: 60364c9a0bead174ea02242873d880e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8508367665869206486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6254868816861415849 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2368340747188238975, guid: 60364c9a0bead174ea02242873d880e6,
     type: 3}
   m_PrefabInstance: {fileID: 8508367665869206486}
   m_PrefabAsset: {fileID: 0}
