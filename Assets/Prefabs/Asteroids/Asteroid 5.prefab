@@ -64,6 +64,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minResources: 10
   maxResources: 20
+  onHalfResources:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2760764676120714994}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 6375063417018190608}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 0
 --- !u!1001 &927595290716816117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,14 +159,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -31.971008
       objectReference: {fileID: 0}
+    - target: {fileID: 6100052466642274789, guid: b68d5ac7f9b524c408ad752eb08f6fb5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b68d5ac7f9b524c408ad752eb08f6fb5, type: 3}
+--- !u!23 &2760764676120714994 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3066757660698172423, guid: b68d5ac7f9b524c408ad752eb08f6fb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 927595290716816117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3898736308557768093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4234618421653841768, guid: b68d5ac7f9b524c408ad752eb08f6fb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 927595290716816117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6375063417018190608 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6100052466642274789, guid: b68d5ac7f9b524c408ad752eb08f6fb5,
     type: 3}
   m_PrefabInstance: {fileID: 927595290716816117}
   m_PrefabAsset: {fileID: 0}

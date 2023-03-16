@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
   m_Name: BlackHoleTank
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 1295020303486058233, guid: c3d125ecfa5f049159dbabe16b68640f,
+  unitPrefab: {fileID: 5770119711719288360, guid: 49b47fc4018734a6b9c3e82c42da1783,
     type: 3}
-  special: 0
+  special: 1
   cost: 10
   health: 5
   moveSpeed: 1

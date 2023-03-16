@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
   m_Name: CrystalMiner
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 1295020303486058233, guid: 311ce70acd5584e059c31bd7bc832dcf,
+  unitPrefab: {fileID: 5770119711719288360, guid: 0d2dd1b8512754441882c127947ec452,
     type: 3}
-  special: 0
+  special: 1
   cost: 10
   health: 5
   moveSpeed: 5
