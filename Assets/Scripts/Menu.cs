@@ -25,6 +25,8 @@ public class Menu : MonoBehaviour
     {
         if (isMainMenu)
         {
+            Application.targetFrameRate = 60;
+            
             _masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0);
             _musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0);
             _sfxVolume = PlayerPrefs.GetFloat("SfxVolume", 0);

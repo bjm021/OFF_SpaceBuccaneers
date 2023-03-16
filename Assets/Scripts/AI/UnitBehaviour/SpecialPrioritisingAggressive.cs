@@ -50,6 +50,7 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
                 minDistance = dist;
                 _currentlyAttacking = unit;
                 _currentlyAttackingUnit = tmpUnit;
+                _currentlyAttackingUnit.OnDeath.AddListener(EnterReSearchState);
             }
         }
 
