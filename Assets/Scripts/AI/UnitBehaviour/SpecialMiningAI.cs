@@ -20,7 +20,6 @@ public class SpecialMiningAI : MonoBehaviour, IAIBehaviour
             if (_agent.remainingDistance < _unit.UnitClass.MiningRange)
             {
                 _state = MiningState.Mining;
-                // TODO - Start mining
                 StartCoroutine(MiningCoroutine());
             }
         }
@@ -40,7 +39,9 @@ public class SpecialMiningAI : MonoBehaviour, IAIBehaviour
         while (true)
         {
             var remaining = _currentAsteroidManager.Mine(_unit.UnitClass.MiningRate);
-            // TODO - ADD RESOURCES TO INVENTORY
+            
+            GameManager.Instance.AddResource(_unit.Owner, GameManager.ResourceType.Crystals, _unit.UnitClass.MiningRate);
+            
             if (remaining <= 0 || _currentAsteroidManager.Dead)
             {
                 _state = MiningState.Waiting;

@@ -23,10 +23,26 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
                 // TODO - Start mining
                 StartCoroutine(MiningCoroutine());
             }
+            else
+            {
+                if (_currentasteroid == null || _currentAsteroidManager == null || _currentAsteroidManager.Dead)
+                {
+                    FindAndGoToClosestAsteroid();
+                    _state = MiningState.GoingTo;
+                    return;
+                }
+            }
         }
         else if (_state == MiningState.Mining)
         {
             // do nothing because coroutine is running
+            if (_currentasteroid == null || _currentAsteroidManager == null || _currentAsteroidManager.Dead)
+            {
+                FindAndGoToClosestAsteroid();
+                _state = MiningState.GoingTo;
+                return;
+            }
+            _agent.SetDestination(_currentasteroid.transform.position);
         }
         else if (_state == MiningState.Waiting)
         {
@@ -39,12 +55,15 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
         while (true)
         {
             var remaining = _currentAsteroidManager.Mine(_unit.UnitClass.MiningRate);
-            // TODO - ADD RESOURCES TO INVENTORY
+
+            GameManager.Instance.AddResource(_unit.Owner, GameManager.ResourceType.Metal, _unit.UnitClass.MiningRate);
+            
             if (remaining <= 0 || _currentAsteroidManager.Dead)
             {
                 _state = MiningState.Waiting;
                 yield break;
             }
+            // Debug.Log("Waiting for next mining for " + _unit.UnitClass.MiningTimeUnitLength + " seconds");
             yield return new WaitForSeconds(_unit.UnitClass.MiningTimeUnitLength);
         }
     }

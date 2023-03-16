@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -30,7 +31,24 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text playerOneCrystalText;
     [SerializeField] private TMP_Text playerTwoMetalText;
     [SerializeField] private TMP_Text playerTwoCrystalText;
-
+    [Space]
+    [SerializeField] private GameObject pauseMenu;
+    [Space]
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private TMP_Text winScreenText;
+    [Space]
+    [SerializeField] private GameObject spawnableAreaIndicator;
+    [SerializeField] private RectTransform spawnableAreaIndicatorRectTransform;
+    
+    public void ShowSpawnableAreaIndicator(float width, GameManager.Player player, bool active = true)
+    {
+        spawnableAreaIndicatorRectTransform.sizeDelta = new Vector2(Screen.width * (1 - width), Screen.height);
+        spawnableAreaIndicatorRectTransform.anchoredPosition = new Vector2(
+            Screen.width * (player == GameManager.Player.PlayerOne ? 
+            width - (width / 2) : - width + (width / 2)), 0);
+        spawnableAreaIndicator.SetActive(active);
+    }
+    
     public void UpdateTimeText(int time)
     {
         string minutes = Mathf.Floor(time / 60).ToString("0");
@@ -39,44 +57,39 @@ public class UIManager : MonoBehaviour
         timeText.text = minutes + ":" + seconds;
     }
     
-    public void UpdateResourceText(GameManager.Player player, GameManager.ResourceType resourceType, int amount)
+    public void UpdateResourceText()
     {
-        switch (player)
+        playerOneMetalText.text = GameManager.Instance.PlayerOneMetal.ToString();
+        playerOneCrystalText.text = GameManager.Instance.PlayerOneCrystals.ToString();
+        playerTwoMetalText.text = GameManager.Instance.PlayerTwoMetal.ToString();
+        playerTwoCrystalText.text = GameManager.Instance.PlayerTwoCrystals.ToString();
+    }
+
+    public void TogglePauseMenu()
+    {
+        if (pauseMenu.activeSelf == false)
         {
-            case GameManager.Player.PlayerOne:
-                switch (resourceType)
-                {
-                    case GameManager.ResourceType.Metal:
-                        playerOneMetalText.text = amount.ToString();
-                        break;
-                    case GameManager.ResourceType.Crystals:
-                        playerOneCrystalText.text = amount.ToString();
-                        break;
-                }
-                break;
-            case GameManager.Player.PlayerTwo:
-                switch (resourceType)
-                {
-                    case GameManager.ResourceType.Metal:
-                        playerTwoMetalText.text = amount.ToString();
-                        break;
-                    case GameManager.ResourceType.Crystals:
-                        playerTwoCrystalText.text = amount.ToString();
-                        break;
-                }
-                break;
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
         }
     }
-    
-    public void DisplayWinScreen(GameManager.Player player)
+
+    public void DisplayWinScreen(GameManager.Player winner)
     {
-        switch (player)
+        winScreen.SetActive(true);
+        
+        switch (winner)
         {
             case GameManager.Player.PlayerOne:
-                Debug.Log("Player One Wins!");
+                winScreenText.text = "Player One Won!";
                 break;
             case GameManager.Player.PlayerTwo:
-                Debug.Log("Player Two Wins!");
+                winScreenText.text = "Player Two Won!";
                 break;
         }
     }

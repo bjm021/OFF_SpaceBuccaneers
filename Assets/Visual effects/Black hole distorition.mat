@@ -28,9 +28,9 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2950
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -122,16 +122,17 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
-    - _QueueOffset: 0
+    - _QueueOffset: -50
     - _ReceiveShadows: 1
-    - _Rotation_amount: 0.5
+    - _RimIntensitz: 16.04
+    - _Rotation_amount: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Twirl_stragne: -10.2
+    - _Twirl_stragne: -5.32
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1

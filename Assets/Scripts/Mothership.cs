@@ -10,7 +10,7 @@ public class Mothership : MonoBehaviour
 
     public int CurrentHealth { get; private set; }
     
-    private void Start()  
+    private void Awake()  
     {
         switch (owner)
         {

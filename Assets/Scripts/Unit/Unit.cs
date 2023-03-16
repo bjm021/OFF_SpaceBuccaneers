@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Unit : MonoBehaviour
@@ -10,15 +11,19 @@ public class Unit : MonoBehaviour
     public IAIBehaviour BehaviourScript { get; private set; }
     public bool Dead { get; private set; }
     public UnitSpawner SpawnedBy { get; private set; } = null;
+    
+    public UnityEvent OnDeath = new UnityEvent(); 
 
     private int _currentHealth;
     private NavMeshAgent _navMeshAgent;
     private Attack _attack;
+    private SphereCollider _viewTrigger;
     
     public void Initialize(UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy)
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _attack = GetComponent<Attack>();
+        _viewTrigger = GetComponent<SphereCollider>();
         
         UnitClass = unitClass;
         Owner = owner;
@@ -30,6 +35,8 @@ public class Unit : MonoBehaviour
         _navMeshAgent.speed = UnitClass.MoveSpeed;
         _navMeshAgent.stoppingDistance = UnitClass.AttackRange - 1;
         
+        _viewTrigger.radius = UnitClass.AttackSeekRange;
+        
         _attack.Initialize(UnitClass.Attack, UnitClass.AttackCooldown, UnitClass.AttackRange);
 
         BehaviourScript = UnitClass.behaviour switch
@@ -39,10 +46,35 @@ public class Unit : MonoBehaviour
             UnitClass.AIBehaviourType.Aggressive => gameObject.AddComponent<AggressiveAI>(),
             UnitClass.AIBehaviourType.StandStill => gameObject.AddComponent<StandStillAI>(),
             UnitClass.AIBehaviourType.SpecialMining => gameObject.AddComponent<SpecialMiningAI>(),
+            UnitClass.AIBehaviourType.SpecialPrioritisingAggressive => gameObject.AddComponent<SpecialPrioritisingAggressiveAI>(),
             _ => BehaviourScript 
         };
-        AIManager.Instance.AddUnit(gameObject);
+
         BehaviourScript.Start();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
+        {
+            Unit otherUnit = other.gameObject.GetComponent<Unit>();
+            if (otherUnit.Owner != Owner)
+            {
+                BehaviourScript.UpdateState();
+            }
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
+        {
+            Unit otherUnit = other.gameObject.GetComponent<Unit>();
+            if (otherUnit.Owner != Owner)
+            {
+                BehaviourScript.UpdateState();
+            }
+        }
     }
 
     public int TakeDamage(int damage)
@@ -57,8 +89,11 @@ public class Unit : MonoBehaviour
 
     private void Die()
     {
+        OnDeath.Invoke();
+        OnDeath.RemoveAllListeners();
+        
         if (SpawnedBy != null ) SpawnedBy.SpawnedUnits.Remove(gameObject);
-        AIManager.Instance.RemoveUnit(gameObject);
+
         Destroy(gameObject);
     }
 }

@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameManager.Player player;
+    [SerializeField] [Range(0.1f, 0.5f)] private float spawnArea = 0.33f;
+    [SerializeField] private LayerMask clickableLayers;
+    
     private Camera _mainCamera;
     private int _selectedUnitIndex = 0;
 
@@ -22,45 +26,45 @@ public class PlayerController : MonoBehaviour
     {
         if (value.isPressed)
         {
-            var ray = _mainCamera.ScreenPointToRay(Pointer.current.position.ReadValue());
-            if (!Physics.Raycast(ray, out var hit)) return;
+            var clickPosition = Pointer.current.position.ReadValue();
+            var ray = _mainCamera.ScreenPointToRay(clickPosition);
 
-            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("NavMesh")) // If player clicked on the game plane
-            {
-                if (_selectedUnitIndex == 0)
-                {
-                    // Do nothing
-                }
-                else
-                {
-                    Debug.Log($"Spawn unit {_selectedUnitIndex} at {hit.point}");
-                    if (UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], GameManager.Player.PlayerOne))
-                    {
-                        _selectedUnitIndex = 0;
-                    }
-                }
-            }
-            else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Unit")) // If player clicked on a unit
-            {
-                Debug.Log("Clicked on Unit {hit.transform.gameObject.name}}");
-                // Show unit info
-            }
-            else if (hit.transform.gameObject.layer == LayerMask.NameToLayer("UI")) // If player clicked on UI
+            if (!Physics.Raycast(ray, out var hit, 111, clickableLayers)) return;
+
+            if (_selectedUnitIndex == 0)
             {
                 // Do nothing
+            }
+            else
+            {
+                if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
+                    && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], GameManager.Player.PlayerOne))
+                {
+                    Debug.Log($"Spawn unit {_selectedUnitIndex} at {hit.point}");
+                    _selectedUnitIndex = 0;
+                    UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player, false);
+                }
             }
         }
     }
     
     public void SetSelectedUnitIndex(int index)
     {
+        if (index == _selectedUnitIndex)
+        {
+            _selectedUnitIndex = 0;
+            UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player, false);
+            Debug.Log("Deselected Unit");
+        }
+        
         _selectedUnitIndex = index;
+        UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player);
         Debug.Log($"Selected unit index: {_selectedUnitIndex}");
     }
     
     public void OnEscape(InputValue value)
     {
-        SetSelectedUnitIndex(0);
+        UIManager.Instance.TogglePauseMenu();
     }
     
     public void OnSelectUnit1(InputValue value)

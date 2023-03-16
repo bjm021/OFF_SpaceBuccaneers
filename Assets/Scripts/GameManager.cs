@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         
-        UIManager.Instance.UpdateResourceText(player, resourceType, amount);
+        UIManager.Instance.UpdateResourceText();
     }
     
     public void RemoveResource(Player player, ResourceType resourceType, int amount)
@@ -113,7 +115,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         
-        UIManager.Instance.UpdateResourceText(player, resourceType, amount);
+        UIManager.Instance.UpdateResourceText();
     }
     
     public void Start()
@@ -134,16 +136,22 @@ public class GameManager : MonoBehaviour
 
         if (PlayerOneMothership.CurrentHealth > PlayerTwoMothership.CurrentHealth)
         {
-            Debug.Log("Player 1 wins!");
             EndGame(Player.PlayerOne);
         }
         else if (PlayerOneMothership.CurrentHealth < PlayerTwoMothership.CurrentHealth)
         {
-            Debug.Log("Player 2 wins!");
+            EndGame(Player.PlayerTwo);
         }
         else if (PlayerOneMothership.CurrentHealth == PlayerTwoMothership.CurrentHealth)
         {
-            Debug.Log("Draw!");
+            if (Random.Range(0, 2) == 0)
+            {
+                EndGame(Player.PlayerOne);
+            }
+            else
+            {
+                EndGame(Player.PlayerTwo);
+            }
         }
     }
 
@@ -217,11 +225,12 @@ public class GameManager : MonoBehaviour
             case Player.PlayerTwo:
                 winningPlayer = Player.PlayerOne;
                 break;
+            default:
+                throw new System.ArgumentOutOfRangeException(nameof(losingPlayer), losingPlayer, null);
         }
         
-        AIManager.Instance.StopAI();
         Time.timeScale = 0;
 
-        // TODO - Something like UIManager.Instance.ShowEndGameScreen(winningPlayer);
+        UIManager.Instance.DisplayWinScreen(winningPlayer);
     }
 }
