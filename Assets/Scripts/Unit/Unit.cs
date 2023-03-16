@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -53,6 +54,14 @@ public class Unit : MonoBehaviour
         BehaviourScript.Start();
     }
 
+    private IEnumerator UpdateAI()
+    {
+        while (true)
+        {
+            BehaviourScript.UpdateState();
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
@@ -61,6 +70,7 @@ public class Unit : MonoBehaviour
             if (otherUnit.Owner != Owner)
             {
                 BehaviourScript.UpdateState();
+                StartCoroutine(UpdateAI());
             }
         }
     }
@@ -73,6 +83,7 @@ public class Unit : MonoBehaviour
             if (otherUnit.Owner != Owner)
             {
                 BehaviourScript.UpdateState();
+                StopCoroutine(UpdateAI());
             }
         }
     }

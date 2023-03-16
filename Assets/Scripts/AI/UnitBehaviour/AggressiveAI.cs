@@ -40,7 +40,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             if (tmpUnit.Owner == _owner) continue;
             if (tmpUnit.Dead) continue; 
             var dist = Vector3.Distance(unit.transform.position, gameObject.transform.position);
-            if (dist > _unit.UnitClass.AttackSeekRange) continue;
+            // MAYBE ERROR if (dist > _unit.UnitClass.AttackSeekRange) continue;
             if (dist < minDistance)
             {
                 minDistance = dist;
@@ -66,7 +66,6 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         var motherShipDist = Vector3.Distance(gameObject.transform.position, GameManager.Instance.GetEnemyMothership(_unit.Owner).transform.position);
         if (motherShipDist <= _unit.UnitClass.MothershipAttackDistance)
         {
-            Debug.Log("Attacking mothership");
             _agent.isStopped = true;
             _agent.speed = 0;
             AttackMotherhip(GameManager.Instance.GetEnemyMothership(_unit.Owner));
