@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class Unit : MonoBehaviour
 {
     public UnitClass UnitClass { get; private set; }
-    public GameManager.Player Owner { get; private set; }
+    public GameManager.Player Owner { get; set; }
     public IAIBehaviour BehaviourScript { get; private set; }
     public bool Dead { get; private set; }
     public UnitSpawner SpawnedBy { get; private set; } = null;
@@ -64,6 +64,8 @@ public class Unit : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        // TODO - Nur noch eine Loprotine 
+        Debug.Log("COLLISION  + " + other.gameObject.name + "");
         if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
         {
             Unit otherUnit = other.gameObject.GetComponent<Unit>();

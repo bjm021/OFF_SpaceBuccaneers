@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -192,10 +192,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mothership (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7275894319975855416, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 4171903063
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1164306081}
+    - targetCorrespondingSourceObject: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1164306080}
+    - targetCorrespondingSourceObject: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1164306079}
   m_SourcePrefab: {fileID: 100100000, guid: 5b917dd0da76f9b469d579c100d92317, type: 3}
 --- !u!4 &10816887 stripped
 Transform:
@@ -1047,6 +1064,7 @@ MonoBehaviour:
   continuousSpecialAsteroidRate: 2
   continuousSpecialAsteroidTimeUnit: 30
   maxSpecialAsteroidOnScreen: 10
+  multiplayerBehaviour: 0
 --- !u!4 &273571422
 Transform:
   m_ObjectHideFlags: 0
@@ -4838,7 +4856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1157483428
 Transform:
   m_ObjectHideFlags: 0
@@ -4890,6 +4908,70 @@ Transform:
   m_Father: {fileID: 273571422}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1164306074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
+    type: 3}
+  m_PrefabInstance: {fileID: 10816886}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1164306079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164306074}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 30, y: 10, z: 100}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1164306080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164306074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c791f4ce70345259dba706e1e81c89d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!195 &1164306081
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164306074}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 0
+  m_Acceleration: 0
+  avoidancePriority: 50
+  m_AngularSpeed: 0
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1173287480
 GameObject:
   m_ObjectHideFlags: 0
@@ -6463,6 +6545,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18983070b36624004b0f6790b8374e4e, type: 2}
   - {fileID: 11400000, guid: 18255d00bb4854b78ab412df05652b98, type: 2}
   - {fileID: 11400000, guid: 87c0a4bb970254cbca5ceec816b44cab, type: 2}
+  multiplayerBehaviour: 0
 --- !u!1 &1597043113
 GameObject:
   m_ObjectHideFlags: 0

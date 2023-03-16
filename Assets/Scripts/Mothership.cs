@@ -26,7 +26,12 @@ public class Mothership : MonoBehaviour
         
         CurrentHealth = maxHealth;
     }
-    
+
+    private void Start()
+    {
+        GetComponent<Unit>().Owner = owner;
+    }
+
     public int TakeDamage(int amount)
     {
         Debug.Log("Mothership took damage and has " + CurrentHealth + " health left");
