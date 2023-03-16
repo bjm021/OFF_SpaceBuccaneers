@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Mothership : MonoBehaviour
 {
-    [SerializeField] private GameManager.Player owner;
+    [SerializeField] public GameManager.Player owner;
     [SerializeField] private int maxHealth;
 
     public int CurrentHealth { get; private set; }
@@ -29,6 +29,7 @@ public class Mothership : MonoBehaviour
     
     public int TakeDamage(int amount)
     {
+        Debug.Log("Mothership took damage and has " + CurrentHealth + " health left");
         CurrentHealth -= amount;
 
         if (CurrentHealth <= 0)

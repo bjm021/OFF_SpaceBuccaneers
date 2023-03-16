@@ -192,6 +192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mothership (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7275894319975855416, guid: 5b917dd0da76f9b469d579c100d92317,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -1036,9 +1041,9 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 10.0.1.4
+    Address: 127.0.0.1
     Port: 12345
-    ServerListenAddress: 10.0.1.4
+    ServerListenAddress: 
   DebugSimulator:
     PacketDelayMS: 0
     PacketJitterMS: 0
@@ -1099,61 +1104,61 @@ MonoBehaviour:
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: ac7b8c64721f4402e927954a66950336,
+      Prefab: {fileID: 1295020303486058233, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: 9b79c7120cca241c9af8f57e69d76b4c,
+      Prefab: {fileID: 5770119711719288360, guid: 2e05dcda55a324e47931c7666903dac4,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: c3d125ecfa5f049159dbabe16b68640f,
+      Prefab: {fileID: 5770119711719288360, guid: 3a5f6dbf58dae4d148a28c1c4c53bd37,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: 7aa3f71780bcf47d0bb00d6f437eb3e3,
+      Prefab: {fileID: 5770119711719288360, guid: 49b47fc4018734a6b9c3e82c42da1783,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: dc200521a174f474ca02cc4e9f19105e,
+      Prefab: {fileID: 5770119711719288360, guid: 0d2dd1b8512754441882c127947ec452,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
+      Prefab: {fileID: 5770119711719288360, guid: 993ef4125970947bfa15edf4496cf17e,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: ab6fef8f7eeee4f4093418f90dfc821a,
+      Prefab: {fileID: 5770119711719288360, guid: 813d537063bbd443391bae7795896f84,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: 861b56adc6f064b839c0df7a9f188217,
+      Prefab: {fileID: 5770119711719288360, guid: ec653772d535f4115af939f48e4f2973,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: 311ce70acd5584e059c31bd7bc832dcf,
+      Prefab: {fileID: 5770119711719288360, guid: 6ec513626c40f41bfa012afaa6545755,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 1295020303486058233, guid: 2f1eec0da982c9e4d8ee95c1d5de820c,
+      Prefab: {fileID: 5770119711719288360, guid: 38fc206f73beb461a96573c663ce77c7,
         type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
@@ -3648,7 +3653,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &685255783
 Transform:
   m_ObjectHideFlags: 0
@@ -10020,6 +10025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mothership
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6451803762716815700, guid: 5b917dd0da76f9b469d579c100d92317,
         type: 3}
