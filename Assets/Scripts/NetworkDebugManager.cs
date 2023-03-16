@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ParrelSync;
@@ -6,11 +7,12 @@ using UnityEngine;
 
 public class NetworkDebugManager : MonoBehaviour
 {
+    NetworkManager networkManager;
     // Start is called before the first frame update
     [SerializeField] GameObject asteroidSpawners;
     private void Awake()
     {
-        var networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+        networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
         Debug.Log("NetworkDebugManager started");
         if (ClonesManager.IsClone())
         {
@@ -19,15 +21,30 @@ public class NetworkDebugManager : MonoBehaviour
             if (argument == "client")
             {
                 GameManager.Instance.IsHost = false;
-                networkManager.StartClient();
             }
         } 
         else 
         {
             GameManager.Instance.IsHost = true;
             Debug.Log("I am the server");
+        }
+    }
+
+
+    private void Start()
+    {
+        if (ClonesManager.IsClone())
+        {
+            var argument = ClonesManager.GetArgument();
+            Debug.Log("I am a " + argument);
+            if (argument == "client")
+            {
+                networkManager.StartClient();
+            }
+        }
+        else
+        {
             networkManager.StartHost();
         }
     }
-    
 }
