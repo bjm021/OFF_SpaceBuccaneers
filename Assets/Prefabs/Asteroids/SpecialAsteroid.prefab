@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9200525682334773628}
   - component: {fileID: 5595462909444833536}
   - component: {fileID: -4293748737030854650}
-  - component: {fileID: 627816343233299729}
+  - component: {fileID: 5483782603068239644}
   m_Layer: 0
   m_Name: SpecialAsteroid
   m_TagString: Untagged
@@ -82,7 +82,7 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &627816343233299729
+--- !u!114 &5483782603068239644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

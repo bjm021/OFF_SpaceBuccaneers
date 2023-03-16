@@ -21,15 +21,12 @@ public class UnitSpawner : MonoBehaviour
     {
         if (multiplayerBehaviour)
         {
-            if (GameManager.Instance.IsHost && owner == GameManager.Player.PlayerTwo)
+            if (!GameManager.Instance.IsHost)
             {
                 Destroy(gameObject);
                 return;
-            } else if (!GameManager.Instance.IsHost && owner == GameManager.Player.PlayerOne)
-            {
-                Destroy(gameObject);
-                return;
-            }
+            } 
+            
         }
         StartCoroutine(SpawnUnits());
     }

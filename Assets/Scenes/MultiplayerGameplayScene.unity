@@ -192,6 +192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mothership (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7275894319975855416, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2304431607
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1062,6 +1067,96 @@ MonoBehaviour:
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 3263972991104819190, guid: 2044acb4a80894e4aa80ccaf2a6ef4b3,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 3263972991104819190, guid: a49ca0ba0c81a4bf6a052d8b540853d0,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 3263972991104819190, guid: 1440dbcb74ecb433ca25bafc906c62bd,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 3263972991104819190, guid: 5c65145facd9b4d859a2b31b00e787ec,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 3263972991104819190, guid: 677d99d71347943c7a0d864d2be01141,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: ac7b8c64721f4402e927954a66950336,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: 9b79c7120cca241c9af8f57e69d76b4c,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: c3d125ecfa5f049159dbabe16b68640f,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: 7aa3f71780bcf47d0bb00d6f437eb3e3,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: dc200521a174f474ca02cc4e9f19105e,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: ab6fef8f7eeee4f4093418f90dfc821a,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: 861b56adc6f064b839c0df7a9f188217,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: 311ce70acd5584e059c31bd7bc832dcf,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 1295020303486058233, guid: 2f1eec0da982c9e4d8ee95c1d5de820c,
+        type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -1146,6 +1241,7 @@ MonoBehaviour:
   continuousSpecialAsteroidRate: 2
   continuousSpecialAsteroidTimeUnit: 30
   maxSpecialAsteroidOnScreen: 10
+  multiplayerBehaviour: 1
 --- !u!4 &273571422
 Transform:
   m_ObjectHideFlags: 0
@@ -6553,6 +6649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555772021}
   - component: {fileID: 1555772022}
+  - component: {fileID: 1555772023}
   m_Layer: 0
   m_Name: UnitManager
   m_TagString: Untagged
@@ -6595,6 +6692,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18983070b36624004b0f6790b8374e4e, type: 2}
   - {fileID: 11400000, guid: 18255d00bb4854b78ab412df05652b98, type: 2}
   - {fileID: 11400000, guid: 1a4ae3e9e70884460a2198527114fd8a, type: 2}
+  multiplayerBehaviour: 1
+--- !u!114 &1555772023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555772020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 996283827
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1597043113
 GameObject:
   m_ObjectHideFlags: 0
@@ -8309,6 +8423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589648f10e6064e5cbdf0085c5129864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickableLayers:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &1867936412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9825,6 +9942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: owner
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275894319975855416, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1433980261
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

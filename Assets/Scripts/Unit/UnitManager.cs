@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class UnitManager : MonoBehaviour
+public class UnitManager : NetworkBehaviour
 {
     #region Singleton
 
@@ -25,6 +26,7 @@ public class UnitManager : MonoBehaviour
     #endregion
 
     [SerializeField] private List<UnitClass> unitClasses = new List<UnitClass>();
+    [SerializeField] private bool multiplayerBehaviour = false;
     public List<UnitClass> UnitClasses => unitClasses;
 
     private void Initialize()
@@ -39,6 +41,7 @@ public class UnitManager : MonoBehaviour
             // Also remove resources from player
 
             var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
+            if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
             if (spawnedBy != null)
             {
                 spawnedBy.SpawnedUnits.Add(unitGo);
@@ -48,5 +51,12 @@ public class UnitManager : MonoBehaviour
             unit.Initialize(unitClass, owner, spawnedBy);
             return true;
         }
+    }
+
+    [ServerRpc]
+    public void SpawnUnitOnServerRpc(Vector3 pos, UnitClass unitClass, GameManager.Player owner,
+        UnitSpawner spawnedBy = null)
+    {
+        SpawnUnit(pos, unitClass, owner, spawnedBy);
     }
 }
