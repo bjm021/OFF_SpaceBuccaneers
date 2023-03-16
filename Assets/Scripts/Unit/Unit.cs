@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class Unit : MonoBehaviour
@@ -10,6 +11,8 @@ public class Unit : MonoBehaviour
     public IAIBehaviour BehaviourScript { get; private set; }
     public bool Dead { get; private set; }
     public UnitSpawner SpawnedBy { get; private set; } = null;
+    
+    public UnityEvent OnDeath = new UnityEvent(); 
 
     private int _currentHealth;
     private NavMeshAgent _navMeshAgent;
@@ -61,6 +64,18 @@ public class Unit : MonoBehaviour
             }
         }
     }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
+        {
+            Unit otherUnit = other.gameObject.GetComponent<Unit>();
+            if (otherUnit.Owner != Owner)
+            {
+                BehaviourScript.UpdateState();
+            }
+        }
+    }
 
     public int TakeDamage(int damage)
     {
@@ -74,6 +89,9 @@ public class Unit : MonoBehaviour
 
     private void Die()
     {
+        OnDeath.Invoke();
+        OnDeath.RemoveAllListeners();
+        
         if (SpawnedBy != null ) SpawnedBy.SpawnedUnits.Remove(gameObject);
 
         Destroy(gameObject);
