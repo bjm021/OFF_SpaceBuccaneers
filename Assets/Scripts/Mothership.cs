@@ -29,12 +29,14 @@ public class Mothership : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Unit>().Owner = owner;
+        var unit = GetComponent<Unit>();
+        unit.Owner = owner;
+        unit.UnitClass = UnitManager.Instance.UnitClasses[6];
+        unit.BehaviourScript = new StandStillAI();
     }
 
     public int TakeDamage(int amount)
     {
-        Debug.Log("Mothership took damage and has " + CurrentHealth + " health left");
         CurrentHealth -= amount;
 
         if (CurrentHealth <= 0)

@@ -195,7 +195,7 @@ PrefabInstance:
     - target: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7275894319975855416, guid: 5b917dd0da76f9b469d579c100d92317,
         type: 3}
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunInBackground: 1
-  LogLevel: 0
+  LogLevel: 1
   NetworkConfig:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 145951730}
@@ -2502,7 +2502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &535577558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6778,6 +6778,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18983070b36624004b0f6790b8374e4e, type: 2}
   - {fileID: 11400000, guid: 18255d00bb4854b78ab412df05652b98, type: 2}
   - {fileID: 11400000, guid: 1a4ae3e9e70884460a2198527114fd8a, type: 2}
+  - {fileID: 11400000, guid: df41b10d713279949b1f68a4c041a4e7, type: 2}
   multiplayerBehaviour: 1
 --- !u!114 &1555772023
 MonoBehaviour:
@@ -10029,7 +10030,7 @@ PrefabInstance:
     - target: {fileID: 1295020303486058233, guid: 5b917dd0da76f9b469d579c100d92317,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6451803762716815700, guid: 5b917dd0da76f9b469d579c100d92317,
         type: 3}

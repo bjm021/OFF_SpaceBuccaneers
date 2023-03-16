@@ -6427,6 +6427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555772021}
   - component: {fileID: 1555772022}
+  - component: {fileID: 1555772023}
   m_Layer: 0
   m_Name: UnitManager
   m_TagString: Untagged
@@ -6469,7 +6470,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 18983070b36624004b0f6790b8374e4e, type: 2}
   - {fileID: 11400000, guid: 18255d00bb4854b78ab412df05652b98, type: 2}
   - {fileID: 11400000, guid: 87c0a4bb970254cbca5ceec816b44cab, type: 2}
+  - {fileID: 11400000, guid: df41b10d713279949b1f68a4c041a4e7, type: 2}
   multiplayerBehaviour: 0
+--- !u!114 &1555772023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555772020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 492565552
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1597043113
 GameObject:
   m_ObjectHideFlags: 0
