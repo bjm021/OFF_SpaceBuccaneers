@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
   m_Name: BasicMiner
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 1295020303486058233, guid: ac7b8c64721f4402e927954a66950336,
+  unitPrefab: {fileID: 5770119711719288360, guid: 2e05dcda55a324e47931c7666903dac4,
     type: 3}
   special: 0
   cost: 10
