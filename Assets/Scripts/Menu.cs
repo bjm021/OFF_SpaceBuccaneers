@@ -15,6 +15,9 @@ public class Menu : MonoBehaviour
     [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private Toggle pirateModeToggle;
     [SerializeField] private GameObject pirateModeText;
+    [Space]
+    [SerializeField] private AudioSource musicAudioSource;
+    [SerializeField] private AudioClip pirateAudioClip;
     
     private float _masterVolume;
     private float _musicVolume;
@@ -23,6 +26,8 @@ public class Menu : MonoBehaviour
 
     private void Awake()
     {
+        _pirateMode = PlayerPrefs.GetInt("PirateMode", 0) == 1;
+        
         if (isMainMenu)
         {
             Application.targetFrameRate = 60;
@@ -30,13 +35,20 @@ public class Menu : MonoBehaviour
             _masterVolume = PlayerPrefs.GetFloat("MasterVolume", 0);
             _musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0);
             _sfxVolume = PlayerPrefs.GetFloat("SfxVolume", 0);
-            _pirateMode = PlayerPrefs.GetInt("PirateMode", 0) == 1;
-        
+
             masterVolumeSlider.value = Mathf.Pow(10, _masterVolume / 20);
             musicVolumeSlider.value = Mathf.Pow(10, _musicVolume / 20);
             sfxVolumeSlider.value = Mathf.Pow(10, _sfxVolume / 20);
             pirateModeToggle.isOn = _pirateMode;
             pirateModeText.SetActive(_pirateMode);
+        }
+        else
+        {
+            if (_pirateMode)
+            {
+                musicAudioSource.clip = pirateAudioClip;
+                musicAudioSource.Play();
+            }
         }
     }
 
