@@ -44,33 +44,12 @@ public class UIManager : MonoBehaviour
         timeText.text = minutes + ":" + seconds;
     }
     
-    public void UpdateResourceText(GameManager.Player player, GameManager.ResourceType resourceType, int amount)
+    public void UpdateResourceText()
     {
-        switch (player)
-        {
-            case GameManager.Player.PlayerOne:
-                switch (resourceType)
-                {
-                    case GameManager.ResourceType.Metal:
-                        playerOneMetalText.text = amount.ToString();
-                        break;
-                    case GameManager.ResourceType.Crystals:
-                        playerOneCrystalText.text = amount.ToString();
-                        break;
-                }
-                break;
-            case GameManager.Player.PlayerTwo:
-                switch (resourceType)
-                {
-                    case GameManager.ResourceType.Metal:
-                        playerTwoMetalText.text = amount.ToString();
-                        break;
-                    case GameManager.ResourceType.Crystals:
-                        playerTwoCrystalText.text = amount.ToString();
-                        break;
-                }
-                break;
-        }
+        playerOneMetalText.text = GameManager.Instance.PlayerOneMetal.ToString();
+        playerOneCrystalText.text = GameManager.Instance.PlayerOneCrystals.ToString();
+        playerTwoMetalText.text = GameManager.Instance.PlayerTwoMetal.ToString();
+        playerTwoCrystalText.text = GameManager.Instance.PlayerTwoCrystals.ToString();
     }
 
     public void TogglePauseMenu()
