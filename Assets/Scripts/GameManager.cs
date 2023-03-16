@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         
-        UIManager.Instance.UpdateResourceText(player, resourceType, amount);
+        UIManager.Instance.UpdateResourceText();
     }
     
     public void RemoveResource(Player player, ResourceType resourceType, int amount)
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         
-        UIManager.Instance.UpdateResourceText(player, resourceType, amount);
+        UIManager.Instance.UpdateResourceText();
     }
     
     public void Start()
@@ -231,7 +231,6 @@ public class GameManager : MonoBehaviour
                 throw new System.ArgumentOutOfRangeException(nameof(losingPlayer), losingPlayer, null);
         }
         
-        AIManager.Instance.StopAI();
         Time.timeScale = 0;
 
         UIManager.Instance.DisplayWinScreen(winningPlayer);
