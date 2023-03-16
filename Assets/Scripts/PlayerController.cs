@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameManager.Player player;
+    [SerializeField] [Range(0.1f, 0.5f)] private float spawnArea = 0.33f;
     [SerializeField] private LayerMask clickableLayers;
     
     private Camera _mainCamera;
@@ -24,7 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         if (value.isPressed)
         {
-            var ray = _mainCamera.ScreenPointToRay(Pointer.current.position.ReadValue());
+            var clickPosition = Pointer.current.position.ReadValue();
+            var ray = _mainCamera.ScreenPointToRay(clickPosition);
 
             if (!Physics.Raycast(ray, out var hit, 111, clickableLayers)) return;
 
@@ -34,10 +37,12 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.Log($"Spawn unit {_selectedUnitIndex} at {hit.point}");
-                if (UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], GameManager.Player.PlayerOne))
+                if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
+                    && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], GameManager.Player.PlayerOne))
                 {
+                    Debug.Log($"Spawn unit {_selectedUnitIndex} at {hit.point}");
                     _selectedUnitIndex = 0;
+                    UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player, false);
                 }
             }
         }
@@ -48,10 +53,12 @@ public class PlayerController : MonoBehaviour
         if (index == _selectedUnitIndex)
         {
             _selectedUnitIndex = 0;
+            UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player, false);
             Debug.Log("Deselected Unit");
         }
         
         _selectedUnitIndex = index;
+        UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player);
         Debug.Log($"Selected unit index: {_selectedUnitIndex}");
     }
     
