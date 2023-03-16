@@ -12,6 +12,12 @@ public class AsteroidManager : MonoBehaviour
     
     private void Awake()
     {
+        if (!GameManager.Instance.IsHost)
+        {
+            Debug.Log("AsteroidManager is not host, destroying...");
+            Destroy(gameObject);
+            return;
+        }
         if (Instance == null)
         {
             Instance = this;

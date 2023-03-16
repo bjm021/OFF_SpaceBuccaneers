@@ -992,6 +992,100 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130180082}
   m_CullTransparentMesh: 1
+--- !u!1 &145951729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 145951732}
+  - component: {fileID: 145951731}
+  - component: {fileID: 145951730}
+  m_Layer: 0
+  m_Name: NetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &145951730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145951729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ProtocolType: 0
+  m_MaxPacketQueueSize: 128
+  m_MaxPayloadSize: 6144
+  m_HeartbeatTimeoutMS: 500
+  m_ConnectTimeoutMS: 1000
+  m_MaxConnectAttempts: 60
+  m_DisconnectTimeoutMS: 30000
+  ConnectionData:
+    Address: 127.0.0.1
+    Port: 7777
+    ServerListenAddress: 
+  DebugSimulator:
+    PacketDelayMS: 0
+    PacketJitterMS: 0
+    PacketDropRate: 0
+--- !u!114 &145951731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145951729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593a2fe42fa9d37498c96f9a383b6521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RunInBackground: 1
+  LogLevel: 1
+  NetworkConfig:
+    ProtocolVersion: 0
+    NetworkTransport: {fileID: 145951730}
+    PlayerPrefab: {fileID: 0}
+    NetworkPrefabs: []
+    TickRate: 30
+    ClientConnectionBufferTimeout: 10
+    ConnectionApproval: 0
+    ConnectionData: 
+    EnableTimeResync: 0
+    TimeResyncInterval: 30
+    EnsureNetworkVariableLengthSafety: 0
+    EnableSceneManagement: 1
+    ForceSamePrefabs: 1
+    RecycleNetworkIds: 1
+    NetworkIdRecycleDelay: 120
+    RpcHashSize: 0
+    LoadSceneTimeOut: 120
+    SpawnTimeout: 1
+    EnableNetworkLogs: 1
+--- !u!4 &145951732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145951729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &273571420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,6 +1566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: unitsOnScreenLimit
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1961,6 +2060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: unitsOnScreenLimit
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2768,6 +2872,11 @@ PrefabInstance:
       propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3508,6 +3617,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704935447}
   m_CullTransparentMesh: 1
+--- !u!1 &738389555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 738389557}
+  - component: {fileID: 738389556}
+  m_Layer: 0
+  m_Name: MultiplayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &738389556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738389555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19874d160c3dbd843a9050d13e46b34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidSpawners: {fileID: 273571420}
+--- !u!4 &738389557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738389555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.790797, y: 11.092224, z: 2.8758545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751650702
 GameObject:
   m_ObjectHideFlags: 0
@@ -4473,6 +4627,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946693806}
   m_CullTransparentMesh: 1
+--- !u!1 &957846715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957846716}
+  - component: {fileID: 957846717}
+  m_Layer: 0
+  m_Name: NetworkDebugManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &957846716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957846715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &957846717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957846715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078b0a9484e8114788a5546dd22db26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidSpawners: {fileID: 273571420}
 --- !u!1 &1018761728
 GameObject:
   m_ObjectHideFlags: 0
@@ -5048,6 +5247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: unitsOnScreenLimit
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5914,6 +6118,11 @@ PrefabInstance:
       propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6517,6 +6726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: unitsOnScreenLimit
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7299,6 +7513,11 @@ PrefabInstance:
       propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7819,6 +8038,11 @@ PrefabInstance:
         type: 3}
       propertyPath: unitsOnScreenLimit
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8811,6 +9035,11 @@ PrefabInstance:
       propertyPath: unitsOnScreenLimit
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8920,6 +9149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: unitsOnScreenLimit
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

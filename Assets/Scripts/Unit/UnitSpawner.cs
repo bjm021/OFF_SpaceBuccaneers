@@ -13,11 +13,24 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private int spawnCount = 1;
     [SerializeField] private int absoluteCount = -1;
     [SerializeField] private int unitsOnScreenLimit = 10;
+    [SerializeField] private bool multiplayerBehaviour = false;
     
     public List<GameObject> SpawnedUnits { get; } = new List<GameObject>();
 
     private void Start()
     {
+        if (multiplayerBehaviour)
+        {
+            if (GameManager.Instance.IsHost && owner == GameManager.Player.PlayerTwo)
+            {
+                Destroy(gameObject);
+                return;
+            } else if (!GameManager.Instance.IsHost && owner == GameManager.Player.PlayerOne)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
         StartCoroutine(SpawnUnits());
     }
     
