@@ -229,7 +229,6 @@ public class GameManager : MonoBehaviour
                 throw new System.ArgumentOutOfRangeException(nameof(losingPlayer), losingPlayer, null);
         }
         
-        AIManager.Instance.StopAI();
         Time.timeScale = 0;
 
         UIManager.Instance.DisplayWinScreen(winningPlayer);

@@ -54,7 +54,6 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
     {
         while (true)
         {
-            Debug.Log("Mining miniminimniimnmiinimnmnmnimn");
             var remaining = _currentAsteroidManager.Mine(_unit.UnitClass.MiningRate);
             // TODO - ADD RESOURCES TO INVENTORY
             if (remaining <= 0 || _currentAsteroidManager.Dead)
@@ -62,7 +61,7 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
                 _state = MiningState.Waiting;
                 yield break;
             }
-            Debug.Log("Waiting for next mining for " + _unit.UnitClass.MiningTimeUnitLength + " seconds");
+            // Debug.Log("Waiting for next mining for " + _unit.UnitClass.MiningTimeUnitLength + " seconds");
             yield return new WaitForSeconds(_unit.UnitClass.MiningTimeUnitLength);
         }
     }

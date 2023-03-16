@@ -30,8 +30,10 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
     private void FindAndGoToUnit()
     {
         var minDistance = math.INFINITY;
-        foreach (var unit in AIManager.Instance.GetUnits())
+        Collider[] unitsInRange = Physics.OverlapSphere(gameObject.transform.position, _unit.UnitClass.AttackSeekRange, 1 << LayerMask.NameToLayer("Unit"));
+        foreach (var unitCollider in unitsInRange)
         {
+            GameObject unit = unitCollider.gameObject;
             if (unit == null) continue;
             Unit tmpUnit = unit.GetComponent<Unit>(); 
             if (unit == gameObject) continue;
