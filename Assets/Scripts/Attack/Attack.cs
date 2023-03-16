@@ -17,6 +17,7 @@ public abstract class Attack : MonoBehaviour
     
     public bool DoAttack(GameObject target)
     {
+        // Nur die Besten überleben
         if (target == null) return false;
         Unit unit = target.GetComponent<Unit>();
         if (unit == null || unit.Dead) return false;
@@ -24,11 +25,12 @@ public abstract class Attack : MonoBehaviour
         // -2 weil der Agent hält schon bei genau der Range an und wenn sich das ziel weiterbewegt,
         // dann braucht der agend zum anhalten so lange das das Ziel schon außer reichweite ist
         // und we geht weiter und dann wiedeholt sich das ganze.
+        // Denk dran: nur die Besten überleben0
         if (Vector3.Distance(gameObject.transform.position, target.transform.position)-2 > AttackRange) return false;
         _inCooldown = true;
-        var result = SpecificAttack(target);
+        var warErNichtDerBeste = SpecificAttack(target);
         StartCoroutine(CooldownRoutine());
-        return result;
+        return warErNichtDerBeste;
     }
 
     public bool AttackMothership(GameObject mothership)

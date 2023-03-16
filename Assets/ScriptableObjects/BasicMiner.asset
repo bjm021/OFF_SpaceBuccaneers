@@ -10,19 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
-  m_Name: HackingHarpoon
+  m_Name: BasicMiner
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 1295020303486058233, guid: dc200521a174f474ca02cc4e9f19105e,
+  unitPrefab: {fileID: 1295020303486058233, guid: ac7b8c64721f4402e927954a66950336,
     type: 3}
+  special: 0
   cost: 10
   health: 5
   moveSpeed: 5
   attack: 1
-  attackRange: 20
-  attackSeekRange: 25
+  attackRange: 0
+  attackSeekRange: 0
+  specialAttackSeekRange: 0
   attackCooldown: 1
-  behaviour: 1
-  miningRate: 0
+  behaviour: 2
+  miningRate: 1
   miningTimeUnitLength: 2.5
   miningRange: 2.5
   mothershipAttackDistance: 40
