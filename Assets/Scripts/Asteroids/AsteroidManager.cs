@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,7 +11,7 @@ public class AsteroidManager : MonoBehaviour
 
     public static AsteroidManager Instance { get; private set; }
     
-    private void Awake()
+    private void Start()
     {
         if (!GameManager.Instance.IsHost)
         {
@@ -18,7 +19,7 @@ public class AsteroidManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        if (Instance == null)
+        if (Instance == null) 
         {
             Instance = this;
             Initialize();
@@ -82,7 +83,8 @@ public class AsteroidManager : MonoBehaviour
             position = new Vector3(position.x, 0, position.z);
             var asteroid = Instantiate(specialAsteroidPrefabs[Random.Range(0, specialAsteroidPrefabs.Length)], position, 
                 Quaternion.Euler(0, Random.Range(0, 360), 0));
-            
+            asteroid.GetComponent<NetworkObject>().Spawn(); 
+
             _specialAsteroids.Add(asteroid);
         }
         
@@ -173,6 +175,7 @@ public class AsteroidManager : MonoBehaviour
                 var initialPosition = new Vector3(finalPosition.x, finalPosition.y, initialPositionY);
                 var specialAsteroid = Instantiate(specialAsteroidPrefabs[Random.Range(0, specialAsteroidPrefabs.Length)], initialPosition, 
                     Quaternion.LookRotation(finalPosition-initialPosition, Vector3.up));
+                specialAsteroid.GetComponent<NetworkObject>().Spawn(); 
 
                 specialAsteroid.GetComponent<Asteroid>().MoveTo(finalPosition);
                 _specialAsteroids.Add(specialAsteroid);
