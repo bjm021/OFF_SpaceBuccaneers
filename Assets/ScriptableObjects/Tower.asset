@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9fdc97cc8e8546389a104a1e497518a, type: 3}
-  m_Name: SharkBomber
+  m_Name: Tower
   m_EditorClassIdentifier: 
-  unitPrefab: {fileID: 5770119711719288360, guid: ec653772d535f4115af939f48e4f2973,
+  unitPrefab: {fileID: 5770119711719288360, guid: 38fc206f73beb461a96573c663ce77c7,
     type: 3}
   special: 1
   cost: 10
   health: 10
-  moveSpeed: 25
+  moveSpeed: 0
   attack: 1
   attackRange: 20
   attackSeekRange: 25

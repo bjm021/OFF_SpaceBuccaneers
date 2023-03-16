@@ -64,6 +64,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minResources: 10
   maxResources: 20
+  onHalfResources:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8933514996089513330}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 9061974374083597218}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 0
 --- !u!1001 &7599217292690435578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,6 +159,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assteroid 3 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1492748060800040536, guid: 8b6759c09f564154f8e497e0e0a6151b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -140,6 +172,18 @@ PrefabInstance:
 --- !u!4 &7760005975583858205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 199499304745055207, guid: 8b6759c09f564154f8e497e0e0a6151b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7599217292690435578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8933514996089513330 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1337550754723645576, guid: 8b6759c09f564154f8e497e0e0a6151b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7599217292690435578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &9061974374083597218 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1492748060800040536, guid: 8b6759c09f564154f8e497e0e0a6151b,
     type: 3}
   m_PrefabInstance: {fileID: 7599217292690435578}
   m_PrefabAsset: {fileID: 0}
