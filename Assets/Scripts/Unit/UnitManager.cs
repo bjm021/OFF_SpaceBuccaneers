@@ -29,9 +29,20 @@ public class UnitManager : NetworkBehaviour
     [SerializeField] private bool multiplayerBehaviour = false;
     public List<UnitClass> UnitClasses => unitClasses;
 
-    private void Initialize()
+    private void Initialize() 
     {
         // Do nothing
+    }
+
+    // Wird nur vom Client aufgerufen
+    [ServerRpc(RequireOwnership = false)]
+    public void SpawnUnitServerRpc(Vector3 position, int unitIndex)
+    {
+        UnitClass unitClass = UnitManager.Instance.UnitClasses[unitIndex];
+        var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
+        if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
+        var unit = unitGo.GetComponent<Unit>();
+        unit.Initialize(unitClass, GameManager.Player.PlayerTwo, null);
     }
 
     public bool SpawnUnit(Vector3 position, UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy = null)
@@ -39,6 +50,13 @@ public class UnitManager : NetworkBehaviour
         {
             // TODO: Check if player has enough resources to spawn unit, if not return false
             // Also remove resources from player
+            
+            if (!GameManager.Instance.IsHost)
+            {
+                SpawnUnitServerRpc(position, unitClasses.IndexOf(unitClass));
+                return true;
+            }
+           
 
             var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
             if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
@@ -51,12 +69,5 @@ public class UnitManager : NetworkBehaviour
             unit.Initialize(unitClass, owner, spawnedBy);
             return true;
         }
-    }
-
-    [ServerRpc]
-    public void SpawnUnitOnServerRpc(Vector3 pos, UnitClass unitClass, GameManager.Player owner,
-        UnitSpawner spawnedBy = null)
-    {
-        SpawnUnit(pos, unitClass, owner, spawnedBy);
     }
 }
