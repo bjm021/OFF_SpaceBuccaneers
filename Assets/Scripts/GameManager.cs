@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         
-        UIManager.Instance.UpdateResourceText(player, resourceType, amount);
+        UIManager.Instance.UpdateResourceText();
     }
     
     public void RemoveResource(Player player, ResourceType resourceType, int amount)
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         
-        UIManager.Instance.UpdateResourceText(player, resourceType, amount);
+        UIManager.Instance.UpdateResourceText();
     }
     
     public void Start()

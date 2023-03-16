@@ -55,7 +55,9 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
         while (true)
         {
             var remaining = _currentAsteroidManager.Mine(_unit.UnitClass.MiningRate);
-            // TODO - ADD RESOURCES TO INVENTORY
+
+            GameManager.Instance.AddResource(_unit.Owner, GameManager.ResourceType.Metal, _unit.UnitClass.MiningRate);
+            
             if (remaining <= 0 || _currentAsteroidManager.Dead)
             {
                 _state = MiningState.Waiting;
