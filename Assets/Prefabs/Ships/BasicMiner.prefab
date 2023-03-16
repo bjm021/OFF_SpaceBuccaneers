@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: -6301354860588197313}
   - component: {fileID: -5524263619480735668}
   - component: {fileID: 3718490384228389114}
-  m_Layer: 0
+  - component: {fileID: -8138143529923016956}
+  - component: {fileID: -5042987281018126658}
+  m_Layer: 6
   m_Name: BasicMiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,6 +83,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff93dfeaff1644198dc9795d17dafe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &-8138143529923016956
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295020303486058233}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-5042987281018126658
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295020303486058233}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1353290234096743746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,9 +139,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 163536518949024148}
     m_Modifications:
+    - target: {fileID: 186800174587297330, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 830292534718198888, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048578464518782919, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575723730027544799, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665391626730447090, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4238165942914836528, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4238165942914836528, guid: 4e2373189189cc94d984eede1236d54d,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665140425370345653, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233007143405636078, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6582551339879192554, guid: 4e2373189189cc94d984eede1236d54d,
@@ -99,10 +189,25 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7391430526940172883, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049795498271895104, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8539035535633269619, guid: 4e2373189189cc94d984eede1236d54d,
         type: 3}
       propertyPath: m_Name
       value: Mining unit Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539035535633269619, guid: 4e2373189189cc94d984eede1236d54d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9064460993189091785, guid: 4e2373189189cc94d984eede1236d54d,
         type: 3}

@@ -31,8 +31,12 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
     {
         Debug.Log("Searching for special unit");
         var minDistance = math.INFINITY;
-        foreach (var unit in AIManager.Instance.GetUnits())
+        
+        Collider[] unitsInRange = Physics.OverlapSphere(gameObject.transform.position, _unit.UnitClass.AttackSeekRange, 1 << LayerMask.NameToLayer("Unit"));
+        
+        foreach (var unitCollider in unitsInRange)
         {
+            GameObject unit = unitCollider.gameObject;
             if (unit == null) continue;
             Unit tmpUnit = unit.GetComponent<Unit>();
             if (!tmpUnit.UnitClass.Special) continue;
@@ -53,8 +57,9 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
         if (_currentlyAttacking == null)
         {
             Debug.Log("No Special unit found, searching for normal unit");
-            foreach (var unit in AIManager.Instance.GetUnits())
+            foreach (var unitCollider in unitsInRange)
             {
+                GameObject unit = unitCollider.gameObject;
                 if (unit == null) continue;
                 Unit tmpUnit = unit.GetComponent<Unit>(); 
                 if (unit == gameObject) continue;
