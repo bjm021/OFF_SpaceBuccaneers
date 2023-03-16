@@ -22,14 +22,14 @@ public class NormalShoot : Attack
 
         //var targetUnit = target.GetComponent<Unit>();
         
-        if (target.TryGetComponent(out Unit targetUnit))
+        if (target.TryGetComponent(out Mothership mothership))
         {
-            return targetUnit.TakeDamage(Damage) <= 0;
+            return mothership.TakeDamage(Damage) <= 0;
         } 
         else
         {
-            var mothership = target.GetComponent<Mothership>();
-            return mothership.TakeDamage(Damage) <= 0;
+            var unit = target.GetComponent<Unit>();
+            return unit.TakeDamage(Damage) <= 0;
         }
         
        

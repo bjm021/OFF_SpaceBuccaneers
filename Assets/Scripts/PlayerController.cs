@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        if (!GameManager.Instance.IsHost)
+        {
+            player = GameManager.Player.PlayerTwo;
+        }
+        
         _mainCamera = Camera.main;
 
         if (_mainCamera == null)

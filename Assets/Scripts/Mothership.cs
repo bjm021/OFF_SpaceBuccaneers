@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Mothership : MonoBehaviour
 {
-    [SerializeField] private GameManager.Player owner;
+    [SerializeField] public GameManager.Player owner;
     [SerializeField] private int maxHealth;
 
     public int CurrentHealth { get; private set; }
@@ -26,7 +26,15 @@ public class Mothership : MonoBehaviour
         
         CurrentHealth = maxHealth;
     }
-    
+
+    private void Start()
+    {
+        var unit = GetComponent<Unit>();
+        unit.Owner = owner;
+        unit.UnitClass = UnitManager.Instance.UnitClasses[6];
+        unit.BehaviourScript = new StandStillAI();
+    }
+
     public int TakeDamage(int amount)
     {
         CurrentHealth -= amount;

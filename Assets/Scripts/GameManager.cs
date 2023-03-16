@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     
     private int _playerTwoMetal;
     private int _playerTwoCrystals;
+
+    public bool IsHost { get; set; } = true;
     
     public enum Player
     {

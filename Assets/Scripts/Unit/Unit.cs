@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -6,9 +7,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Unit : MonoBehaviour
 {
-    public UnitClass UnitClass { get; private set; }
-    public GameManager.Player Owner { get; private set; }
-    public IAIBehaviour BehaviourScript { get; private set; }
+    public UnitClass UnitClass { get; set; }
+    public GameManager.Player Owner { get; set; }
+    public IAIBehaviour BehaviourScript { get; set; }
     public bool Dead { get; private set; }
     public UnitSpawner SpawnedBy { get; private set; } = null;
     
@@ -53,14 +54,24 @@ public class Unit : MonoBehaviour
         BehaviourScript.Start();
     }
 
+    private IEnumerator UpdateAI()
+    {
+        while (true)
+        {
+            BehaviourScript.UpdateState();
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
+        // TODO - Nur noch eine Loprotine 
         if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
         {
             Unit otherUnit = other.gameObject.GetComponent<Unit>();
             if (otherUnit.Owner != Owner)
             {
                 BehaviourScript.UpdateState();
+                StartCoroutine(UpdateAI());
             }
         }
     }
@@ -73,6 +84,7 @@ public class Unit : MonoBehaviour
             if (otherUnit.Owner != Owner)
             {
                 BehaviourScript.UpdateState();
+                StopCoroutine(UpdateAI());
             }
         }
     }

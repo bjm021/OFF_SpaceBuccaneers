@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,9 +11,15 @@ public class AsteroidManager : MonoBehaviour
 
     public static AsteroidManager Instance { get; private set; }
     
-    private void Awake()
+    private void Start()
     {
-        if (Instance == null)
+        if (!GameManager.Instance.IsHost)
+        {
+            Debug.Log("AsteroidManager is not host, destroying...");
+            Destroy(gameObject);
+            return;
+        }
+        if (Instance == null) 
         {
             Instance = this;
             Initialize();
@@ -47,6 +54,8 @@ public class AsteroidManager : MonoBehaviour
     [SerializeField] private float continuousSpecialAsteroidTimeUnit = 30f;
     [SerializeField] private int maxSpecialAsteroidOnScreen = 10;
 
+    [Space] [SerializeField] private bool multiplayerBehaviour = false;
+
 
     private List<GameObject> _asteroids = new List<GameObject>();
     private List<GameObject> _specialAsteroids = new List<GameObject>();
@@ -64,6 +73,7 @@ public class AsteroidManager : MonoBehaviour
             position = new Vector3(position.x, 0, position.z);
             var asteroid = Instantiate(asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)], position, 
                 Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+            if (multiplayerBehaviour) asteroid.GetComponent<NetworkObject>().Spawn(); 
             _asteroids.Add(asteroid);
         }
         
@@ -76,7 +86,8 @@ public class AsteroidManager : MonoBehaviour
             position = new Vector3(position.x, 0, position.z);
             var asteroid = Instantiate(specialAsteroidPrefabs[Random.Range(0, specialAsteroidPrefabs.Length)], position, 
                 Quaternion.Euler(0, Random.Range(0, 360), 0));
-            
+            if (multiplayerBehaviour) asteroid.GetComponent<NetworkObject>().Spawn(); 
+
             _specialAsteroids.Add(asteroid);
         }
         
@@ -131,6 +142,7 @@ public class AsteroidManager : MonoBehaviour
                 var initialPosition = new Vector3(finalPosition.x, finalPosition.y, initialPositionY);
                 var asteroid = Instantiate(asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)], initialPosition, 
                     Quaternion.LookRotation(finalPosition-initialPosition, Vector3.up));
+                if (multiplayerBehaviour) asteroid.GetComponent<NetworkObject>().Spawn(); 
 
                 asteroid.GetComponent<Asteroid>().MoveTo(finalPosition);
                 _asteroids.Add(asteroid);
@@ -167,6 +179,7 @@ public class AsteroidManager : MonoBehaviour
                 var initialPosition = new Vector3(finalPosition.x, finalPosition.y, initialPositionY);
                 var specialAsteroid = Instantiate(specialAsteroidPrefabs[Random.Range(0, specialAsteroidPrefabs.Length)], initialPosition, 
                     Quaternion.LookRotation(finalPosition-initialPosition, Vector3.up));
+                if (multiplayerBehaviour) specialAsteroid.GetComponent<NetworkObject>().Spawn(); 
 
                 specialAsteroid.GetComponent<Asteroid>().MoveTo(finalPosition);
                 _specialAsteroids.Add(specialAsteroid);

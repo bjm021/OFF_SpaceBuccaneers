@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class UnitManager : MonoBehaviour
+public class UnitManager : NetworkBehaviour
 {
     #region Singleton
 
@@ -25,11 +26,23 @@ public class UnitManager : MonoBehaviour
     #endregion
 
     [SerializeField] private List<UnitClass> unitClasses = new List<UnitClass>();
+    [SerializeField] private bool multiplayerBehaviour = false;
     public List<UnitClass> UnitClasses => unitClasses;
 
-    private void Initialize()
+    private void Initialize() 
     {
         // Do nothing
+    }
+
+    // Wird nur vom Client aufgerufen
+    [ServerRpc(RequireOwnership = false)]
+    public void SpawnUnitServerRpc(Vector3 position, int unitIndex)
+    {
+        UnitClass unitClass = UnitManager.Instance.UnitClasses[unitIndex];
+        var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
+        if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
+        var unit = unitGo.GetComponent<Unit>();
+        unit.Initialize(unitClass, GameManager.Player.PlayerTwo, null);
     }
 
     public bool SpawnUnit(Vector3 position, UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy = null)
@@ -37,8 +50,16 @@ public class UnitManager : MonoBehaviour
         {
             // TODO: Check if player has enough resources to spawn unit, if not return false
             // Also remove resources from player
+            
+            if (!GameManager.Instance.IsHost)
+            {
+                SpawnUnitServerRpc(position, unitClasses.IndexOf(unitClass));
+                return true;
+            }
+           
 
             var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
+            if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
             if (spawnedBy != null)
             {
                 spawnedBy.SpawnedUnits.Add(unitGo);
