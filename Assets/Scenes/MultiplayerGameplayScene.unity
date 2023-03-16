@@ -2949,6 +2949,8 @@ MonoBehaviour:
   sfxVolumeSlider: {fileID: 0}
   pirateModeToggle: {fileID: 0}
   pirateModeText: {fileID: 0}
+  musicAudioSource: {fileID: 0}
+  pirateAudioClip: {fileID: 0}
 --- !u!1001 &604766747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3646,7 +3648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &685255783
 Transform:
   m_ObjectHideFlags: 0

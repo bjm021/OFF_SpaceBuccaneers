@@ -29,7 +29,6 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
 
     private void FindAndGoToUnit()
     {
-        Debug.Log("Searching for special unit");
         var minDistance = math.INFINITY;
         
         Collider[] unitsInRange = Physics.OverlapSphere(gameObject.transform.position, _unit.UnitClass.AttackSeekRange, 1 << LayerMask.NameToLayer("Unit"));
@@ -57,7 +56,6 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
 
         if (_currentlyAttacking == null)
         {
-            Debug.Log("No Special unit found, searching for normal unit");
             foreach (var unitCollider in unitsInRange)
             {
                 GameObject unit = unitCollider.gameObject;
@@ -93,7 +91,6 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
         var motherShipDist = Vector3.Distance(gameObject.transform.position, GameManager.Instance.GetEnemyMothership(_unit.Owner).transform.position);
         if (motherShipDist <= _unit.UnitClass.MothershipAttackDistance)
         {
-            Debug.Log("Attacking mothership");
             _agent.isStopped = true;
             _agent.speed = 0;
             AttackMotherhip(GameManager.Instance.GetEnemyMothership(_unit.Owner));
