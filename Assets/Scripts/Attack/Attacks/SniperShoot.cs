@@ -24,9 +24,6 @@ public class SniperShoot : Attack
             var unit = target.GetComponent<Unit>();
             return unit.TakeDamage(Damage) <= 0;
         }
-        
-       
-        
     }
 
     [ClientRpc]

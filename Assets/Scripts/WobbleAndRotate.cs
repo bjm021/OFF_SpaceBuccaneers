@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class WobbleAndRotate : MonoBehaviour
 {
+    [SerializeField] private bool randomize = true;
+    [SerializeField] [Range(0f, 1f)] private float randomizeAmount = 0.1f;
+    [Space]
     [SerializeField] private bool3 wobbleAxis = new bool3(false, true, false);
     [SerializeField] private float wobbleSpeed = 1f;
     [SerializeField] private float wobbleAmount = 0.1f;
@@ -21,6 +24,11 @@ public class WobbleAndRotate : MonoBehaviour
     {
         startPosition = transform.localPosition;
         startRotation = transform.localRotation;
+        
+        wobbleSpeed = randomize ? UnityEngine.Random.Range(wobbleSpeed - wobbleSpeed * randomizeAmount, wobbleSpeed + wobbleSpeed * randomizeAmount) : wobbleSpeed;
+        wobbleAmount = randomize ? UnityEngine.Random.Range(wobbleAmount - wobbleAmount * randomizeAmount, wobbleAmount + wobbleAmount * randomizeAmount) : wobbleAmount;
+        rotationSpeed = randomize ? UnityEngine.Random.Range(rotationSpeed - rotationSpeed * randomizeAmount, rotationSpeed + rotationSpeed * randomizeAmount) : rotationSpeed;
+        rotationAmount = randomize ? UnityEngine.Random.Range(rotationAmount - rotationAmount * randomizeAmount, rotationAmount + rotationAmount * randomizeAmount) : rotationAmount;
     }
 
     private void Update()
