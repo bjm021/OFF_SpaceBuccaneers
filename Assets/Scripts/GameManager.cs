@@ -28,6 +28,8 @@ public class GameManager : NetworkBehaviour
     
     [SerializeField] [Range(90, 300)] private int roundLength;
     [Space]
+    [SerializeField] private int metalStartAmount;
+    [SerializeField] private int crystalsStartAmount;
     [SerializeField] private int metalAutoGenerationAmount;
     [SerializeField] private int metalAutoGenerationInterval;
     [SerializeField] private bool inMultiplayerMode = false; 
@@ -175,6 +177,11 @@ public class GameManager : NetworkBehaviour
     
     public void StartRound()
     {
+        AddResource(Player.PlayerOne, ResourceType.Metal, metalStartAmount);
+        AddResource(Player.PlayerOne, ResourceType.Crystals, crystalsStartAmount);
+        AddResource(Player.PlayerTwo, ResourceType.Metal, metalStartAmount);
+        AddResource(Player.PlayerTwo, ResourceType.Crystals, crystalsStartAmount);
+
         _isInRound = true;
         if (!Host) return;
         StartCoroutine(Round());
