@@ -8,17 +8,9 @@ public class NormalShoot : Attack
     private LineRenderer _lineRenderer;
     public override bool SpecificAttack(GameObject target)
     {
-        var beam = gameObject.AddComponent<LineRenderer>();
-        beam.startColor = Color.red;
-        beam.endColor = Color.red;
-        beam.startWidth = 0.1f;
-        beam.endWidth = 0.1f;
-        beam.positionCount = 2;
-        beam.SetPosition(0, gameObject.transform.position);
-        beam.SetPosition(1, target.transform.position);
-        //beam.material = new Material(Shader.Find("Sprites/Default"));
-        beam.useWorldSpace = true;
-        StartCoroutine(DestroyBeam(beam));
+        // Run attack on server / host / singleplayer
+        VisualAttackRender(gameObject.transform.position, target.transform.position);
+        // Run attack on clients
         if (GameManager.Instance.Host) DrawOnClientRpc(gameObject.transform.position, target.transform.position);
 
         //var targetUnit = target.GetComponent<Unit>();
@@ -41,6 +33,11 @@ public class NormalShoot : Attack
     public override void DrawOnClientRpc(Vector3 start, Vector3 end)
     {
         if (GameManager.Instance.Host) return;
+        VisualAttackRender(start, end);
+    }
+
+    private void VisualAttackRender(Vector3 start, Vector3 end)
+    {
         var beam = gameObject.AddComponent<LineRenderer>();
         beam.startColor = Color.red;
         beam.endColor = Color.red;

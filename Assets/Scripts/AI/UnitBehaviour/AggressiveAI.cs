@@ -86,8 +86,12 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
                 DoAttack();
                 return;
             }
-            _agent.isStopped = false;
-            _agent.SetDestination(_currentlyAttacking.transform.position);
+
+            if (_agent.isOnNavMesh)
+            {
+                _agent.isStopped = false;
+                _agent.SetDestination(_currentlyAttacking.transform.position);
+            }
         }
         else if (_state == AggressiveState.Attacking)
         {

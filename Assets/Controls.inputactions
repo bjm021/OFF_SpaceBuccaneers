@@ -2,7 +2,7 @@
     "name": "Controls",
     "maps": [
         {
-            "name": "Mouse",
+            "name": "Game",
             "id": "8c966bc0-426b-450e-9ea6-3b48c4aa06a9",
             "actions": [
                 {
@@ -279,6 +279,34 @@
                 {
                     "name": "",
                     "id": "0c62df26-a643-48b7-b564-c620a143e427",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "b8e20b9c-463b-4763-8cf8-03edb2efd1ad",
+            "actions": [
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "90416f71-7479-4e47-a18c-b62b965aeeff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dcfcff8d-b407-48c4-be6f-b989bf106b5f",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",

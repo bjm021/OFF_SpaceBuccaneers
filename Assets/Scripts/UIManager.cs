@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -25,12 +26,17 @@ public class UIManager : MonoBehaviour
     
     #endregion
     
+    [SerializeField] private PlayerController playerController;
+    [Space]
     [SerializeField] private TMP_Text timeText;
     [Space]
     [SerializeField] private TMP_Text playerOneMetalText;
     [SerializeField] private TMP_Text playerOneCrystalText;
     [SerializeField] private TMP_Text playerTwoMetalText;
     [SerializeField] private TMP_Text playerTwoCrystalText;
+    [Space]
+    [SerializeField] private Image playerOneHealthBar;
+    [SerializeField] private Image playerTwoHealthBar;
     [Space]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject pauseSettingsMenu;
@@ -65,18 +71,33 @@ public class UIManager : MonoBehaviour
         playerTwoMetalText.text = GameManager.Instance.PlayerTwoMetal.ToString();
         playerTwoCrystalText.text = GameManager.Instance.PlayerTwoCrystals.ToString();
     }
+    
+    public void UpdateMotherShipHealth(GameManager.Player player, float health)
+    {
+        switch (player)
+        {
+            case GameManager.Player.PlayerOne:
+                playerOneHealthBar.fillAmount = health;
+                break;
+            case GameManager.Player.PlayerTwo:
+                playerTwoHealthBar.fillAmount = health;
+                break;
+        }
+    }
 
     public void TogglePauseMenu()
     {
         if (pauseMenu.activeSelf == false)
         {
             pauseMenu.SetActive(true);
+            playerController.enabled = false;
             Time.timeScale = 0;
         }
         else
         {
             pauseMenu.SetActive(false);
             pauseSettingsMenu.SetActive(false);
+            playerController.enabled = true;
             Time.timeScale = 1;
         }
     }
