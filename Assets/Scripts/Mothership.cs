@@ -7,6 +7,7 @@ public class Mothership : MonoBehaviour
 {
     [SerializeField] public GameManager.Player owner;
     [SerializeField] private int maxHealth;
+    [SerializeField] private UnitClass mothershipObject;
 
     public int CurrentHealth { get; private set; }
     
@@ -31,7 +32,7 @@ public class Mothership : MonoBehaviour
     {
         var unit = GetComponent<Unit>();
         unit.Owner = owner;
-        unit.UnitClass = UnitManager.Instance.UnitClasses[6];
+        unit.UnitClass = mothershipObject;
         unit.BehaviourScript = new StandStillAI();
     }
 

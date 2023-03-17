@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: 1
   maxHealth: 1000
+  mothershipObject: {fileID: 11400000, guid: df41b10d713279949b1f68a4c041a4e7, type: 2}
 --- !u!114 &6427111261487286854
 MonoBehaviour:
   m_ObjectHideFlags: 0
