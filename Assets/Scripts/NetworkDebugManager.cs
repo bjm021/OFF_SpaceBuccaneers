@@ -20,12 +20,12 @@ public class NetworkDebugManager : MonoBehaviour
             Debug.Log("I am a " + argument);
             if (argument == "client")
             {
-                GameManager.Instance.IsHost = false;
+                GameManager.Instance.Host = false;
             }
         } 
         else 
         {
-            GameManager.Instance.IsHost = true;
+            GameManager.Instance.Host = true;
             Debug.Log("I am the server");
         }
     }

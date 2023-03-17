@@ -61,7 +61,7 @@ public class UnitManager : NetworkBehaviour
                 break;
         }
 
-        if (!GameManager.Instance.IsHost)
+        if (!GameManager.Instance.Host)
         {
             SpawnUnitServerRpc(position, unitClasses.IndexOf(unitClass));
             return true;

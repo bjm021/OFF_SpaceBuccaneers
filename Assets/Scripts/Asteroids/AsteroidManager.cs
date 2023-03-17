@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class AsteroidManager : MonoBehaviour
@@ -13,7 +14,7 @@ public class AsteroidManager : MonoBehaviour
     
     private void Start()
     {
-        if (!GameManager.Instance.IsHost)
+        if (!GameManager.Instance.Host)
         {
             Debug.Log("AsteroidManager is not host, destroying...");
             Destroy(gameObject);
@@ -56,6 +57,7 @@ public class AsteroidManager : MonoBehaviour
 
     [Space] [SerializeField] private bool multiplayerBehaviour = false;
 
+    public UnityEvent OnAsteroidSpawned { get; } = new();
 
     private List<GameObject> _asteroids = new List<GameObject>();
     private List<GameObject> _specialAsteroids = new List<GameObject>();
@@ -75,6 +77,7 @@ public class AsteroidManager : MonoBehaviour
                 Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
             if (multiplayerBehaviour) asteroid.GetComponent<NetworkObject>().Spawn(); 
             _asteroids.Add(asteroid);
+            OnAsteroidSpawned.Invoke();
         }
         
         for (int i = 0; i < specialAsteroidCount; i++)
@@ -89,6 +92,7 @@ public class AsteroidManager : MonoBehaviour
             if (multiplayerBehaviour) asteroid.GetComponent<NetworkObject>().Spawn(); 
 
             _specialAsteroids.Add(asteroid);
+            OnAsteroidSpawned.Invoke();
         }
         
         StartCoroutine(ContinuousSpawningRoutine());
@@ -146,6 +150,7 @@ public class AsteroidManager : MonoBehaviour
 
                 asteroid.GetComponent<Asteroid>().MoveTo(finalPosition);
                 _asteroids.Add(asteroid);
+                OnAsteroidSpawned.Invoke();
             }
         }
     }
@@ -183,6 +188,7 @@ public class AsteroidManager : MonoBehaviour
 
                 specialAsteroid.GetComponent<Asteroid>().MoveTo(finalPosition);
                 _specialAsteroids.Add(specialAsteroid);
+                OnAsteroidSpawned.Invoke();
             }
         }
     }
