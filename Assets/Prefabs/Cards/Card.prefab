@@ -62,8 +62,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitClass: {fileID: 0}
   costText: {fileID: 2385198166223165401}
-  moveAmount: 1000
-  moveTime: 0.2
+  hoverMoveAmount: 2000
+  hoverMoveTime: 0.2
+  hoverScaleAmount: 1.5
   selectedOffset: 250
 --- !u!65 &1681052090291539129
 BoxCollider:
