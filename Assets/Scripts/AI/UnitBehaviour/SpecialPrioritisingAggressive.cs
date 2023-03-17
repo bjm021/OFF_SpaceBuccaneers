@@ -88,6 +88,7 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
 
     public void UpdateState()
     {
+        if (_unit.Dead || !_agent.enabled || _unit.Stunned) return;
         var motherShipDist = Vector3.Distance(gameObject.transform.position, GameManager.Instance.GetEnemyMothership(_unit.Owner).transform.position);
         if (motherShipDist <= _unit.UnitClass.MothershipAttackDistance)
         {
@@ -173,6 +174,7 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
 
     private void EnterReSearchState()
     {
+        if (_unit.Dead || !_agent.enabled || _unit.Stunned) return;
         _state = SPAAIState.ReSearch;
         if (_unit.Owner == GameManager.Player.PlayerTwo) _agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
         if (_unit.Owner == GameManager.Player.PlayerOne) _agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
@@ -185,5 +187,12 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
         return _attack.AttackMothership(mothership);
     }
 
+    public void SearchNewTarget()
+    {
+        _currentlyAttacking = null;
+        _currentlyAttackingUnit = null;
+        if (_unit.Dead) return;
+        FindAndGoToUnit();
+    }
 
 }

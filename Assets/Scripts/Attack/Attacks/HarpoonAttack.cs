@@ -8,6 +8,7 @@ public class HarpoonAttack : Attack
     private LineRenderer _lineRenderer;
     public override bool SpecificAttack(GameObject target)
     {
+        Debug.Log("Harpoon Attack");
         // Run attack on server / host / singleplayer
         VisualAttackRender(gameObject.transform.position, target.transform.position);
         // Run attack on clients
@@ -25,7 +26,13 @@ public class HarpoonAttack : Attack
             var dead = unit.TakeDamage(Damage) <= 0;
             
             // TODO - Implement stun
-            if (!dead) unit.Stun(5);
+            if (!dead)
+            {
+                Debug.Log("Stun");
+                unit.Stun(5);
+            }
+            
+            gameObject.GetComponent<SpecialPrioritisingAggressiveAI>().SearchNewTarget();
 
             return dead;
         }
