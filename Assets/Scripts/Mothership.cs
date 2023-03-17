@@ -33,7 +33,7 @@ public class Mothership : MonoBehaviour
         var unit = GetComponent<Unit>();
         unit.Owner = owner;
         unit.UnitClass = mothershipObject;
-        unit.BehaviourScript = new StandStillAI();
+        unit.BehaviourScript = gameObject.AddComponent<StandStillAI>();
     }
 
     public int TakeDamage(int amount)
