@@ -143,12 +143,7 @@ public class PlayerController : MonoBehaviour
             child.gameObject.SetActive(false);
         }
     }
-    
-    public void OnEscape(InputValue value)
-    {
-        UIManager.Instance.TogglePauseMenu();
-    }
-    
+
     public void OnSelectUnit1(InputValue value)
     {
         SetSelectedUnitIndex(1);
