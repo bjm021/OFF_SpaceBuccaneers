@@ -6,10 +6,10 @@ using UnityEngine;
 public class Mothership : MonoBehaviour
 {
     [SerializeField] public GameManager.Player owner;
-    [SerializeField] private int maxHealth;
+    [SerializeField] public int maxHealth;
     [SerializeField] private UnitClass mothershipObject;
 
-    public int CurrentHealth { get; private set; }
+    public int CurrentHealth { get; set; }
     
     private void Awake()  
     {

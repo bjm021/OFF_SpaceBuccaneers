@@ -93,12 +93,12 @@ public class GameManager : NetworkBehaviour
         }
 
         if (Host && inMultiplayerMode)
-            UpdateDataClientRpc(PlayerOneMetal, PlayerOneCrystals, PlayerTwoMetal, PlayerTwoCrystals, _time);
+            UpdateDataClientRpc(PlayerOneMetal, PlayerOneCrystals, PlayerTwoMetal, PlayerTwoCrystals, _time, PlayerOneMothership.CurrentHealth, PlayerTwoMothership.CurrentHealth);
         UIManager.Instance.UpdateResourceText();
     }
 
     [ClientRpc]
-    private void UpdateDataClientRpc(int p1Metal, int p1Crystal, int p2Metal, int p2Crystal, int time)
+    private void UpdateDataClientRpc(int p1Metal, int p1Crystal, int p2Metal, int p2Crystal, int time, int p1mshp, int p2mshp)
     {
         if (Host) return;
         
@@ -106,8 +106,13 @@ public class GameManager : NetworkBehaviour
         PlayerOneCrystals = p1Crystal;
         PlayerTwoMetal = p2Metal;
         PlayerTwoCrystals = p2Crystal;
-        
 
+        PlayerOneMothership.CurrentHealth = p1mshp;
+        PlayerTwoMothership.CurrentHealth = p2mshp;
+
+
+        UIManager.Instance.UpdateMotherShipHealth(Player.PlayerOne, (float )p1mshp / PlayerOneMothership.maxHealth);
+        UIManager.Instance.UpdateMotherShipHealth(Player.PlayerTwo, (float )p2mshp / PlayerOneMothership.maxHealth);
         UIManager.Instance.UpdateResourceText();
         UIManager.Instance.UpdateTimeText(time);
     }
@@ -139,7 +144,7 @@ public class GameManager : NetworkBehaviour
                 }
                 break;
         }
-        
+        if (Host && inMultiplayerMode) UpdateDataClientRpc(PlayerOneMetal, PlayerOneCrystals, PlayerTwoMetal, PlayerTwoCrystals, _time, PlayerOneMothership.CurrentHealth, PlayerTwoMothership.CurrentHealth);
         UIManager.Instance.UpdateResourceText();
     }
     

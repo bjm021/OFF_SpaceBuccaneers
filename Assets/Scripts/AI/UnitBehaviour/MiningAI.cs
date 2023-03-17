@@ -16,7 +16,7 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
 
     public void UpdateState()
     {
-        if (_unit.Dead) return;
+        if (_unit.Dead || !_agent.enabled || _unit.Stunned) return;
         if (_state == MiningState.GoingTo && _agent.isOnNavMesh)
         {
             if (_agent.remainingDistance < _unit.UnitClass.MiningRange)

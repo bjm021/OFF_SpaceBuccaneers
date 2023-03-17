@@ -39,6 +39,7 @@ public class UnitManager : NetworkBehaviour
     public void SpawnUnitServerRpc(Vector3 position, int unitIndex)
     {
         UnitClass unitClass = UnitManager.Instance.UnitClasses[unitIndex];
+        GameManager.Instance.RemoveResource(GameManager.Player.PlayerTwo, GameManager.ResourceType.Metal, unitClass.Cost);
         var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.Euler(0, -90, 0));
         if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
         var unit = unitGo.GetComponent<Unit>();
@@ -47,6 +48,7 @@ public class UnitManager : NetworkBehaviour
 
     public bool SpawnUnit(Vector3 position, UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy = null)
     {
+        Debug.LogWarning("TEsting for " + owner + " to has " + unitClass.Cost + " metal");
         switch (owner)
         {
             case GameManager.Player.PlayerOne when GameManager.Instance.PlayerOneMetal < unitClass.Cost:
@@ -60,13 +62,12 @@ public class UnitManager : NetworkBehaviour
                 GameManager.Instance.RemoveResource(GameManager.Player.PlayerTwo, GameManager.ResourceType.Metal, unitClass.Cost);
                 break;
         }
-
+        
         if (!GameManager.Instance.Host)
         {
             SpawnUnitServerRpc(position, unitClasses.IndexOf(unitClass));
             return true;
         }
-           
 
         var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.Euler(0, 90, 0));
         if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
