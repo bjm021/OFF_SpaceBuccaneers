@@ -39,6 +39,8 @@ public class Mothership : MonoBehaviour
     public int TakeDamage(int amount)
     {
         CurrentHealth -= amount;
+        
+        UIManager.Instance.UpdateMotherShipHealth(owner, (float )CurrentHealth / maxHealth);
 
         if (CurrentHealth <= 0)
         {
