@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -74,8 +75,14 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
         _unit = GetComponent<Unit>();
         _agent = GetComponent<NavMeshAgent>();
         FindAndGoToClosestAsteroid();
-    } 
-    
+        AsteroidManager.Instance.OnAsteroidSpawned.AddListener(UpdateState);
+    }
+
+    private void OnDestroy()
+    {
+        AsteroidManager.Instance.OnAsteroidSpawned.RemoveListener(UpdateState);
+    }
+
     private IEnumerator WaitForNavPath()
     {
         yield return new WaitUntil(() => _agent.hasPath);
