@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (!GameManager.Instance.IsHost)
+        if (!GameManager.Instance.Host)
         {
             player = GameManager.Player.PlayerTwo;
         }

@@ -21,7 +21,7 @@ public class UnitSpawner : MonoBehaviour
     {
         if (multiplayerBehaviour)
         {
-            if (!GameManager.Instance.IsHost)
+            if (!GameManager.Instance.Host)
             {
                 Destroy(gameObject);
                 return;

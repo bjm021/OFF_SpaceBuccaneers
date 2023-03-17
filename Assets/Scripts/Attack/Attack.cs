@@ -62,7 +62,7 @@ public abstract class Attack : NetworkBehaviour
     {
         // We will ovverride this method in the specific attacks
         // but it cannot be abstract because of the NetworkBehaviour
-        if (GameManager.Instance.IsHost) return;
+        if (GameManager.Instance.Host) return;
         // Guck mal da oben das ist wichtig das es keni StackOverflow gibt
     }
     
