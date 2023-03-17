@@ -46,7 +46,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 2.2, y: 3.5, z: 2.2}
+  m_Extents: {x: 1.5, y: 3.5, z: 1.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -66,6 +66,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minResources: 10
   maxResources: 20
+  onHalfResources:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-4293748737030854650
 MonoBehaviour:
   m_ObjectHideFlags: 0
