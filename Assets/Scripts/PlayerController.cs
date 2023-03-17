@@ -51,16 +51,17 @@ public class PlayerController : MonoBehaviour
     {
         if (value.isPressed && !_onCooldown)
         {
+            if (_selectedUnitIndex == 0)
+            {
+                // Do nothing
+            }
+            
             var clickPosition = Pointer.current.position.ReadValue();
             var ray = _mainCamera.ScreenPointToRay(clickPosition);
 
             if (!Physics.Raycast(ray, out var hit, 111, clickableLayers)) return;
 
-            if (_selectedUnitIndex == 0)
-            {
-                // Do nothing
-            }
-            else
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("NavMesh"))
             {
                 if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
                     && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], player))

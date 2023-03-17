@@ -139,6 +139,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 80c79906b1ed9294fb80066886586861,
         type: 3}
+    - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_text
+      value: '
+
+        Once I shot a Tratratuk from the planet Oumakuka-18. Nobody
+        wants to believe me.'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

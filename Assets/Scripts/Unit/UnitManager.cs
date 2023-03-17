@@ -48,7 +48,6 @@ public class UnitManager : NetworkBehaviour
 
     public bool SpawnUnit(Vector3 position, UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy = null)
     {
-        Debug.LogWarning("TEsting for " + owner + " to has " + unitClass.Cost + " metal");
         switch (owner)
         {
             case GameManager.Player.PlayerOne when GameManager.Instance.PlayerOneMetal < unitClass.Cost:

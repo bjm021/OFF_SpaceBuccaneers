@@ -29,7 +29,7 @@ public class BlackHoleAttack : Attack
                 
                 if (TryGetComponent(out Rigidbody rb))
                 {
-                    rb.AddForce((t.transform.position - transform.position).normalized * 1000f);
+                    rb.AddForce((t.transform.position - transform.position).normalized * 1000f, ForceMode.Impulse);
                 }
                 
                 unit.TakeDamage(Damage);
