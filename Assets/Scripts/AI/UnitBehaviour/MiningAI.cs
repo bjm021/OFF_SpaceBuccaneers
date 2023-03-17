@@ -16,6 +16,7 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
 
     public void UpdateState()
     {
+        if (_unit.Dead) return;
         if (_state == MiningState.GoingTo)
         {
             if (_agent.remainingDistance < _unit.UnitClass.MiningRange)

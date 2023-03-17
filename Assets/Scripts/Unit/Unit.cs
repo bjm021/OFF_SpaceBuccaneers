@@ -67,6 +67,7 @@ public class Unit : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // TODO - Nur noch eine Loprotine 
+        if (!GameManager.Instance.Host) return;
         if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
         {
             Unit otherUnit = other.gameObject.GetComponent<Unit>();
@@ -84,6 +85,7 @@ public class Unit : MonoBehaviour
     
     private void OnTriggerExit(Collider other)
     {
+        if (!GameManager.Instance.Host) return;
         if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
         {
             Unit otherUnit = other.gameObject.GetComponent<Unit>();
@@ -115,6 +117,11 @@ public class Unit : MonoBehaviour
         OnDeath.Invoke();
         OnDeath.RemoveAllListeners();
         
+        if (_updateAI != null)
+        {
+            StopCoroutine(_updateAI);
+            _updateAI = null;
+        }
         if (SpawnedBy != null ) SpawnedBy.SpawnedUnits.Remove(gameObject);
 
         Destroy(gameObject);
