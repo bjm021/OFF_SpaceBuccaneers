@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class NormalShoot : Attack
+public class TowerShoot : Attack
 {
     private LineRenderer _lineRenderer;
     public override bool SpecificAttack(GameObject target)
