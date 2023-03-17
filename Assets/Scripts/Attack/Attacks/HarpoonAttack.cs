@@ -22,8 +22,18 @@ public class HarpoonAttack : Attack
         else
         {
             var unit = target.GetComponent<Unit>();
-            return unit.TakeDamage(Damage) <= 0;
+            var dead = unit.TakeDamage(Damage) <= 0;
+            
+            // TODO - Implement stun
+            if (!dead) unit.Stun(5);
+
+            return dead;
         }
+        
+        
+        
+        
+        
         
        
         

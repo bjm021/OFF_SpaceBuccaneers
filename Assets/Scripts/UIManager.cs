@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
     
     #endregion
     
+    [SerializeField] private PlayerController playerController;
+    [Space]
     [SerializeField] private TMP_Text timeText;
     [Space]
     [SerializeField] private TMP_Text playerOneMetalText;
@@ -88,12 +90,14 @@ public class UIManager : MonoBehaviour
         if (pauseMenu.activeSelf == false)
         {
             pauseMenu.SetActive(true);
+            playerController.enabled = false;
             Time.timeScale = 0;
         }
         else
         {
             pauseMenu.SetActive(false);
             pauseSettingsMenu.SetActive(false);
+            playerController.enabled = true;
             Time.timeScale = 1;
         }
     }
