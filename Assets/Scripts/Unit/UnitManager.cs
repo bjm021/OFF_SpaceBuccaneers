@@ -39,7 +39,7 @@ public class UnitManager : NetworkBehaviour
     public void SpawnUnitServerRpc(Vector3 position, int unitIndex)
     {
         UnitClass unitClass = UnitManager.Instance.UnitClasses[unitIndex];
-        var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
+        var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.Euler(0, -90, 0));
         if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
         var unit = unitGo.GetComponent<Unit>();
         unit.Initialize(unitClass, GameManager.Player.PlayerTwo, null);
@@ -47,27 +47,37 @@ public class UnitManager : NetworkBehaviour
 
     public bool SpawnUnit(Vector3 position, UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy = null)
     {
+        switch (owner)
         {
-            // TODO: Check if player has enough resources to spawn unit, if not return false
-            // Also remove resources from player
-            
-            if (!GameManager.Instance.IsHost)
-            {
-                SpawnUnitServerRpc(position, unitClasses.IndexOf(unitClass));
-                return true;
-            }
-           
+            case GameManager.Player.PlayerOne when GameManager.Instance.PlayerOneMetal < unitClass.Cost:
+                return false;
+            case GameManager.Player.PlayerOne:
+                GameManager.Instance.RemoveResource(GameManager.Player.PlayerOne, GameManager.ResourceType.Metal, unitClass.Cost);
+                break;
+            case GameManager.Player.PlayerTwo when GameManager.Instance.PlayerTwoMetal < unitClass.Cost:
+                return false;
+            case GameManager.Player.PlayerTwo:
+                GameManager.Instance.RemoveResource(GameManager.Player.PlayerTwo, GameManager.ResourceType.Metal, unitClass.Cost);
+                break;
+        }
 
-            var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
-            if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
-            if (spawnedBy != null)
-            {
-                spawnedBy.SpawnedUnits.Add(unitGo);
-            }
-            var unit = unitGo.GetComponent<Unit>();
-
-            unit.Initialize(unitClass, owner, spawnedBy);
+        if (!GameManager.Instance.IsHost)
+        {
+            SpawnUnitServerRpc(position, unitClasses.IndexOf(unitClass));
             return true;
         }
+           
+
+        var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.Euler(0, 90, 0));
+        if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
+        if (spawnedBy != null)
+        {
+            spawnedBy.SpawnedUnits.Add(unitGo);
+        }
+        var unit = unitGo.GetComponent<Unit>();
+
+        unit.Initialize(unitClass, owner, spawnedBy);
+        return true;
+        
     }
 }
