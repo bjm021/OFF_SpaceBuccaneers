@@ -1391,7 +1391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &770420084
 Transform:
   m_ObjectHideFlags: 0
@@ -11127,7 +11127,7 @@ ParticleSystem:
     separateAxes: 0
     range: {x: 0, y: 1}
   ColorBySpeedModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -19789,17 +19789,17 @@ PrefabInstance:
     - target: {fileID: 4953456028868646865, guid: b913758d4d7dccd4184f7c69b59b2167,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.318
+      value: 29.6
       objectReference: {fileID: 0}
     - target: {fileID: 4953456028868646865, guid: b913758d4d7dccd4184f7c69b59b2167,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39.833336
+      value: 17.1
       objectReference: {fileID: 0}
     - target: {fileID: 4953456028868646865, guid: b913758d4d7dccd4184f7c69b59b2167,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.282
+      value: 11.3
       objectReference: {fileID: 0}
     - target: {fileID: 4953456028868646865, guid: b913758d4d7dccd4184f7c69b59b2167,
         type: 3}
