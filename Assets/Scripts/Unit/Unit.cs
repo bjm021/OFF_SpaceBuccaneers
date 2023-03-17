@@ -20,6 +20,8 @@ public class Unit : MonoBehaviour
     private Attack _attack;
     private SphereCollider _viewTrigger;
     
+    private Coroutine _updateAI;
+    
     public void Initialize(UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy)
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -71,7 +73,11 @@ public class Unit : MonoBehaviour
             if (otherUnit.Owner != Owner)
             {
                 BehaviourScript.UpdateState();
-                StartCoroutine(UpdateAI());
+                
+                if (_updateAI == null)
+                {
+                    _updateAI = StartCoroutine(UpdateAI());
+                }
             }
         }
     }
@@ -84,7 +90,12 @@ public class Unit : MonoBehaviour
             if (otherUnit.Owner != Owner)
             {
                 BehaviourScript.UpdateState();
-                StopCoroutine(UpdateAI());
+                
+                if (!Physics.CheckSphere(transform.position, _viewTrigger.radius, 1 << LayerMask.NameToLayer("Unit")))
+                {
+                    StopCoroutine(UpdateAI());
+                    _updateAI = null;
+                }
             }
         }
     }
