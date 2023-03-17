@@ -126,4 +126,19 @@ public class Unit : MonoBehaviour
 
         Destroy(gameObject);
     }
+    
+    private Coroutine _stunCoroutine;
+
+    private IEnumerator StunCoroutine(float d)
+    {
+        yield return new WaitForSeconds(d);
+        _navMeshAgent.isStopped = false;
+    }
+    
+    public void Stun(float duration)
+    {
+        _navMeshAgent.isStopped = true;
+        if (_stunCoroutine != null) StopCoroutine(_stunCoroutine);
+        _stunCoroutine = StartCoroutine(StunCoroutine(duration));
+    }
 }
