@@ -24,9 +24,6 @@ public class NormalShoot : Attack
             var unit = target.GetComponent<Unit>();
             return unit.TakeDamage(Damage) <= 0;
         }
-        
-       
-        
     }
 
     [ClientRpc]
