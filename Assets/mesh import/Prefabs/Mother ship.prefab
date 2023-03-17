@@ -227,6 +227,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.00007
       objectReference: {fileID: 0}
+    - target: {fileID: -6489350486763630160, guid: 0e2ae20b2aba0204cbefab4c24b332f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: -6489350486763630160, guid: 0e2ae20b2aba0204cbefab4c24b332f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.197
+      objectReference: {fileID: 0}
+    - target: {fileID: -6489350486763630160, guid: 0e2ae20b2aba0204cbefab4c24b332f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.905
+      objectReference: {fileID: 0}
     - target: {fileID: -2947538861075970057, guid: 0e2ae20b2aba0204cbefab4c24b332f6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -242,6 +257,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 05fecc5fb5d30904881979731b85edf6, type: 2}
+    - target: {fileID: 8769622977761552765, guid: 0e2ae20b2aba0204cbefab4c24b332f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.357
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769622977761552765, guid: 0e2ae20b2aba0204cbefab4c24b332f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.188
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769622977761552765, guid: 0e2ae20b2aba0204cbefab4c24b332f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.722
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -297,6 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.1
   wobbleAxis:
     x: 0
     y: 0
@@ -327,6 +359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.121
   wobbleAxis:
     x: 0
     y: 1
@@ -357,6 +391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.121
   wobbleAxis:
     x: 0
     y: 1
@@ -393,6 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.121
   wobbleAxis:
     x: 0
     y: 1
@@ -423,6 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.1
   wobbleAxis:
     x: 0
     y: 1
@@ -453,6 +493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.121
   wobbleAxis:
     x: 0
     y: 1
@@ -483,6 +525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.121
   wobbleAxis:
     x: 0
     y: 1
@@ -513,6 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.121
   wobbleAxis:
     x: 0
     y: 1
