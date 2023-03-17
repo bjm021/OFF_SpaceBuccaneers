@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text playerTwoCrystalText;
     [Space]
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseSettingsMenu;
     [Space]
     [SerializeField] private GameObject winScreen;
     [SerializeField] private TMP_Text winScreenText;
@@ -75,6 +76,7 @@ public class UIManager : MonoBehaviour
         else
         {
             pauseMenu.SetActive(false);
+            pauseSettingsMenu.SetActive(false);
             Time.timeScale = 1;
         }
     }
