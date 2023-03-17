@@ -9,7 +9,6 @@ public class NetworkDebugManager : MonoBehaviour
 {
     NetworkManager networkManager;
     // Start is called before the first frame update
-    [SerializeField] GameObject asteroidSpawners;
     private void Awake()
     {
         networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();

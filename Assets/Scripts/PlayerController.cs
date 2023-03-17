@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
-                    && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], GameManager.Player.PlayerOne))
+                    && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], player))
                 {
                     StartCoroutine(SpawnUnitCooldown());
                 }
