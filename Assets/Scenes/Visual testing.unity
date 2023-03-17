@@ -530,6 +530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.1
   wobbleAxis:
     x: 0
     y: 0
@@ -991,6 +993,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.1
   wobbleAxis:
     x: 1
     y: 0
@@ -1167,6 +1171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.1
   wobbleAxis:
     x: 1
     y: 0
@@ -6248,6 +6254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.1
   wobbleAxis:
     x: 0
     y: 1
@@ -18041,6 +18049,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3efce29aee3b4c9b9dadfd4d5607847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomize: 1
+  randomizeAmount: 0.1
   wobbleAxis:
     x: 0
     y: 1
@@ -19281,52 +19291,52 @@ PrefabInstance:
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -91.3
+      value: -93.7
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25355172
+      value: 0.0042660907
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.482195
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0517242
+      value: 0.05250254
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22084072
+      value: 0.14146519
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9738667
+      value: 0.9885215
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.011729352
+      value: -0.007513541
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 2.619
+      value: 1.702
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 174.51
+      value: 174.162
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 25.428
+      value: 16.202
       objectReference: {fileID: 0}
     - target: {fileID: 6983194196316219417, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
@@ -20379,15 +20389,135 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 917593587903758053, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 917593587903758053, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 917593587903758053, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 917593587903758053, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 917593587903758053, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 917593587903758053, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 917593587903758053, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 917593587903758053, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376599700063609035, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376599700063609035, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376599700063609035, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376599700063609035, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376599700063609035, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376599700063609035, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376599700063609035, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376599700063609035, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: wobbleAmount
-      value: 0.02
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: rotationAmount
-      value: 0.05
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051866327300229696, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: randomizeAmount
+      value: 0.134
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
@@ -20397,37 +20527,37 @@ PrefabInstance:
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 89.525665
+      value: 91.2
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4775033
+      value: 0.49135092
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.8
+      value: -1.3307476
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9870282
+      value: 0.99551773
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.0026946177
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.02991235
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.16054723
+      value: 0.08968005
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
@@ -20437,12 +20567,12 @@ PrefabInstance:
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -3.442
       objectReference: {fileID: 0}
     - target: {fileID: 2565540666555296307, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 18.477
+      value: 10.295
       objectReference: {fileID: 0}
     - target: {fileID: 2963269937491682228, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
@@ -20469,6 +20599,46 @@ PrefabInstance:
       propertyPath: rotationAxis.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4381799655510493800, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381799655510493800, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381799655510493800, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381799655510493800, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381799655510493800, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381799655510493800, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381799655510493800, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381799655510493800, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5064815048649084227, guid: 013aff4e09eeaaf43b075a74fa1663f8,
         type: 3}
       propertyPath: rotationSpeed
@@ -20483,6 +20653,86 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mother ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774897064021761585, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774897064021761585, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774897064021761585, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774897064021761585, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774897064021761585, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774897064021761585, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774897064021761585, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774897064021761585, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993649843200465503, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993649843200465503, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAmount
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993649843200465503, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993649843200465503, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: wobbleAxis.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993649843200465503, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993649843200465503, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993649843200465503, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993649843200465503, guid: 013aff4e09eeaaf43b075a74fa1663f8,
+        type: 3}
+      propertyPath: rotationAxis.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
