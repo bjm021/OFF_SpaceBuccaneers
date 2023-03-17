@@ -8,6 +8,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 461674760848189055}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.data[1]
+      value: 
+      objectReference: {fileID: 461674760848189055}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: materialIndices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 206211516544520706}
+    - target: {fileID: -5537599215918256293, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 163536518949024148, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: m_RootOrder
@@ -66,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 1295020303486058233, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: m_Name
-      value: BaseShip Variant
+      value: BaseMiner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -221,6 +256,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2373189189cc94d984eede1236d54d, type: 3}
+--- !u!1 &206211516544520706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6233007143405636078, guid: 4e2373189189cc94d984eede1236d54d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6078886090814610412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &461674760848189055 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5923561782366961043, guid: 4e2373189189cc94d984eede1236d54d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6078886090814610412}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2997116476470247973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9064460993189091785, guid: 4e2373189189cc94d984eede1236d54d,

@@ -7,6 +7,11 @@ using UnityEngine.Events;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Unit : MonoBehaviour
 {
+    [SerializeField] private Material playerOneMaterial;
+    [SerializeField] private Material playerTwoMaterial;
+    [SerializeField] private Renderer[] renderers;
+    [SerializeField] private int[] materialIndices;
+    
     public UnitClass UnitClass { get; set; }
     public GameManager.Player Owner { get; set; }
     public IAIBehaviour BehaviourScript { get; set; }
@@ -40,7 +45,14 @@ public class Unit : MonoBehaviour
         _navMeshAgent.stoppingDistance = UnitClass.AttackRange - 1;
         
         _viewTrigger.radius = UnitClass.AttackSeekRange;
-        
+
+        for (var index = 0; index < renderers.Length; index++)
+        {
+            var materials = renderers[index].materials;
+            materials[materialIndices[index]] = Owner == GameManager.Player.PlayerOne ? playerOneMaterial : playerTwoMaterial;
+            renderers[index].materials = materials;
+        }
+
         _attack.Initialize(UnitClass.Attack, UnitClass.AttackCooldown, UnitClass.AttackRange);
 
         BehaviourScript = UnitClass.behaviour switch

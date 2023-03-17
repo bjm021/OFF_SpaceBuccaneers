@@ -128,6 +128,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a13c58aaeba55854cb077a8918b07168, type: 3}
+--- !u!23 &8479735031630338816 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8887938130387716724, guid: a13c58aaeba55854cb077a8918b07168,
+    type: 3}
+  m_PrefabInstance: {fileID: 1078153299979129204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8908836619019735154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8454616609275904262, guid: a13c58aaeba55854cb077a8918b07168,
@@ -142,6 +148,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 8479735031630338816}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: materialIndices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: materialIndices.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5537599215918256293, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 163536518949024148, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: m_RootOrder
@@ -200,7 +231,7 @@ PrefabInstance:
     - target: {fileID: 1295020303486058233, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: m_Name
-      value: BaseShip Variant 2
+      value: BlackHoleTank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

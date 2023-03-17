@@ -88,6 +88,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ae94e60c5c788d44a69708a95546b58, type: 3}
+--- !u!23 &860948121488931241 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6374234432173915237, guid: 1ae94e60c5c788d44a69708a95546b58,
+    type: 3}
+  m_PrefabInstance: {fileID: 3204478600419408434}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3166629988286569945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ae94e60c5c788d44a69708a95546b58,
@@ -102,6 +108,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 860948121488931241}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: materialIndices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5537599215918256293, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
     - target: {fileID: 163536518949024148, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: m_RootOrder
@@ -160,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 1295020303486058233, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: m_Name
-      value: BaseShip Variant 7
+      value: CrystalMiner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
