@@ -46,6 +46,8 @@ public class UIManager : MonoBehaviour
     [Space]
     [SerializeField] private GameObject spawnableAreaIndicator;
     [SerializeField] private RectTransform spawnableAreaIndicatorRectTransform;
+    [Space]
+    [SerializeField] private Image[] cooldownImages;
     
     public void ShowSpawnableAreaIndicator(float width, GameManager.Player player, bool active = true)
     {
@@ -82,6 +84,14 @@ public class UIManager : MonoBehaviour
             case GameManager.Player.PlayerTwo:
                 playerTwoHealthBar.fillAmount = health;
                 break;
+        }
+    }
+    
+    public void UpdateCooldownImages(float cooldown)
+    {
+        foreach (var cooldownImage in cooldownImages)
+        {
+            cooldownImage.fillAmount = cooldown;
         }
     }
 
