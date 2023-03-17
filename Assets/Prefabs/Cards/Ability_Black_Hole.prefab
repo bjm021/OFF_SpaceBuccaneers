@@ -145,6 +145,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7caadaf8f89860942acb9180aeb604da,
         type: 3}
+    - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_text
+      value: '
+
+        We wanted to see what happens to a rubber duck if it is
+        thrown into a black hole. Looks like it''s still going down.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 699411685035475048, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Name
-      value: Fighter_squad
+      value: Ship_Fighter_squad
       objectReference: {fileID: 0}
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -139,6 +139,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: c5db30a665e806c49872f097654860d3,
         type: 3}
+    - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_text
+      value: '
+
+        - Why are the windows so dirty, boys, whose turn was yesterday.
+
+
+        -
+        I think Ben forgot about it again.'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
