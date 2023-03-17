@@ -1,7 +1,8 @@
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 
-public abstract class Attack : MonoBehaviour
+public abstract class Attack : NetworkBehaviour
 {
     public int Damage { get; private set; }
     public float Cooldown { get; private set; }
@@ -55,6 +56,15 @@ public abstract class Attack : MonoBehaviour
      * Der return type gibt an ob das Ziel gestorben ist.
      */
     public abstract bool SpecificAttack(GameObject target);
+
+    [ClientRpc] 
+    public virtual void DrawOnClientRpc(Vector3 start, Vector3 end)
+    {
+        // We will ovverride this method in the specific attacks
+        // but it cannot be abstract because of the NetworkBehaviour
+        if (GameManager.Instance.IsHost) return;
+        // Guck mal da oben das ist wichtig das es keni StackOverflow gibt
+    }
     
     public bool IsReady()
     {
