@@ -16,13 +16,13 @@ MonoBehaviour:
     type: 3}
   special: 1
   cost: 10
-  health: 5
+  health: 7
   moveSpeed: 5
   attack: 1
   attackRange: 20
   attackSeekRange: 25
   specialAttackSeekRange: 0
-  attackCooldown: 1
+  attackCooldown: 0.5
   behaviour: 1
   miningRate: 0
   miningTimeUnitLength: 2.5

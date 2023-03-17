@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
+  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1349,7 +1349,7 @@ MonoBehaviour:
   - {fileID: 1637526185}
   specialAsteroidSpawnRadius: 10
   continuousAsteroidRate: 2
-  continuousAsteroidTimeUnit: 30
+  continuousAsteroidTimeUnit: 20
   maxAsteroidOnScreen: 10
   continuousSpecialAsteroidRate: 2
   continuousSpecialAsteroidTimeUnit: 30
@@ -1951,7 +1951,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -1966,7 +1966,12 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2518,7 +2523,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -2533,7 +2538,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3607,7 +3612,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -3622,7 +3627,12 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7248,7 +7258,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -7263,7 +7273,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8691,7 +8701,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -8706,7 +8716,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9068,7 +9078,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -9083,7 +9093,12 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9954,7 +9969,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -9969,7 +9984,12 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10816,7 +10836,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -10831,7 +10851,12 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12086,7 +12111,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -12101,7 +12126,12 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: multiplayerBehaviour
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12196,7 +12226,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -12211,7 +12241,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

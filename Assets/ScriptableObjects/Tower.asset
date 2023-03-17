@@ -15,13 +15,13 @@ MonoBehaviour:
   unitPrefab: {fileID: 5770119711719288360, guid: 38fc206f73beb461a96573c663ce77c7,
     type: 3}
   special: 1
-  cost: 10
-  health: 10
+  cost: 60
+  health: 25
   moveSpeed: 0
   attack: 20
-  attackRange: 30
-  attackSeekRange: 30
-  specialAttackSeekRange: 30
+  attackRange: 50
+  attackSeekRange: 50
+  specialAttackSeekRange: 50
   attackCooldown: 1
   behaviour: 5
   miningRate: 0
