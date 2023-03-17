@@ -11,8 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask clickableLayers;
     [SerializeField] private GameObject unitIndicator;
     
+    private GameObject _spawnableUnitIndicator;
+    private GameObject _nonSpawnableUnitIndicator;
+    
     private Camera _mainCamera;
-    private int _selectedUnitIndex = 0;
+    private int _selectedUnitIndex;
 
     private void Awake()
     {
@@ -36,6 +39,9 @@ public class PlayerController : MonoBehaviour
         {
             unitIndicator.transform.rotation = Quaternion.Euler(0, -90, 0);
         }
+        
+        _spawnableUnitIndicator = unitIndicator.transform.GetChild(0).gameObject;
+        _nonSpawnableUnitIndicator = unitIndicator.transform.GetChild(1).gameObject;
     }
     
     public void OnClick(InputValue value)
@@ -64,8 +70,28 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        unitIndicator.transform.position = _mainCamera.ScreenToWorldPoint(Pointer.current.position.ReadValue());
+        var mousePosition = Pointer.current.position.ReadValue();
+        
+        unitIndicator.transform.position = _mainCamera.ScreenToWorldPoint(mousePosition);
         unitIndicator.transform.position = new Vector3(unitIndicator.transform.position.x, 10, unitIndicator.transform.position.z);
+
+        if (mousePosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || mousePosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo)
+        {
+            if (_selectedUnitIndex == 0) return;
+            
+            if (UnitManager.Instance.UnitClasses[_selectedUnitIndex - 1].Cost <= GameManager.Instance.GetResource(player, GameManager.ResourceType.Metal))
+            {
+                ChangeSpawnableIndicator(true);
+            }
+            else
+            {
+                ChangeSpawnableIndicator(false);
+            }
+        }
+        else
+        {
+            ChangeSpawnableIndicator(false);
+        }
     }
 
     public void SetSelectedUnitIndex(int index)
@@ -83,12 +109,23 @@ public class PlayerController : MonoBehaviour
         _selectedUnitIndex = index;
         UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player);
         
-        foreach (Transform child in unitIndicator.transform)
+        foreach (Transform child in _spawnableUnitIndicator.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+        foreach (Transform child in _nonSpawnableUnitIndicator.transform)
         {
             child.gameObject.SetActive(false);
         }
         
-        unitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
+        _spawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
+        _nonSpawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
+    }
+    
+    private void ChangeSpawnableIndicator(bool spawnable)
+    {
+        _spawnableUnitIndicator.SetActive(spawnable);
+        _nonSpawnableUnitIndicator.SetActive(!spawnable);
     }
 
     private void DeselectUnit()
@@ -96,7 +133,12 @@ public class PlayerController : MonoBehaviour
         _selectedUnitIndex = 0;
         UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player, false);
         
-        foreach (Transform child in unitIndicator.transform)
+        foreach (Transform child in _spawnableUnitIndicator.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
+        
+        foreach (Transform child in _nonSpawnableUnitIndicator.transform)
         {
             child.gameObject.SetActive(false);
         }

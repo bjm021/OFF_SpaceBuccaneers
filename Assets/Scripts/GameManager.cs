@@ -122,6 +122,33 @@ public class GameManager : NetworkBehaviour
         UIManager.Instance.UpdateResourceText();
     }
     
+    public int GetResource(Player player, ResourceType resourceType)
+    {
+        switch (player)
+        {
+            case Player.PlayerOne:
+                switch (resourceType)
+                {
+                    case ResourceType.Metal:
+                        return PlayerOneMetal;
+                    case ResourceType.Crystals:
+                        return PlayerOneCrystals;
+                }
+                break;
+            case Player.PlayerTwo:
+                switch (resourceType)
+                {
+                    case ResourceType.Metal:
+                        return PlayerTwoMetal;
+                    case ResourceType.Crystals:
+                        return PlayerTwoCrystals;
+                }
+                break;
+        }
+
+        return 0;
+    }
+    
     public void Start()
     {
         StartRound();
