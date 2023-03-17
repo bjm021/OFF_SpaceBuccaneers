@@ -14,11 +14,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 89ef00208c2224d5480f2189e3e198de,
         type: 3}
+    - target: {fileID: 576832868550354254, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89ef00208c2224d5480f2189e3e198de,
+        type: 3}
     - target: {fileID: 699411685035475048, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Name
-      value: Card Variant 3
+      value: Ability
       objectReference: {fileID: 0}
+    - target: {fileID: 4131456807491295773, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5912202035231240420}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -27,7 +38,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -42,7 +53,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -52,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -129,3 +140,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60ef9dcaf12ed465d9679db75a273ca8, type: 3}
+--- !u!114 &5912202035231240420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 576832868550354254, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6488858157286823338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -16,7 +16,9 @@ PrefabInstance:
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: "Blackhole\n Tank"
+      value: 'Black hole
+
+        Tank'
       objectReference: {fileID: 0}
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -33,6 +35,16 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131456807491295773, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5912202035231240420}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -41,7 +53,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -56,7 +68,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -66,7 +78,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -162,8 +174,26 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: unitClass
+      value: 
+      objectReference: {fileID: 11400000, guid: 18983070b36624004b0f6790b8374e4e,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60ef9dcaf12ed465d9679db75a273ca8, type: 3}
+--- !u!114 &5912202035231240420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 576832868550354254, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6488858157286823338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

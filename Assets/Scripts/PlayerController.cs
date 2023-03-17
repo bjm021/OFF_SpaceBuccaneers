@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask clickableLayers;
     [SerializeField] private GameObject unitIndicator;
     [SerializeField] private float cooldown = 1f;
+    [SerializeField] private Card[] cards;
     
     private GameObject _spawnableUnitIndicator;
     private GameObject _nonSpawnableUnitIndicator;
@@ -53,14 +54,14 @@ public class PlayerController : MonoBehaviour
         {
             if (_selectedUnitIndex == 0)
             {
-                // Do nothing
+                return;
             }
             
             var clickPosition = Pointer.current.position.ReadValue();
             var ray = _mainCamera.ScreenPointToRay(clickPosition);
 
             if (!Physics.Raycast(ray, out var hit, 111, clickableLayers)) return;
-
+            
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("NavMesh"))
             {
                 if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
@@ -69,7 +70,7 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(SpawnUnitCooldown());
                 }
                 
-                DeselectUnit();
+                DeselectUnit(_selectedUnitIndex);
             }
         }
     }
@@ -119,11 +120,10 @@ public class PlayerController : MonoBehaviour
 
     public void SetSelectedUnitIndex(int index)
     {
-        if (index == _selectedUnitIndex)
+        if (_selectedUnitIndex != 0)
         {
-            DeselectUnit();
+            DeselectUnit(_selectedUnitIndex);
         }
-        
         SelectUnit(index);
     }
 
@@ -143,9 +143,11 @@ public class PlayerController : MonoBehaviour
         
         _spawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
         _nonSpawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
+        
+        cards[index - 1].IsSelected = true;
     }
 
-    private void DeselectUnit()
+    private void DeselectUnit(int index)
     {
         _selectedUnitIndex = 0;
         UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player, false);
@@ -159,6 +161,8 @@ public class PlayerController : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
+        
+        cards[index - 1].IsSelected = false;
     }
 
     public void OnSelectUnit1(InputValue value)

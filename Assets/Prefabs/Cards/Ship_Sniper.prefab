@@ -36,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -147,6 +147,12 @@ PrefabInstance:
         Once I shot a Tratratuk from the planet Oumakuka-18. Nobody
         wants to believe me.'
       objectReference: {fileID: 0}
+    - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: unitClass
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f8380a8d3409489b91f412f74eb14ef,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

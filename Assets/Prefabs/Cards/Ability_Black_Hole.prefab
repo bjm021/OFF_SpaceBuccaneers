@@ -42,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -57,7 +57,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -150,8 +150,8 @@ PrefabInstance:
       propertyPath: m_text
       value: '
 
-        We wanted to see what happens to a rubber duck if it is
-        thrown into a black hole. Looks like it''s still going down.
+        We wanted to see what happens to a rubber duck if it is thrown
+        into a black hole. Looks like it''s still going down.
 
 '
       objectReference: {fileID: 0}
