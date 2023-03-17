@@ -245,25 +245,13 @@ public class GameManager : NetworkBehaviour
         }
     }
 
-    public void EndGame(Player losingPlayer)
+    public void EndGame(Player winningPlayer)
     {
         if (IsHost && inMultiplayerMode)
         {
-            RpcEndGameClientRpc((int) losingPlayer);
+            RpcEndGameClientRpc((int) winningPlayer);
         }
-        Player winningPlayer;
-        switch (losingPlayer)
-        {
-            case Player.PlayerOne:
-                winningPlayer = Player.PlayerTwo;
-                break;
-            case Player.PlayerTwo:
-                winningPlayer = Player.PlayerOne;
-                break;
-            default:
-                throw new System.ArgumentOutOfRangeException(nameof(losingPlayer), losingPlayer, null);
-        }
-        
+
         Time.timeScale = 0;
 
         UIManager.Instance.DisplayWinScreen(winningPlayer);
@@ -273,7 +261,6 @@ public class GameManager : NetworkBehaviour
     private void RpcEndGameClientRpc(int playerIndex)
     { 
         if (IsHost) return;
-        Debug.Log("ICH EWATR BEI DERRT SWE;:DJBNB DSKJ DKLJSB DKLBESTE ");
         EndGame(playerIndex);
     }
 
