@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class UnitManager : MonoBehaviour
+public class UnitManager : NetworkBehaviour
 {
     #region Singleton
 
@@ -25,28 +26,58 @@ public class UnitManager : MonoBehaviour
     #endregion
 
     [SerializeField] private List<UnitClass> unitClasses = new List<UnitClass>();
+    [SerializeField] private bool multiplayerBehaviour = false;
     public List<UnitClass> UnitClasses => unitClasses;
 
-    private void Initialize()
+    private void Initialize() 
     {
         // Do nothing
     }
 
+    // Wird nur vom Client aufgerufen
+    [ServerRpc(RequireOwnership = false)]
+    public void SpawnUnitServerRpc(Vector3 position, int unitIndex)
+    {
+        UnitClass unitClass = UnitManager.Instance.UnitClasses[unitIndex];
+        var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.Euler(0, -90, 0));
+        if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
+        var unit = unitGo.GetComponent<Unit>();
+        unit.Initialize(unitClass, GameManager.Player.PlayerTwo, null);
+    }
+
     public bool SpawnUnit(Vector3 position, UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy = null)
     {
+        switch (owner)
         {
-            // TODO: Check if player has enough resources to spawn unit, if not return false
-            // Also remove resources from player
+            case GameManager.Player.PlayerOne when GameManager.Instance.PlayerOneMetal < unitClass.Cost:
+                return false;
+            case GameManager.Player.PlayerOne:
+                GameManager.Instance.RemoveResource(GameManager.Player.PlayerOne, GameManager.ResourceType.Metal, unitClass.Cost);
+                break;
+            case GameManager.Player.PlayerTwo when GameManager.Instance.PlayerTwoMetal < unitClass.Cost:
+                return false;
+            case GameManager.Player.PlayerTwo:
+                GameManager.Instance.RemoveResource(GameManager.Player.PlayerTwo, GameManager.ResourceType.Metal, unitClass.Cost);
+                break;
+        }
 
-            var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.identity);
-            if (spawnedBy != null)
-            {
-                spawnedBy.SpawnedUnits.Add(unitGo);
-            }
-            var unit = unitGo.GetComponent<Unit>();
-
-            unit.Initialize(unitClass, owner, spawnedBy);
+        if (!GameManager.Instance.Host)
+        {
+            SpawnUnitServerRpc(position, unitClasses.IndexOf(unitClass));
             return true;
         }
+           
+
+        var unitGo = Instantiate(unitClass.UnitPrefab, position, Quaternion.Euler(0, 90, 0));
+        if (multiplayerBehaviour) unitGo.GetComponent<NetworkObject>().Spawn();
+        if (spawnedBy != null)
+        {
+            spawnedBy.SpawnedUnits.Add(unitGo);
+        }
+        var unit = unitGo.GetComponent<Unit>();
+
+        unit.Initialize(unitClass, owner, spawnedBy);
+        return true;
+        
     }
 }

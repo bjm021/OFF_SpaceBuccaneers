@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4059389418014190180}
   - component: {fileID: -5324301098971114604}
   - component: {fileID: 345874132180275214}
+  - component: {fileID: -3144694071804945235}
   m_Layer: 0
   m_Name: Asteroid 3
   m_TagString: Untagged
@@ -44,7 +45,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 1.7, y: 0.5, z: 1.7}
+  m_Extents: {x: 1.3, y: 0.5, z: 1.3}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -91,6 +92,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 0
+--- !u!114 &-3144694071804945235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3263972991104819190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &7599217292690435578
 PrefabInstance:
   m_ObjectHideFlags: 0

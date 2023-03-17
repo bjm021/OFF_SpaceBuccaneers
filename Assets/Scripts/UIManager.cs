@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -32,7 +33,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text playerTwoMetalText;
     [SerializeField] private TMP_Text playerTwoCrystalText;
     [Space]
+    [SerializeField] private Image playerOneHealthBar;
+    [SerializeField] private Image playerTwoHealthBar;
+    [Space]
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject pauseSettingsMenu;
     [Space]
     [SerializeField] private GameObject winScreen;
     [SerializeField] private TMP_Text winScreenText;
@@ -64,6 +69,19 @@ public class UIManager : MonoBehaviour
         playerTwoMetalText.text = GameManager.Instance.PlayerTwoMetal.ToString();
         playerTwoCrystalText.text = GameManager.Instance.PlayerTwoCrystals.ToString();
     }
+    
+    public void UpdateMotherShipHealth(GameManager.Player player, float health)
+    {
+        switch (player)
+        {
+            case GameManager.Player.PlayerOne:
+                playerOneHealthBar.fillAmount = health;
+                break;
+            case GameManager.Player.PlayerTwo:
+                playerTwoHealthBar.fillAmount = health;
+                break;
+        }
+    }
 
     public void TogglePauseMenu()
     {
@@ -75,6 +93,7 @@ public class UIManager : MonoBehaviour
         else
         {
             pauseMenu.SetActive(false);
+            pauseSettingsMenu.SetActive(false);
             Time.timeScale = 1;
         }
     }

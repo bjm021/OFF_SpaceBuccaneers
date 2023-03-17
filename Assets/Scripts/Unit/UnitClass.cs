@@ -18,7 +18,7 @@ public class UnitClass : ScriptableObject
     [Tooltip("The number of Resources mined per Time Units")] [SerializeField] public int miningRate;
     [Tooltip("The number of seconds a mining time unit should take")][SerializeField] private float miningTimeUnitLength = 1;
     [SerializeField] private float miningRange = 2.5f;
-    [Tooltip("Overrides the state logic of a unit when the distance to the Motghership is less than this value")] [SerializeField] private float mothershipAttackDistance = 5f;
+    [Tooltip("Overrides the state logic of a unit when the distance to the Mothership is less than this value")] [SerializeField] private float mothershipAttackDistance = 5f;
     
     public GameObject UnitPrefab => unitPrefab;
     public int Cost => cost;

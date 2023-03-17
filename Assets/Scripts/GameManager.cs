@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : NetworkBehaviour
+{ 
     #region Singleton
 
     public static GameManager Instance { get; private set; }
@@ -29,14 +30,19 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] private int metalAutoGenerationAmount;
     [SerializeField] private int metalAutoGenerationInterval;
+    [SerializeField] private bool inMultiplayerMode = false; 
 
     private bool _isInRound;
     
-    private int _playerOneMetal;
+    private int _playerOneMetal; 
     private int _playerOneCrystals;
     
     private int _playerTwoMetal;
     private int _playerTwoCrystals;
+    
+    private int _time;
+
+    public bool Host { get; set; } = true;
     
     public enum Player
     {
@@ -83,8 +89,25 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
-        
+
+        if (Host && inMultiplayerMode)
+            UpdateDataClientRpc(PlayerOneMetal, PlayerOneCrystals, PlayerTwoMetal, PlayerTwoCrystals, _time);
         UIManager.Instance.UpdateResourceText();
+    }
+
+    [ClientRpc]
+    private void UpdateDataClientRpc(int p1Metal, int p1Crystal, int p2Metal, int p2Crystal, int time)
+    {
+        if (Host) return;
+        
+        PlayerOneMetal = p1Metal;
+        PlayerOneCrystals = p1Crystal;
+        PlayerTwoMetal = p2Metal;
+        PlayerTwoCrystals = p2Crystal;
+        
+
+        UIManager.Instance.UpdateResourceText();
+        UIManager.Instance.UpdateTimeText(time);
     }
     
     public void RemoveResource(Player player, ResourceType resourceType, int amount)
@@ -118,6 +141,33 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateResourceText();
     }
     
+    public int GetResource(Player player, ResourceType resourceType)
+    {
+        switch (player)
+        {
+            case Player.PlayerOne:
+                switch (resourceType)
+                {
+                    case ResourceType.Metal:
+                        return PlayerOneMetal;
+                    case ResourceType.Crystals:
+                        return PlayerOneCrystals;
+                }
+                break;
+            case Player.PlayerTwo:
+                switch (resourceType)
+                {
+                    case ResourceType.Metal:
+                        return PlayerTwoMetal;
+                    case ResourceType.Crystals:
+                        return PlayerTwoCrystals;
+                }
+                break;
+        }
+
+        return 0;
+    }
+    
     public void Start()
     {
         StartRound();
@@ -126,6 +176,7 @@ public class GameManager : MonoBehaviour
     public void StartRound()
     {
         _isInRound = true;
+        if (!Host) return;
         StartCoroutine(Round());
         StartCoroutine(MetalAutoGeneration());
     }
@@ -169,23 +220,23 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Round()
     {
-        int time = roundLength;
-        UIManager.Instance.UpdateTimeText(time);
+        _time = roundLength;
+        UIManager.Instance.UpdateTimeText(_time);
         
-        while (time > 60)
+        while (_time > 60)
         {
             yield return new WaitForSeconds(1);
-            time--;
-            UIManager.Instance.UpdateTimeText(time);
+            _time--;
+            UIManager.Instance.UpdateTimeText(_time);
         }
 
         // TODO: Resource generation is doubled
         
-        while (time > 0)
+        while (_time > 0)
         {
             yield return new WaitForSeconds(1);
-            time--;
-            UIManager.Instance.UpdateTimeText(time);
+            _time--;
+            UIManager.Instance.UpdateTimeText(_time);
         }
         
         EndRound();
@@ -204,7 +255,7 @@ public class GameManager : MonoBehaviour
     public GameObject GetEnemyMothership(Player player)
     {
         switch (player)
-        {
+        {   
             case Player.PlayerOne:
                 return PlayerTwoMothership.gameObject;
             case Player.PlayerTwo:
@@ -214,23 +265,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndGame(Player losingPlayer)
+    public void EndGame(Player winningPlayer)
     {
-        Player winningPlayer;
-        switch (losingPlayer)
+        if (Host && inMultiplayerMode)
         {
-            case Player.PlayerOne:
-                winningPlayer = Player.PlayerTwo;
-                break;
-            case Player.PlayerTwo:
-                winningPlayer = Player.PlayerOne;
-                break;
-            default:
-                throw new System.ArgumentOutOfRangeException(nameof(losingPlayer), losingPlayer, null);
+            RpcEndGameClientRpc((int) winningPlayer);
         }
-        
+
         Time.timeScale = 0;
 
         UIManager.Instance.DisplayWinScreen(winningPlayer);
+    }
+    
+    [ClientRpc]
+    private void RpcEndGameClientRpc(int playerIndex)
+    { 
+        if (IsHost) return;
+        EndGame(playerIndex);
+    }
+
+    private void EndGame(int player)
+    {
+        EndGame((Player) player);
     }
 }

@@ -40,7 +40,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             if (tmpUnit.Owner == _owner) continue;
             if (tmpUnit.Dead) continue; 
             var dist = Vector3.Distance(unit.transform.position, gameObject.transform.position);
-            if (dist > _unit.UnitClass.AttackSeekRange) continue;
+            // MAYBE ERROR if (dist > _unit.UnitClass.AttackSeekRange) continue;
             if (dist < minDistance)
             {
                 minDistance = dist;
@@ -56,6 +56,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             return;
         }
 
+        if (_unit.Dead) return;
         _agent.SetDestination(_currentlyAttacking.transform.position);
         _agent.isStopped = false;
         _state = AggressiveState.GoingTo;
@@ -63,10 +64,10 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
 
     public void UpdateState()
     {
+        if (_unit.Dead) return;
         var motherShipDist = Vector3.Distance(gameObject.transform.position, GameManager.Instance.GetEnemyMothership(_unit.Owner).transform.position);
         if (motherShipDist <= _unit.UnitClass.MothershipAttackDistance)
         {
-            Debug.Log("Attacking mothership");
             _agent.isStopped = true;
             _agent.speed = 0;
             AttackMotherhip(GameManager.Instance.GetEnemyMothership(_unit.Owner));
@@ -85,8 +86,12 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
                 DoAttack();
                 return;
             }
-            _agent.isStopped = false;
-            _agent.SetDestination(_currentlyAttacking.transform.position);
+
+            if (_agent.isOnNavMesh)
+            {
+                _agent.isStopped = false;
+                _agent.SetDestination(_currentlyAttacking.transform.position);
+            }
         }
         else if (_state == AggressiveState.Attacking)
         {
@@ -132,7 +137,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             _state = AggressiveState.WaitingForAttack;
             return;
         }
-        _agent.isStopped = true; 
+        if (!_unit.Dead) _agent.isStopped = true; 
         var dead = _attack.DoAttack(_currentlyAttacking);
 
         if (dead)
@@ -149,6 +154,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
 
     private void EnterReSearchState()
     {
+        if (_unit.Dead || !_agent.isOnNavMesh) return;
         _state = AggressiveState.ReSearch;
         if (_unit.Owner == GameManager.Player.PlayerTwo) _agent.SetDestination(new Vector3(-100, transform.position.y, transform.position.z));
         if (_unit.Owner == GameManager.Player.PlayerOne) _agent.SetDestination(new Vector3(100, transform.position.y, transform.position.z));
