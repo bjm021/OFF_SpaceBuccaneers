@@ -61,9 +61,16 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         _agent.isStopped = false;
         _state = AggressiveState.GoingTo;
     }
+    
+    public void SearchNewTarget()
+    {
+        if (_unit.Dead) return;
+        FindAndGoToUnit();
+    }
 
     public void UpdateState()
     {
+        if (_unit.Stunned || !_agent.enabled) return;
         if (_unit.Dead) return;
         var motherShipDist = Vector3.Distance(gameObject.transform.position, GameManager.Instance.GetEnemyMothership(_unit.Owner).transform.position);
         if (motherShipDist <= _unit.UnitClass.MothershipAttackDistance)

@@ -19,7 +19,8 @@ public class Unit : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private Attack _attack;
     private SphereCollider _viewTrigger;
-    
+    public bool Stunned { get; set; } = false;
+
     private Coroutine _updateAI;
     
     public void Initialize(UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy)
@@ -66,6 +67,7 @@ public class Unit : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (Stunned) return;
         // TODO - Nur noch eine Loprotine 
         if (!GameManager.Instance.Host) return;
         if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
@@ -132,13 +134,29 @@ public class Unit : MonoBehaviour
     private IEnumerator StunCoroutine(float d)
     {
         yield return new WaitForSeconds(d);
+        _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;
+        Stunned = false;
+        Debug.LogWarning("Stun ended");
     }
     
     public void Stun(float duration)
     {
+        if (Stunned) return;
+        bool wasAIOn = _updateAI != null;
+        if (wasAIOn)
+        {
+            StopCoroutine(_updateAI);
+            _updateAI = null;
+        }
+        Stunned = true;
         _navMeshAgent.isStopped = true;
+        _navMeshAgent.enabled = false;
         if (_stunCoroutine != null) StopCoroutine(_stunCoroutine);
         _stunCoroutine = StartCoroutine(StunCoroutine(duration));
+        if (wasAIOn)
+        {
+            _updateAI = StartCoroutine(UpdateAI());
+        }
     }
 }
