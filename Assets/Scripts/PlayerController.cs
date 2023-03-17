@@ -10,12 +10,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Range(0.1f, 0.5f)] private float spawnArea = 0.33f;
     [SerializeField] private LayerMask clickableLayers;
     [SerializeField] private GameObject unitIndicator;
+    [SerializeField] private float cooldown = 1f;
     
     private GameObject _spawnableUnitIndicator;
     private GameObject _nonSpawnableUnitIndicator;
     
     private Camera _mainCamera;
     private int _selectedUnitIndex;
+    
+    private bool _onCooldown;
 
     private void Awake()
     {
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
     
     public void OnClick(InputValue value)
     {
-        if (value.isPressed)
+        if (value.isPressed && !_onCooldown)
         {
             var clickPosition = Pointer.current.position.ReadValue();
             var ray = _mainCamera.ScreenPointToRay(clickPosition);
@@ -62,8 +65,10 @@ public class PlayerController : MonoBehaviour
                 if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
                     && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], GameManager.Player.PlayerOne))
                 {
-                    DeselectUnit();
+                    StartCoroutine(SpawnUnitCooldown());
                 }
+                
+                DeselectUnit();
             }
         }
     }
@@ -75,23 +80,40 @@ public class PlayerController : MonoBehaviour
         unitIndicator.transform.position = _mainCamera.ScreenToWorldPoint(mousePosition);
         unitIndicator.transform.position = new Vector3(unitIndicator.transform.position.x, 10, unitIndicator.transform.position.z);
 
+        if (_selectedUnitIndex == 0) return;
+        
         if (mousePosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || mousePosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo)
         {
-            if (_selectedUnitIndex == 0) return;
-            
             if (UnitManager.Instance.UnitClasses[_selectedUnitIndex - 1].Cost <= GameManager.Instance.GetResource(player, GameManager.ResourceType.Metal))
             {
-                ChangeSpawnableIndicator(true);
-            }
-            else
-            {
-                ChangeSpawnableIndicator(false);
+                if (!_onCooldown)
+                {
+                    ChangeSpawnableIndicator(true);
+                    return;
+                }
             }
         }
-        else
+
+        ChangeSpawnableIndicator(false);
+    }
+    
+    private IEnumerator SpawnUnitCooldown()
+    {
+        _onCooldown = true;
+        float time = 0;
+        while (time < cooldown)
         {
-            ChangeSpawnableIndicator(false);
+            time += Time.deltaTime;
+            UIManager.Instance.UpdateCooldownImages(1 - (time / cooldown));
+            yield return null;
         }
+        _onCooldown = false;
+    }
+
+    private void ChangeSpawnableIndicator(bool spawnable)
+    {
+        _spawnableUnitIndicator.SetActive(spawnable);
+        _nonSpawnableUnitIndicator.SetActive(!spawnable);
     }
 
     public void SetSelectedUnitIndex(int index)
@@ -120,12 +142,6 @@ public class PlayerController : MonoBehaviour
         
         _spawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
         _nonSpawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
-    }
-    
-    private void ChangeSpawnableIndicator(bool spawnable)
-    {
-        _spawnableUnitIndicator.SetActive(spawnable);
-        _nonSpawnableUnitIndicator.SetActive(!spawnable);
     }
 
     private void DeselectUnit()
