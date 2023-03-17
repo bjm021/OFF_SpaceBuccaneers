@@ -1,11 +1,12 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.Netcode;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : NetworkBehaviour
+{ 
     #region Singleton
 
     public static GameManager Instance { get; private set; }
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] private int metalAutoGenerationAmount;
     [SerializeField] private int metalAutoGenerationInterval;
+    [SerializeField] private bool inMultiplayerMode = false; 
 
     private bool _isInRound;
     
@@ -206,7 +208,7 @@ public class GameManager : MonoBehaviour
     public GameObject GetEnemyMothership(Player player)
     {
         switch (player)
-        {
+        {   
             case Player.PlayerOne:
                 return PlayerTwoMothership.gameObject;
             case Player.PlayerTwo:
@@ -218,6 +220,10 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(Player losingPlayer)
     {
+        if (IsHost && inMultiplayerMode)
+        {
+            RpcEndGameClientRpc((int) losingPlayer);
+        }
         Player winningPlayer;
         switch (losingPlayer)
         {
@@ -234,5 +240,18 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
 
         UIManager.Instance.DisplayWinScreen(winningPlayer);
+    }
+    
+    [ClientRpc]
+    private void RpcEndGameClientRpc(int playerIndex)
+    { 
+        if (IsHost) return;
+        Debug.Log("ICH EWATR BEI DERRT SWE;:DJBNB DSKJ DKLJSB DKLBESTE ");
+        EndGame(playerIndex);
+    }
+
+    private void EndGame(int player)
+    {
+        EndGame((Player) player);
     }
 }
