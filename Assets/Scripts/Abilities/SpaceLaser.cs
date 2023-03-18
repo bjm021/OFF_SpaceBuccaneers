@@ -18,7 +18,7 @@ public class SpaceLaser : Ability
         
         
         var direction = start-realStart.position;
-        RaycastHit[] hits = Physics.SphereCastAll(realStart.position, AbilityClass.SpaceLaserWidth/2, direction.normalized * 200, 200, LayerMask.GetMask("Unit"));
+        RaycastHit[] hits = Physics.SphereCastAll(realStart.position, AbilityClass.SpaceLaserWidth/2, direction.normalized * 200, 200, LayerMask.GetMask("SpaceLaserLayer"));
         
         Debug.DrawRay(start, Vector3.up*200, Color.red, 5);
         
@@ -26,7 +26,7 @@ public class SpaceLaser : Ability
         
         foreach (var hit in hits)
         {
-            hit.collider.GetComponent<Unit>().TakeDamage(int.MaxValue);
+            hit.collider.GetComponentInParent<Unit>().TakeDamage(int.MaxValue);
         }
         
         var beam = gameObject.AddComponent<LineRenderer>();
