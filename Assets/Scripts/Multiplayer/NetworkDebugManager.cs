@@ -63,6 +63,8 @@ public class NetworkDebugManager : NetworkBehaviour
         }
         Debug.Log("Client joined, starting game");
         Time.timeScale = 1;
+        
+        // TODO - Maybe implementg rteady up system
     }
 
    
