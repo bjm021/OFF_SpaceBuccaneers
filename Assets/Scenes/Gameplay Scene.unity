@@ -1174,7 +1174,7 @@ MonoBehaviour:
   - {fileID: 1637526185}
   specialAsteroidSpawnRadius: 10
   continuousAsteroidRate: 2
-  continuousAsteroidTimeUnit: 10
+  continuousAsteroidTimeUnit: 8
   maxAsteroidOnScreen: 16
   continuousSpecialAsteroidRate: 2
   continuousSpecialAsteroidTimeUnit: 30
