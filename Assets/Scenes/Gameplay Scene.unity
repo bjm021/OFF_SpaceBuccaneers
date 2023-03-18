@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
+  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2598,6 +2598,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e92663d8e8a35e045ae48f8165b9e799, type: 2}
   - {fileID: 11400000, guid: 42a7c9636df6141468084194337289ac, type: 2}
   - {fileID: 11400000, guid: 2de0ca6c4bc0d484eab4518f73bcea05, type: 2}
+  multiplayerBehaviour: 0
 --- !u!1 &544469593
 GameObject:
   m_ObjectHideFlags: 0
@@ -10064,7 +10065,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 40
   unitIndicator: {fileID: 876181059}
-  cooldown: 2
+  cooldown: 1.5
   cards:
   - {fileID: 1867444134}
   - {fileID: 559823849}
