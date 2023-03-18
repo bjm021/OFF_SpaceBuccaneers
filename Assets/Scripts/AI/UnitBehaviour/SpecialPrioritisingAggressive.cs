@@ -184,7 +184,7 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
 
     public bool AttackMotherhip(GameObject mothership)
     {
-        return _attack.AttackMothership(mothership);
+        return _attack.AttackMothership(mothership, _unit);
     }
 
     public void SearchNewTarget()

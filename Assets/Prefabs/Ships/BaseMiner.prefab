@@ -33,11 +33,6 @@ PrefabInstance:
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
-        type: 3}
-      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 206211516544520706}
     - target: {fileID: -5537599215918256293, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -256,12 +251,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2373189189cc94d984eede1236d54d, type: 3}
---- !u!1 &206211516544520706 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6233007143405636078, guid: 4e2373189189cc94d984eede1236d54d,
-    type: 3}
-  m_PrefabInstance: {fileID: 6078886090814610412}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &461674760848189055 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5923561782366961043, guid: 4e2373189189cc94d984eede1236d54d,

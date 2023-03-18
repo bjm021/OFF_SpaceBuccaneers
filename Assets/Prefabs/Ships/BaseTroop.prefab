@@ -148,6 +148,46 @@ PrefabInstance:
       propertyPath: materialIndices.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnitSFX, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnitSFX, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: -5537599215918256293, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: GlobalObjectIdHash

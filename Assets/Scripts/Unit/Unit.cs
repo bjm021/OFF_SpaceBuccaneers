@@ -18,7 +18,8 @@ public class Unit : MonoBehaviour
     public bool Dead { get; private set; }
     public UnitSpawner SpawnedBy { get; private set; } = null;
     
-    public UnityEvent OnDeath = new UnityEvent(); 
+    public UnityEvent OnDeath = new UnityEvent();
+    public UnityEvent OnShoot = new UnityEvent();
 
     private int _currentHealth;
     private NavMeshAgent _navMeshAgent;
@@ -82,7 +83,7 @@ public class Unit : MonoBehaviour
         if (Stunned) return;
         // TODO - Nur noch eine Loprotine 
         if (!GameManager.Instance.Host) return;
-        if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Unit") || other.gameObject.layer == LayerMask.NameToLayer("Mothership"))
         {
             Unit otherUnit = other.gameObject.GetComponent<Unit>();
             if (otherUnit.Owner != Owner)
@@ -100,7 +101,7 @@ public class Unit : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!GameManager.Instance.Host) return;
-        if (other.gameObject.layer == LayerMask.NameToLayer("Unit"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Unit") || other.gameObject.layer == LayerMask.NameToLayer("Mothership"))
         {
             Unit otherUnit = other.gameObject.GetComponent<Unit>();
             if (otherUnit.Owner != Owner)
@@ -138,6 +139,13 @@ public class Unit : MonoBehaviour
         }
         if (SpawnedBy != null ) SpawnedBy.SpawnedUnits.Remove(gameObject);
 
+        // TODO - Klöären was mi t Desaztto  wan xun d wo 
+        StartCoroutine(DelayedDestroy(5f));
+    }
+    
+    public IEnumerator DelayedDestroy(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }
     

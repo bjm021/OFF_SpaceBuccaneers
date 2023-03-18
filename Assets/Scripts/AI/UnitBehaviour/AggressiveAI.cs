@@ -144,6 +144,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             _state = AggressiveState.WaitingForAttack;
             return;
         }
+        _unit.OnShoot.Invoke();
         if (!_unit.Dead) _agent.isStopped = true; 
         var dead = _attack.DoAttack(_currentlyAttacking);
 
@@ -171,7 +172,7 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
 
     public bool AttackMotherhip(GameObject mothership)
     {
-        return _attack.AttackMothership(mothership);
+        return _attack.AttackMothership(mothership, _unit);
     }
 
 

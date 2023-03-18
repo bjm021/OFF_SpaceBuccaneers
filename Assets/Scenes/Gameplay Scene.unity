@@ -426,6 +426,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 480352194}
     m_Modifications:
+    - target: {fileID: -3849161864658442495, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 163536518949024148, guid: 5b917dd0da76f9b469d579c100d92317,
         type: 3}
       propertyPath: m_RootOrder
@@ -7142,7 +7147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1393556532
 Transform:
   m_ObjectHideFlags: 0
