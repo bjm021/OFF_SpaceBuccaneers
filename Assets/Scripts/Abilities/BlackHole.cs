@@ -13,7 +13,6 @@ public class BlackHole : Ability
     public override void DoAttack(Vector3 start)
     {
         _start = start;
-        Debug.LogError("BLACK GHOLE");
         affectedUnits = Physics.OverlapSphere(start, AbilityClass.BlackHoleRange, LayerMask.GetMask("Unit"));
         for (var i = 0; i < affectedUnits.Length; i++)
         {
