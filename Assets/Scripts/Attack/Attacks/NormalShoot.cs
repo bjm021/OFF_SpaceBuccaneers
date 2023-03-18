@@ -14,7 +14,7 @@ public class NormalShoot : Attack
         if (GameManager.Instance.Host) DrawOnClientRpc(gameObject.transform.position, target.transform.position);
 
         //var targetUnit = target.GetComponent<Unit>();
-        
+
         if (target.TryGetComponent(out Mothership mothership))
         {
             return mothership.TakeDamage(Damage) <= 0;

@@ -153,6 +153,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1447724886185911681}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6471051351797903550 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5609955673399039295, guid: f6bb65b7fdf37634180ac5bb3e89a1ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1447724886185911681}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &8186769792776478455 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7316772545985624950, guid: f6bb65b7fdf37634180ac5bb3e89a1ea,
@@ -227,6 +233,41 @@ PrefabInstance:
       propertyPath: materialIndices.Array.data[4]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 6471051351797903550}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: -5537599215918256293, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: GlobalObjectIdHash
@@ -292,14 +333,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: SharkBomber
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3718490384228389114, guid: 1839cb2d91665420c813f43a0c53af85, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 163536518949024148, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5946469253481359876}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1295020303486058233, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5637839705919122953}
   m_SourcePrefab: {fileID: 100100000, guid: 1839cb2d91665420c813f43a0c53af85, type: 3}
 --- !u!4 &4877324507057430853 stripped
 Transform:
@@ -307,3 +353,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4749964263248203985}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5770119711719288360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1295020303486058233, guid: 1839cb2d91665420c813f43a0c53af85,
+    type: 3}
+  m_PrefabInstance: {fileID: 4749964263248203985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5637839705919122953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770119711719288360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84ead2f1e20eba4b87679b1476b1428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
