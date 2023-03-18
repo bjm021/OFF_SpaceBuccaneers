@@ -8,6 +8,8 @@ public class AbilityManager : NetworkBehaviour
     [SerializeField] private List<AbilityClass> abilityClasses;
     [SerializeField] public bool multiplayerBehaviour = false;
     
+    public List<AbilityClass> AbilityClasses => abilityClasses;
+
     #region Singleton
 
     public static AbilityManager Instance { get; private set; }

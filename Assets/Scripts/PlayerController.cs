@@ -94,15 +94,27 @@ public class PlayerController : MonoBehaviour
 
         if (_selectedUnitIndex == 0) return;
         
-        if (mousePosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || mousePosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo)
+        if (_selectedUnitIndex < 7) // Unit
         {
-            if (UnitManager.Instance.UnitClasses[_selectedUnitIndex - 1].Cost <= GameManager.Instance.GetResource(player, GameManager.ResourceType.Metal))
+
+            if (mousePosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || mousePosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo)
             {
-                if (!_onCooldown)
+                if (UnitManager.Instance.UnitClasses[_selectedUnitIndex - 1].Cost <= GameManager.Instance.GetResource(player, GameManager.ResourceType.Metal))
                 {
-                    ChangeSpawnableIndicator(true);
-                    return;
+                    if (!_onCooldown)
+                    {
+                        ChangeSpawnableIndicator(true);
+                        return;
+                    }
                 }
+            }
+        }
+        else // Ability
+        {
+            if (AbilityManager.Instance.AbilityClasses[_selectedUnitIndex - 7].Cost <= GameManager.Instance.GetResource(player, GameManager.ResourceType.Crystals))
+            {
+                ChangeSpawnableIndicator(true);
+                return;
             }
         }
 
@@ -150,11 +162,11 @@ public class PlayerController : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
+
+        cards[index - 1].IsSelected = true;
         
         _spawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
         _nonSpawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
-        
-        cards[index - 1].IsSelected = true;
     }
 
     private void DeselectUnit(int index)

@@ -19,8 +19,7 @@ public class AbilityClass : ScriptableObject
     [SerializeField] private float spaceLaserWidth;
     [Header("MineField")]
     [SerializeField] private float mineCount;
-    [SerializeField] private float mineMinLowerCoordinate;
-    [SerializeField] private float mineMaxUpperCoordinate;
+    [SerializeField] private float mineRadius;
     [SerializeField] private UnitClass mineUnitClass;
 
     public GameObject AbilityPrefab => abilityPrefab;
@@ -33,8 +32,7 @@ public class AbilityClass : ScriptableObject
     public float BlackHoleDuration => blackHoleDuration;
     public float SpaceLaserWidth => spaceLaserWidth;
     public float MineCount => mineCount;
-    public float MineMinLowerCoordinate => mineMinLowerCoordinate;
-    public float MineMaxUpperCoordinate => mineMaxUpperCoordinate;
+    public float MineRadius => mineRadius;
     public UnitClass MineUnitClass => mineUnitClass;
     
 }

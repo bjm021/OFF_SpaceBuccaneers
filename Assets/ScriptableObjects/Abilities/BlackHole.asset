@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityPrefab: {fileID: 6343964736018802436, guid: 30e63054c5cf0914ebb0553a1170cf29,
     type: 3}
-  cost: 0
+  cost: 50
   cooldown: 0
   empRange: 0
   empStunTime: 0
-  blackHoleRange: 30
-  blackHolePullForce: 25
+  blackHoleRange: 7
+  blackHolePullForce: 10
   blackHoleDuration: 4
   spaceLaserWidth: 0
+  mineCount: 0
+  mineMinLowerCoordinate: 0
+  mineMaxUpperCoordinate: 0
+  mineUnitClass: {fileID: 0}

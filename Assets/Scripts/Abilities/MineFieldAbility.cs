@@ -13,12 +13,13 @@ public class MineFieldAbility : Ability
         for (int i = 0; i < AbilityClass.MineCount; i++)
         {
             
-            var position = new Vector3(Random.Range(AbilityClass.MineMinLowerCoordinate, AbilityClass.MineMaxUpperCoordinate), 0, Random.Range(AbilityClass.MineMinLowerCoordinate, AbilityClass.MineMaxUpperCoordinate));
-            //var asteroid = Instantiate(asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)], position, 
-            //    Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
+            var position = Random.insideUnitSphere * AbilityClass.MineRadius + start;
+            position.y = 0;
+            // var asteroid = Instantiate(asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)], position, 
+            // Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
             UnitManager.Instance.SpawnUnit(position, AbilityClass.MineUnitClass, GameManager.Player.PlayerOne);
 
-            //if (multiplayerBehaviour) asteroid.GetComponent<NetworkObject>().Spawn(); 
+            // if (multiplayerBehaviour) asteroid.GetComponent<NetworkObject>().Spawn(); 
 
 
         }
