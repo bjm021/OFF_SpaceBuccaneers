@@ -16,7 +16,7 @@ public abstract class Attack : NetworkBehaviour
         AttackRange = attackRange;
     }
     
-    public bool DoAttack(GameObject target)
+    public bool DoAttack(GameObject target, Unit self)
     {
         // Nur die Besten überleben
         if (target == null) return false;
@@ -29,6 +29,7 @@ public abstract class Attack : NetworkBehaviour
         // Denk dran: nur die Besten überleben0
         if (Vector3.Distance(gameObject.transform.position, target.transform.position)-2 > AttackRange) return false;
         _inCooldown = true;
+        self.OnShoot.Invoke(target.transform.position);
         var warErNichtDerBeste = SpecificAttack(target);
         StartCoroutine(CooldownRoutine());
         return warErNichtDerBeste;
@@ -37,7 +38,7 @@ public abstract class Attack : NetworkBehaviour
     public bool AttackMothership(GameObject mothership, Unit self)
     {
         if (_inCooldown) return false;
-        self.OnShoot.Invoke();
+        self.OnShoot.Invoke(mothership.transform.position);
         _inCooldown = true;
         var result = SpecificAttack(mothership);
         StartCoroutine(CooldownRoutine());

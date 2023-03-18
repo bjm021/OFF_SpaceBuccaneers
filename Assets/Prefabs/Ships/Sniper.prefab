@@ -18,9 +18,19 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 939690194150295485, guid: 5b02ca786258aa449a02be46970f0370,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1375056759599747144, guid: 5b02ca786258aa449a02be46970f0370,
         type: 3}
       propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5557929095077762828, guid: 5b02ca786258aa449a02be46970f0370,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6095264779571417786, guid: 5b02ca786258aa449a02be46970f0370,
@@ -298,3 +308,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aeaa8afc775ce9448212f1ac36c4e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shotVFX: {fileID: 6279257580214205455, guid: 1465367d3b5844c41815ea804b5bd58e,
+    type: 3}

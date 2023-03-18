@@ -158,7 +158,7 @@ public class SpecialPrioritisingAggressiveAI : MonoBehaviour, IAIBehaviour
             return;
         }
         _agent.isStopped = true; 
-        var dead = _attack.DoAttack(_currentlyAttacking);
+        var dead = _attack.DoAttack(_currentlyAttacking, _unit);
 
         if (dead)
         {

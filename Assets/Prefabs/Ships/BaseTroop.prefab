@@ -388,3 +388,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b66635f202e0474681538c8eb9e61f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shotVFX: {fileID: 1170232049353517535, guid: aa71a48cfa1ae44e88e318c58fc33424,
+    type: 3}

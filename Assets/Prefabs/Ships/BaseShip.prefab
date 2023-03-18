@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -9122983968787419247}
   - component: {fileID: 8456643125889411765}
   - component: {fileID: 546576641799057181}
+  - component: {fileID: 826790675960365127}
   m_Layer: 6
   m_Name: BaseShip
   m_TagString: Untagged
@@ -71,6 +72,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 826790675960365127}
+        m_TargetAssemblyTypeName: UnitVFX, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnShoot:
     m_PersistentCalls:
       m_Calls:
@@ -78,6 +91,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnitSFX, Assembly-CSharp
         m_MethodName: PlayShootSound
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 826790675960365127}
+        m_TargetAssemblyTypeName: UnitVFX, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -326,3 +351,21 @@ MonoBehaviour:
   _deathSounds:
   - {fileID: 8300000, guid: 69b45c98aebf9214c8f1a522241c5a41, type: 3}
   - {fileID: 8300000, guid: 89284581bb602437fbc70b38c992c254, type: 3}
+--- !u!114 &826790675960365127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295020303486058233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26762e04f62a347bab39c8b7941f4fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
