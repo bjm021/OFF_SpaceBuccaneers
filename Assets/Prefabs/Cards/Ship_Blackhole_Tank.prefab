@@ -152,15 +152,8 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: '
-
-        We''re too slow, we''ll miss all the fun. Faster! Faster
-        ! Faster!'
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 35
+      value: This massiv Tank is perfekt for braking the Enemys Defencelines. With
+        great Amor it try to suck in Enemys Ships, slows them down and demage them.
       objectReference: {fileID: 0}
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}

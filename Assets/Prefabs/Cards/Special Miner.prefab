@@ -151,10 +151,8 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: '
-
-        Everybody''s having a great time at war and I''m just kicking
-        and kicking this crystal. The boys could switch places from time to time.'
+      value: This Mining Unit is specialalied to mine the Crystals. With this Resources
+        you can buy special Abilitys like an EMP.
       objectReference: {fileID: 0}
     - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
