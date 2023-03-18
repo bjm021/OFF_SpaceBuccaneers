@@ -30,7 +30,7 @@ public class MultiplayerMenu : MonoBehaviour
             }
         }
         
-        //localIPText.text = _localIP;
+        localIPText.text = _localIP;
         //inputField.text = _localIP;
         multiplayerButton.interactable = false;
     }
@@ -61,7 +61,7 @@ public class MultiplayerMenu : MonoBehaviour
             }
             else
             {
-                inputField.text = "";
+                //inputField.text = "";
                 multiplayerButton.interactable = CheckIfIPIsValid(inputField.text);
             }
         }
