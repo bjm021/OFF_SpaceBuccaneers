@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class MoveTowardParentPivot : MonoBehaviour
 {
-    public float distance;
     public float time;
     
+    private Vector3 _startPosition;
     private float _startTime;
 
     private void Awake()
     {
         _startTime = time;
-        distance = Vector3.Distance(transform.position, transform.parent.position);
+        _startPosition = transform.position;
     }
 
     private void Update()
     {
         if (time > 0)
         {
-            transform.position = Vector3.Lerp(transform.position, transform.parent.position, 1 - (time / _startTime));
+            transform.position = Vector3.Lerp(_startPosition, transform.parent.position, 1 - time / _startTime);
             time -= Time.deltaTime;
         }
         else

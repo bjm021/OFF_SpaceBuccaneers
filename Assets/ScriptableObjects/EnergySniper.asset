@@ -27,4 +27,4 @@ MonoBehaviour:
   miningRate: 0
   miningTimeUnitLength: 2.5
   miningRange: 2.5
-  mothershipAttackDistance: 40
+  mothershipAttackDistance: 65
