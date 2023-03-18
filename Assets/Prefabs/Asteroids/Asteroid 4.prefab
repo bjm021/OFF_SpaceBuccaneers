@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab71094959644344a999b28af4c28ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minResources: 10
-  maxResources: 20
+  minResources: 15
+  maxResources: 25
   onHalfResources:
     m_PersistentCalls:
       m_Calls:

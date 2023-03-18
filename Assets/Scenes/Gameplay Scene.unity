@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
+  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   - {fileID: 1637526185}
   specialAsteroidSpawnRadius: 10
   continuousAsteroidRate: 2
-  continuousAsteroidTimeUnit: 10
+  continuousAsteroidTimeUnit: 8
   maxAsteroidOnScreen: 16
   continuousSpecialAsteroidRate: 2
   continuousSpecialAsteroidTimeUnit: 30
