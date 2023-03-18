@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class SharkAttack : Attack
 {
-    private void Start()
-    {
-        Debug.Log("shark --init");
-    }
-
     private LineRenderer _lineRenderer;
     public override bool SpecificAttack(GameObject target)
     {
@@ -31,9 +26,7 @@ public class SharkAttack : Attack
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("COLLISION");
         if (!other.gameObject.TryGetComponent(out Mothership mothership)) return;
         mothership.TakeDamage(Damage);
-        Debug.Log("KRACHBOOOOOOOOM");
     }
 }
