@@ -15,6 +15,8 @@ public class AbilityClass : ScriptableObject
     [SerializeField] private float blackHoleRange;
     [SerializeField] private float blackHolePullForce;
     [SerializeField] private float blackHoleDuration;
+    [Header("Spaaaaace Laaaaaser")]
+    [SerializeField] private float spaceLaserWidth;
     
     public GameObject AbilityPrefab => abilityPrefab;
     public int Cost => cost;
@@ -24,6 +26,6 @@ public class AbilityClass : ScriptableObject
     public float BlackHoleRange => blackHoleRange;
     public float BlackHolePullForce => blackHolePullForce;
     public float BlackHoleDuration => blackHoleDuration;
-    
+    public float SpaceLaserWidth => spaceLaserWidth;
     
 }
