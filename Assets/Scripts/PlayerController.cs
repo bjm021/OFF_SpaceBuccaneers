@@ -64,11 +64,21 @@ public class PlayerController : MonoBehaviour
             
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer("NavMesh"))
             {
-                if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
-                    && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], player))
+                if (_selectedUnitIndex >= 7)
                 {
-                    StartCoroutine(SpawnUnitCooldown());
+                    // TODO - Spawn Ability checks
+                    AbilityManager.Instance.SpawnAbility(hit.point, _selectedUnitIndex-1, player);
                 }
+                else
+                {
+                    if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
+                        && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], player))
+                    {
+                        StartCoroutine(SpawnUnitCooldown());
+                    }
+                }
+                
+                
                 
                 DeselectUnit(_selectedUnitIndex);
             }
@@ -144,6 +154,8 @@ public class PlayerController : MonoBehaviour
         _spawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
         _nonSpawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
         
+        // TODO - More cards for abilities?
+        if (index >= 7) return;
         cards[index - 1].IsSelected = true;
     }
 
@@ -162,6 +174,8 @@ public class PlayerController : MonoBehaviour
             child.gameObject.SetActive(false);
         }
         
+        // TODO - Abiliby cards
+        if (index >= 7) return;
         cards[index - 1].IsSelected = false;
     }
 

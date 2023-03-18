@@ -302,3 +302,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b66635f202e0474681538c8eb9e61f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shotVFX: {fileID: 1170232049353517535, guid: 4d88c5e6134f84f8f9be35c9af04829b,
+    type: 3}
