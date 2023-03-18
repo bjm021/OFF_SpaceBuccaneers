@@ -137,10 +137,8 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: '
-
-        Once I shot a Tratratuk from the planet Oumakuka-18. Nobody
-        wants to believe me.'
+      value: "The Energy Sniper has a powerful longrange Wepon. \r\r\nIdeal form
+        surporting other Units. But without other Units its a light Target to destroy."
       objectReference: {fileID: 0}
     - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
