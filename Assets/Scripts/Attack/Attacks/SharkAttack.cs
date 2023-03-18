@@ -21,12 +21,13 @@ public class SharkAttack : Attack
 
     private void VisualAttackRender(Vector3 start, Vector3 end)
     {
-        // TODO - EXPLOSION BOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOM 
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.TryGetComponent(out Mothership mothership)) return;
         mothership.TakeDamage(Damage);
+        GetComponent<Unit>().TakeDamage(int.MaxValue);
     }
 }
