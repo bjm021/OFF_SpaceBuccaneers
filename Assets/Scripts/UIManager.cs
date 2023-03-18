@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [Space]
     [SerializeField] private TMP_Text timeText;
+    [SerializeField] private Material[] timeTextMaterials;
     [Space]
     [SerializeField] private TMP_Text playerOneMetalText;
     [SerializeField] private TMP_Text playerOneCrystalText;
@@ -58,12 +59,13 @@ public class UIManager : MonoBehaviour
         spawnableAreaIndicator.SetActive(active);
     }
     
-    public void UpdateTimeText(int time)
+    public void UpdateTimeText(int time, bool recolor = false)
     {
         string minutes = Mathf.Floor(time / 60).ToString("0");
         string seconds = (time % 60).ToString("00");
         
         timeText.text = minutes + ":" + seconds;
+        timeText.fontSharedMaterial = timeTextMaterials[recolor ? 1 : 0];
     }
     
     public void UpdateResourceText()
@@ -119,10 +121,10 @@ public class UIManager : MonoBehaviour
         switch (winner)
         {
             case GameManager.Player.PlayerOne:
-                winScreenText.text = "Player One Won!";
+                winScreenText.text = "Blue Won!";
                 break;
             case GameManager.Player.PlayerTwo:
-                winScreenText.text = "Player Two Won!";
+                winScreenText.text = "Red Won!";
                 break;
         }
     }

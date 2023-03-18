@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: sector_034 SDF
   m_EditorClassIdentifier: 
   hashCode: 1585968741
-  material: {fileID: 6320988971262760994}
+  material: {fileID: 2100000, guid: a7e2340bde00343af88cae47cd64cd5b, type: 2}
   materialHashCode: -9015387
   m_Version: 1.1.0
   m_SourceFontFileGUID: bc8885a8a72ec4e599ccafc40ecc6787
