@@ -241,14 +241,14 @@ public class GameManager : NetworkBehaviour
             _time--;
             UIManager.Instance.UpdateTimeText(_time);
         }
-
-        // TODO: Resource generation is doubled
         
+        metalAutoGenerationAmount *= 2;
+
         while (_time > 0)
         {
             yield return new WaitForSeconds(1);
             _time--;
-            UIManager.Instance.UpdateTimeText(_time);
+            UIManager.Instance.UpdateTimeText(_time, _time % 2 == 0);
         }
         
         EndRound();

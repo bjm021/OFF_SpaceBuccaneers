@@ -54,9 +54,13 @@ public class MultiplayerMenu : MonoBehaviour
             // Is host
             multiplayerButtonText.text = "Start host";
 
-            if (inputField.text == "")
+            if (inputField.text is "" or " ")
             {
                 inputField.text = _localIP;
+                multiplayerButton.interactable = true;
+            }
+            else if (inputField.text == _localIP)
+            {
                 multiplayerButton.interactable = true;
             }
             else
