@@ -18,7 +18,7 @@ MonoBehaviour:
   cost: 35
   health: 7
   moveSpeed: 25
-  attack: 100
+  attack: 50
   attackRange: 1
   attackSeekRange: 1
   specialAttackSeekRange: 1
