@@ -137,13 +137,8 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: '
-
-        - Why are the windows so dirty, boys, whose turn was yesterday.
-
-
-        -
-        I think Ben forgot about it again.'
+      value: The Fighter Squad are close combat skirmishers with high speed and fire
+        rate to hunt down enemy ships
       objectReference: {fileID: 0}
     - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}

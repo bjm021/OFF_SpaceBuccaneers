@@ -22,7 +22,7 @@ MonoBehaviour:
   attackRange: 65
   attackSeekRange: 65
   specialAttackSeekRange: 85
-  attackCooldown: 3.5
+  attackCooldown: 3
   behaviour: 5
   miningRate: 0
   miningTimeUnitLength: 2.5

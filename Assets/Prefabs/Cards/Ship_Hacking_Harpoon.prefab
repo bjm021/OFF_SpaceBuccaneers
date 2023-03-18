@@ -147,8 +147,8 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: I'm about to hack this ship and learn their deepest secrets, no one
-        will hide anything from me.
+      value: This medium cruiser can fire its big Harpoon to hack enemy ships. Ships
+        that are hit by this weapon are stunned for a short time.
       objectReference: {fileID: 0}
     - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}

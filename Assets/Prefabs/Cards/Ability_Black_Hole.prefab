@@ -149,17 +149,10 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: '
-
-        We wanted to see what happens to a rubber duck if it is thrown
-        into a black hole. Looks like it''s still going down.
+      value: 'The Black hole sucks nearby enemy units down to the singularity and
+        destroys them.
 
 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
