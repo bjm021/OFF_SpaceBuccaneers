@@ -167,7 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b66635f202e0474681538c8eb9e61f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotVFX: {fileID: 0}
+  _shotVFX: {fileID: 1170232049353517535, guid: 59f342f05ca8b46999d4f601999c4093,
+    type: 3}
 --- !u!1001 &6126959336304228807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,52 +190,52 @@ PrefabInstance:
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.25026786
+      value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.70194125
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.5157223
+      value: 3.66
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.08449058
+      value: 0.066025436
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.035312217
+      value: 0.06345278
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.91878176
+      value: -0.99545604
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.3839981
+      value: -0.026111102
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -44.399
+      value: -2.499
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -165.211
+      value: -172.248
       objectReference: {fileID: 0}
     - target: {fileID: 4725347110045633757, guid: 0d470ce957f628540a44451378fc517e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -10.465
+      value: -7.464
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

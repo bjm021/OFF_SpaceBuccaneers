@@ -5020,5 +5020,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eb5e5bf1b174acab4b5c72e46b2cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0
-  time: 2
+  time: 1
