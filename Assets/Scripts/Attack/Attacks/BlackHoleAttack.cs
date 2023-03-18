@@ -87,6 +87,7 @@ public class BlackHoleAttack : Attack
 
             foreach (var t in targets)
             {
+                if (self.Dead) yield break;
                 var parent = t.transform.parent;
                 if (parent.gameObject == gameObject) continue;
                 if (parent.TryGetComponent(out Mothership mothership))
@@ -96,7 +97,8 @@ public class BlackHoleAttack : Attack
                 else
                 {
                     var unit = parent.GetComponent<Unit>();
-
+                    if (unit == null) continue;
+                    if (unit.Owner == self.Owner) continue;
                     if (parent.TryGetComponent(out Rigidbody rb))
                     {
                         rb.AddForce((transform.position - parent.transform.position).normalized * 10f, ForceMode.Impulse);
