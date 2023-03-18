@@ -133,6 +133,10 @@ public class Unit : MonoBehaviour
         OnDeath.Invoke();
         OnDeath.RemoveAllListeners();
         
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        _navMeshAgent.enabled = false;
+        _viewTrigger.enabled = false;
+
         if (_updateAI != null)
         {
             StopCoroutine(_updateAI);
