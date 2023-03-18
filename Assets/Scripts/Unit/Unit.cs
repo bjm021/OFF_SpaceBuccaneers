@@ -140,7 +140,7 @@ public class Unit : MonoBehaviour
         }
         if (SpawnedBy != null ) SpawnedBy.SpawnedUnits.Remove(gameObject);
 
-        // TODO - Klöären was mi t Desaztto  wan xun d wo 
+        // TODO: Adjust despawn time
         StartCoroutine(DelayedDestroy(5f));
     }
     
