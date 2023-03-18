@@ -20,7 +20,7 @@ MonoBehaviour:
   moveSpeed: 5
   attack: 1
   attackRange: 30
-  attackSeekRange: 30
+  attackSeekRange: 40
   specialAttackSeekRange: 45
   attackCooldown: 3
   behaviour: 5

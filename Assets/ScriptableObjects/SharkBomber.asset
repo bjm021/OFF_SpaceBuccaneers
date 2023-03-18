@@ -15,7 +15,7 @@ MonoBehaviour:
   unitPrefab: {fileID: 5770119711719288360, guid: ec653772d535f4115af939f48e4f2973,
     type: 3}
   special: 1
-  cost: 10
+  cost: 20
   health: 10
   moveSpeed: 25
   attack: 1

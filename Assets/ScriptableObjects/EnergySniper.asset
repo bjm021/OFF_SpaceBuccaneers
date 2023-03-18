@@ -19,8 +19,8 @@ MonoBehaviour:
   health: 7
   moveSpeed: 5
   attack: 40
-  attackRange: 70
-  attackSeekRange: 70
+  attackRange: 65
+  attackSeekRange: 65
   specialAttackSeekRange: 85
   attackCooldown: 3.5
   behaviour: 5
