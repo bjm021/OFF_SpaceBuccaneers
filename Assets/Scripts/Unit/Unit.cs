@@ -110,8 +110,7 @@ public class Unit : NetworkBehaviour
             {
                 BehaviourScript.UpdateState();
                 
-                // TODO: Throws a NullReferenceException sometimes
-                if (!Physics.CheckSphere(transform.position, _viewTrigger.radius, 1 << LayerMask.NameToLayer("Unit")))
+                // TODO: Throws a NullReferenceException sometimesif (!Physics.CheckSphere(transform.position, _viewTrigger.radius, 1 << LayerMask.NameToLayer("Unit")))
                 {
                     StopCoroutine(UpdateAI());
                     _updateAI = null;
@@ -137,7 +136,8 @@ public class Unit : NetworkBehaviour
         OnDeath.RemoveAllListeners();
         
         gameObject.layer = LayerMask.NameToLayer("Default");
-        if (_navMeshAgent != null)
+		transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");        
+		if (_navMeshAgent != null)
         {
             _navMeshAgent.enabled = false;
             _viewTrigger.enabled = false;

@@ -97,7 +97,7 @@ public class BlackHoleAttack : Attack
                 else
                 {
                     var unit = parent.GetComponent<Unit>();
-
+                    if (unit == null) continue;
                     if (unit.Owner == self.Owner) continue;
                     if (parent.TryGetComponent(out Rigidbody rb))
                     {
