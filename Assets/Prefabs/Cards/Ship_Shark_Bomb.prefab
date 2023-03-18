@@ -137,9 +137,8 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: These little Bombs have high Speed and try to find there Way to the
-        Enemy Mothership. When they arrive they will crash with a big Explosion into
-        the Enemys Ship.
+      value: These little Bombs have high Speed and try to find their way to the
+        enemy Mothership and crash into it with a big explosion.
       objectReference: {fileID: 0}
     - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}

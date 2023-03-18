@@ -137,8 +137,8 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: "The Energy Sniper has a powerful longrange Wepon. \r\r\nIdeal form
-        surporting other Units. But without other Units its a light Target to destroy."
+      value: "The Energy Sniper has a powerful long range weapon. \r\r\nIt's an easy
+        target to destroy on it's own so it's best when supporting other units."
       objectReference: {fileID: 0}
     - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
