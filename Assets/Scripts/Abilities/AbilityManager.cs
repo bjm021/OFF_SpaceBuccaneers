@@ -35,29 +35,39 @@ public class AbilityManager : NetworkBehaviour
         
     }
     
-    public void SpawnAbility(Vector3 position, int abilityIndex, GameManager.Player owner)
+    public bool SpawnAbility(Vector3 position, AbilityClass abilityClass, GameManager.Player owner)
     {
-        // Todo - Check cost and cooldown
-
-        if (!GameManager.Instance.Host)
+        switch (owner)
         {
-            Debug.LogWarning("Launch ServerRpc as player " + owner);
-            SpawnAbilityServerRpc(position, abilityIndex, (int) owner);
-            return;
+            case GameManager.Player.PlayerOne when GameManager.Instance.PlayerOneMetal < abilityClass.Cost:
+                return false;
+            case GameManager.Player.PlayerOne:
+                GameManager.Instance.RemoveResource(GameManager.Player.PlayerOne, GameManager.ResourceType.Crystals, abilityClass.Cost);
+                break;
+            case GameManager.Player.PlayerTwo when GameManager.Instance.PlayerTwoMetal < abilityClass.Cost:
+                return false;
+            case GameManager.Player.PlayerTwo:
+                GameManager.Instance.RemoveResource(GameManager.Player.PlayerTwo, GameManager.ResourceType.Crystals, abilityClass.Cost);
+                break;
         }
         
-        if (abilityIndex >= 6) abilityIndex = abilityIndex - 6;
-        var abilityClass = abilityClasses[abilityIndex];
+        if (!GameManager.Instance.Host)
+        {
+            SpawnAbilityServerRpc(position, Instance.AbilityClasses.IndexOf(abilityClass), (int) owner);
+            return true;
+        }
+        
         var abilityGo = Instantiate(abilityClass.AbilityPrefab, position, Quaternion.identity);
         if (multiplayerBehaviour) abilityGo.GetComponent<NetworkObject>().Spawn();
         var ability = abilityGo.GetComponent<Ability>();
         ability.Initialize(abilityClass, owner, position);
+        return true;
     }
     
     [ServerRpc(RequireOwnership = false)]
     private void SpawnAbilityServerRpc(Vector3 position, int abilityIndex, int ownerIndex)
     {
-        SpawnAbility(position, abilityIndex, (GameManager.Player)ownerIndex);
+        SpawnAbility(position, abilityClasses[abilityIndex], (GameManager.Player)ownerIndex);
     }
     
     

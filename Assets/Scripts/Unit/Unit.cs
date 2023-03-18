@@ -134,6 +134,7 @@ public class Unit : MonoBehaviour
         OnDeath.RemoveAllListeners();
         
         gameObject.layer = LayerMask.NameToLayer("Default");
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
         _navMeshAgent.enabled = false;
         _viewTrigger.enabled = false;
 

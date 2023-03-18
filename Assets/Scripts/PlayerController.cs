@@ -66,8 +66,10 @@ public class PlayerController : MonoBehaviour
             {
                 if (_selectedUnitIndex >= 7)
                 {
-                    // TODO - Spawn Ability checks
-                    AbilityManager.Instance.SpawnAbility(hit.point, _selectedUnitIndex-1, player);
+                    if (AbilityManager.Instance.SpawnAbility(hit.point, AbilityManager.Instance.AbilityClasses[_selectedUnitIndex-7], player))
+                    {
+                        StartCoroutine(SpawnUnitCooldown());
+                    }
                 }
                 else
                 {

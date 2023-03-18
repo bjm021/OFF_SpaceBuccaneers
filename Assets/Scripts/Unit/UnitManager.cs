@@ -78,6 +78,5 @@ public class UnitManager : NetworkBehaviour
 
         unit.Initialize(unitClass, owner, spawnedBy);
         return true;
-        
     }
 }
