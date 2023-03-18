@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1537,6 +1537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnitSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884078914823207820, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5036166429286142871, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -3158,6 +3163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnitSpawner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884078914823207820, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5036166429286142871, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -7127,7 +7137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1393556532
 Transform:
   m_ObjectHideFlags: 0
@@ -9754,6 +9764,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSpawner (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2884078914823207820, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5036166429286142871, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: m_RootOrder
@@ -10143,7 +10158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundLength: 300
-  metalStartAmount: 25
+  metalStartAmount: 1000
   crystalsStartAmount: 1
   metalAutoGenerationAmount: 1
   metalAutoGenerationInterval: 1
