@@ -44,7 +44,7 @@ public class BlackHole : Ability
         _updateForce = false;
         affectedRbs = null;
         affectedUnits = null;
-        Debug.Log("BLACK HOLE DONE");
+        Die();
     }
 
     private void FixedUpdate()

@@ -13,5 +13,5 @@ EditorBuildSettings:
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/MultiplayerGameplayScene.unity
-    guid: 8e777f1819e4f81448bfa5ebf886553a
+    guid: a1cd3cf230f44af4f9d76d3fec34dc01
   m_configObjects: {}

@@ -14,7 +14,6 @@ public class MineFieldAbility : Ability
         {
             
             var position = new Vector3(Random.Range(AbilityClass.MineMinLowerCoordinate, AbilityClass.MineMaxUpperCoordinate), 0, Random.Range(AbilityClass.MineMinLowerCoordinate, AbilityClass.MineMaxUpperCoordinate));
-            Debug.LogWarning("Spawning mine at " + position + " for player " + GameManager.Player.PlayerOne);
             //var asteroid = Instantiate(asteroidPrefabs[Random.Range(0, asteroidPrefabs.Length)], position, 
             //    Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360)));
             UnitManager.Instance.SpawnUnit(position, AbilityClass.MineUnitClass, GameManager.Player.PlayerOne);
