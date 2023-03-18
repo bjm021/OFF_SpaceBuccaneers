@@ -29,7 +29,7 @@ public class HarpoonAttack : Attack
             if (!dead)
             {
                 Debug.Log("Stun");
-                unit.Stun(2.5);
+                unit.Stun(2.5f);
             }
             
             gameObject.GetComponent<SpecialPrioritisingAggressiveAI>().SearchNewTarget();
