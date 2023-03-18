@@ -158,7 +158,6 @@ public class Unit : MonoBehaviour
         _navMeshAgent.enabled = true;
         _navMeshAgent.isStopped = false;
         Stunned = false;
-        Debug.LogWarning("Stun ended");
     }
     
     public void Stun(float duration)
