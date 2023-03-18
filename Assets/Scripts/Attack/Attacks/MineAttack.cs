@@ -6,10 +6,6 @@ using UnityEngine;
 
 public class MineAttack : Attack
 {
-    private void Start()
-    {
-        Debug.LogWarning("MineAttack init ");
-    }
 
     public override bool SpecificAttack(GameObject target)
     {
@@ -30,15 +26,18 @@ public class MineAttack : Attack
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.LogWarning("MineAttack OnTriggerEnter from " + other.gameObject.name);
         var unit = GetComponent<Unit>();
-        var colliders = Physics.OverlapSphere(gameObject.transform.position, unit.UnitClass.AttackRange, LayerMask.NameToLayer("Unit"));
-        foreach (var collider in colliders)
+        
+        Debug.LogWarning("Cast sphere with range " + unit.UnitClass.AttackRange + " and layer " + LayerMask.NameToLayer("SpaceLaserLayer") + "");
+        var colliders = Physics.OverlapSphere(gameObject.transform.position, unit.UnitClass.AttackRange, LayerMask.NameToLayer("SpaceLaserLayer"));
+        foreach (var c in colliders)
         {
-            var unitInRadius = collider.GetComponent<Unit>();
-            if (unitInRadius != null)
-            {
-                unitInRadius.TakeDamage(unit.UnitClass.Attack);
-            }
+            Debug.LogWarning("Hit from " + other.name);
+            var otherUnit = other.GetComponentInParent<Unit>();
+            Debug.LogWarning("Other unti is class " + otherUnit.UnitClass.name);
+            Debug.LogWarning("Dealing " + unit.UnitClass.Attack + " damage to " + otherUnit.UnitClass.name + "");
+            otherUnit.TakeDamage(unit.UnitClass.Attack);
         }
         unit.TakeDamage(int.MaxValue);
     }
