@@ -38,6 +38,10 @@ public class Menu : MonoBehaviour
         _masterVolume = PlayerPrefs.GetFloat("MasterVolume", -10);
         _musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0);
         _sfxVolume = PlayerPrefs.GetFloat("SfxVolume", 0);
+        
+        audioMixer.SetFloat("MasterVolume", _masterVolume);
+        audioMixer.SetFloat("MusicVolume", _musicVolume);
+        audioMixer.SetFloat("SfxVolume", _sfxVolume);
 
         masterVolumeSlider.value = Mathf.Pow(10, _masterVolume / 20);
         musicVolumeSlider.value = Mathf.Pow(10, _musicVolume / 20);
