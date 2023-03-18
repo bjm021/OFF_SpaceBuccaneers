@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Unit : MonoBehaviour
+public class Unit : NetworkBehaviour
 {
     [SerializeField] private Material playerOneMaterial;
     [SerializeField] private Material playerTwoMaterial;
@@ -130,11 +131,15 @@ public class Unit : MonoBehaviour
     private void Die()
     {
         OnDeath.Invoke();
+        if (GameManager.Instance.Host) KillOnClientRpc();
         OnDeath.RemoveAllListeners();
         
         gameObject.layer = LayerMask.NameToLayer("Default");
-        _navMeshAgent.enabled = false;
-        _viewTrigger.enabled = false;
+        if (_navMeshAgent != null)
+        {
+            _navMeshAgent.enabled = false;
+            _viewTrigger.enabled = false;
+        }
 
         if (_updateAI != null)
         {
@@ -144,6 +149,7 @@ public class Unit : MonoBehaviour
         if (SpawnedBy != null ) SpawnedBy.SpawnedUnits.Remove(gameObject);
 
         // TODO: Adjust despawn time
+        if (!GameManager.Instance.Host) return;
         StartCoroutine(DelayedDestroy(5f));
     }
     
@@ -181,5 +187,13 @@ public class Unit : MonoBehaviour
         {
             _updateAI = StartCoroutine(UpdateAI());
         }
+    }
+    
+    [ClientRpc]
+    private void KillOnClientRpc()
+    {
+        if (GameManager.Instance.Host) return;
+        Debug.LogWarning("KillOnClientRpc");
+        Die();
     }
 }
