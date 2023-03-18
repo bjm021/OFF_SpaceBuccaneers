@@ -18,13 +18,13 @@ MonoBehaviour:
   cost: 50
   health: 40
   moveSpeed: 2.5
-  attack: 1
+  attack: 20
   attackRange: 20
-  attackSeekRange: 25
-  specialAttackSeekRange: 0
+  attackSeekRange: 20
+  specialAttackSeekRange: 1
   attackCooldown: 0.25
   behaviour: 0
   miningRate: 0
-  miningTimeUnitLength: 2.5
-  miningRange: 2.5
-  mothershipAttackDistance: 40
+  miningTimeUnitLength: 0
+  miningRange: 0
+  mothershipAttackDistance: 0

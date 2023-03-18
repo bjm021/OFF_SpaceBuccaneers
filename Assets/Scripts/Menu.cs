@@ -69,6 +69,7 @@ public class Menu : MonoBehaviour
 
     public void LoadScene(int sceneIndex)
     {
+        Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
 
