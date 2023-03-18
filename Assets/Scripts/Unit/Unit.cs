@@ -108,8 +108,7 @@ public class Unit : MonoBehaviour
             {
                 BehaviourScript.UpdateState();
                 
-                // TODO: Throws a NullReferenceException sometimes
-                if (!Physics.CheckSphere(transform.position, _viewTrigger.radius, 1 << LayerMask.NameToLayer("Unit")))
+                // TODO: Throws a NullReferenceException sometimesif (!Physics.CheckSphere(transform.position, _viewTrigger.radius, 1 << LayerMask.NameToLayer("Unit")))
                 {
                     StopCoroutine(UpdateAI());
                     _updateAI = null;
