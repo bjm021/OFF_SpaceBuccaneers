@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 3}
   special: 0
   cost: 0
-  health: 5
+  health: 4
   moveSpeed: 6
   attack: 1
   attackRange: 20
