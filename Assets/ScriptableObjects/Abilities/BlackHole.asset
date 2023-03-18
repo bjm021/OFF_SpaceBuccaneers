@@ -19,5 +19,6 @@ MonoBehaviour:
   empRange: 0
   empStunTime: 0
   blackHoleRange: 30
-  blackHolePullForce: 30
-  blackHoleDuration: 5
+  blackHolePullForce: 25
+  blackHoleDuration: 4
+  spaceLaserWidth: 0
