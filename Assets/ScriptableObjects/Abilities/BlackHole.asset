@@ -18,7 +18,11 @@ MonoBehaviour:
   cooldown: 0
   empRange: 0
   empStunTime: 0
-  blackHoleRange: 30
+  blackHoleRange: 10
   blackHolePullForce: 25
   blackHoleDuration: 4
   spaceLaserWidth: 0
+  mineCount: 0
+  mineMinLowerCoordinate: 0
+  mineMaxUpperCoordinate: 0
+  mineUnitClass: {fileID: 0}
