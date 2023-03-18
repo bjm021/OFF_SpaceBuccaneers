@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -426,6 +426,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 480352194}
     m_Modifications:
+    - target: {fileID: -3849161864658442495, guid: 5b917dd0da76f9b469d579c100d92317,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 163536518949024148, guid: 5b917dd0da76f9b469d579c100d92317,
         type: 3}
       propertyPath: m_RootOrder
@@ -1542,6 +1547,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnitSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884078914823207820, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5036166429286142871, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -3163,6 +3173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnitSpawner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884078914823207820, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5036166429286142871, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -9759,6 +9774,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSpawner (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2884078914823207820, guid: 3561e674d43fd490f9c2745628bfa19b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5036166429286142871, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: m_RootOrder
@@ -10148,7 +10168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundLength: 300
-  metalStartAmount: 25
+  metalStartAmount: 1000
   crystalsStartAmount: 1
   metalAutoGenerationAmount: 1
   metalAutoGenerationInterval: 1

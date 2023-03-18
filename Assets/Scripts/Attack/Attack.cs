@@ -34,9 +34,10 @@ public abstract class Attack : NetworkBehaviour
         return warErNichtDerBeste;
     }
 
-    public bool AttackMothership(GameObject mothership)
+    public bool AttackMothership(GameObject mothership, Unit self)
     {
         if (_inCooldown) return false;
+        self.OnShoot.Invoke();
         _inCooldown = true;
         var result = SpecificAttack(mothership);
         StartCoroutine(CooldownRoutine());

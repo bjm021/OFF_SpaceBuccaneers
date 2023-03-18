@@ -2,12 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Mothership : MonoBehaviour
 {
     [SerializeField] public GameManager.Player owner;
     [SerializeField] public int maxHealth;
     [SerializeField] private UnitClass mothershipObject;
+    
+    public UnityEvent OnDeath = new UnityEvent();
 
     public int CurrentHealth { get; set; }
     
@@ -52,6 +55,7 @@ public class Mothership : MonoBehaviour
     
     private void Die()
     {
+        OnDeath.Invoke();
         GameManager.Instance.MothershipDestroyed(this);
         // TODO: Add death animation
     }
