@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class NetworkDebugManager : MonoBehaviour
 {
-    NetworkManager networkManager;
+    NetworkManager _networkManager;
     private bool _host;
     private UnityTransport _utp;
     private void Awake()
     {
+        _networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+        _utp = _networkManager.GetComponent<UnityTransport>();
         var networkDataCarrier = FindObjectOfType<NetworkDataCarrier>();
         if (networkDataCarrier == null)
         {
             Debug.LogError("No NetworkDataCarrier found");
             return;
         }
-        networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+        
         
         if (networkDataCarrier.Host)
         {
@@ -39,11 +41,11 @@ public class NetworkDebugManager : MonoBehaviour
     {
         if (_host)
         {
-            networkManager.StartHost();
+            _networkManager.StartHost();
         }
         else
         {
-            networkManager.StartClient();
+            _networkManager.StartClient();
         }
     }
 }
