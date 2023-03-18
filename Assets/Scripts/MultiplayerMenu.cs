@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MultiplayerMenu : MonoBehaviour
@@ -29,22 +30,17 @@ public class MultiplayerMenu : MonoBehaviour
             }
         }
         
-        localIPText.text = _localIP;
-        inputField.text = _localIP;
+        //localIPText.text = _localIP;
+        //inputField.text = _localIP;
         multiplayerButton.interactable = false;
     }
 
     public void MultiplayerButtonClicked()
     {
-        if (hostToggle.isOn)
-        {
-            // Start host
-        }
-        else
-        {
-            // Join as client
-            // Get IP from inputField.text
-        }
+        NetworkDataCarrier networkDataCarrier = FindObjectOfType<NetworkDataCarrier>();
+        networkDataCarrier.IP = inputField.text;
+        networkDataCarrier.Host = hostToggle.isOn;
+        SceneManager.LoadScene(2);
     }
     
     public void HostToggleChanged(bool value)
@@ -65,6 +61,7 @@ public class MultiplayerMenu : MonoBehaviour
             }
             else
             {
+                inputField.text = "";
                 multiplayerButton.interactable = CheckIfIPIsValid(inputField.text);
             }
         }
@@ -79,7 +76,7 @@ public class MultiplayerMenu : MonoBehaviour
     
     public void InputFieldChanged(string value)
     {
-        if (CheckIfIPIsValid(value) || hostToggle.isOn) // TODO: Check if IP is valid
+        if (CheckIfIPIsValid(value)) // TODO: Check if IP is valid
         {
             multiplayerButton.interactable = true;
         }
@@ -89,9 +86,9 @@ public class MultiplayerMenu : MonoBehaviour
         }
     }
 
-    private bool CheckIfIPIsValid(string ip)
+    private static bool CheckIfIPIsValid(string ip)
     {
         // TODO: Check if a game is running on the IP
-        return false;
+        return IPAddress.TryParse(ip, out var address);
     }
 }

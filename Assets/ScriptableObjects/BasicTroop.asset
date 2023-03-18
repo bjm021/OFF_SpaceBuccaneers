@@ -17,12 +17,12 @@ MonoBehaviour:
   special: 0
   cost: 0
   health: 5
-  moveSpeed: 5
+  moveSpeed: 6
   attack: 1
   attackRange: 20
   attackSeekRange: 25
   specialAttackSeekRange: 0
-  attackCooldown: 1
+  attackCooldown: 1.58
   behaviour: 1
   miningRate: 0
   miningTimeUnitLength: 2.5
