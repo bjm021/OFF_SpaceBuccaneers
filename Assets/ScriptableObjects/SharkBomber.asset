@@ -19,9 +19,9 @@ MonoBehaviour:
   health: 10
   moveSpeed: 25
   attack: 100
-  attackRange: 20
-  attackSeekRange: 25
-  specialAttackSeekRange: 0
+  attackRange: 1
+  attackSeekRange: 1
+  specialAttackSeekRange: 1
   attackCooldown: 1
   behaviour: 0
   miningRate: 0
