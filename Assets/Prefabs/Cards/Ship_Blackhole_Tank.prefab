@@ -16,14 +16,7 @@ PrefabInstance:
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: 'Black hole
-
-        Tank'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 40
+      value: Black hole Tank
       objectReference: {fileID: 0}
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -33,12 +26,12 @@ PrefabInstance:
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_fontSizeBase
-      value: 40
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
+      propertyPath: m_HorizontalAlignment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4131456807491295773, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}

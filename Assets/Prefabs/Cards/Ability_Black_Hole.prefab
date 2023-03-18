@@ -14,6 +14,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 89ef00208c2224d5480f2189e3e198de,
         type: 3}
+    - target: {fileID: 576832868550354254, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89ef00208c2224d5480f2189e3e198de,
+        type: 3}
     - target: {fileID: 699411685035475048, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Name
@@ -23,11 +29,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: Black hole
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
