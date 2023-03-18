@@ -68,6 +68,7 @@ public class Unit : NetworkBehaviour
             _ => BehaviourScript 
         };
 
+        if (GameManager.Instance.Host) ColorUpdateOnClientRpc((int) Owner);
         BehaviourScript.Start();
     }
 
@@ -187,6 +188,20 @@ public class Unit : NetworkBehaviour
         if (wasAIOn)
         {
             _updateAI = StartCoroutine(UpdateAI());
+        }
+    }
+
+    [ClientRpc]
+    private void ColorUpdateOnClientRpc(int playerIndex)
+    {
+        if (GameManager.Instance.Host) return;
+        Debug.LogWarning("ON Client and Owner " + Owner);
+        for (var index = 0; index < renderers.Length; index++)
+        {
+            var materials = renderers[index].materials;
+            GameManager.Player o = (GameManager.Player)playerIndex;
+            materials[materialIndices[index]] = o == GameManager.Player.PlayerOne ? playerOneMaterial : playerTwoMaterial;
+            renderers[index].materials = materials;
         }
     }
     
