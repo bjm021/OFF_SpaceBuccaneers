@@ -50,6 +50,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c791f4ce70345259dba706e1e81c89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerOneMaterial: {fileID: 2100000, guid: 898a94d23cf792047972a866c18f5531, type: 2}
+  playerTwoMaterial: {fileID: 2100000, guid: e75877c3670d60a4591b4f99430ad464, type: 2}
+  renderers: []
+  materialIndices: 
   OnDeath:
     m_PersistentCalls:
       m_Calls: []

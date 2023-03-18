@@ -129,6 +129,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2192435043477485988}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &4483991893864825598 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2330417990100368218, guid: 04bd4be7db882524580bd2f562ab6f2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2192435043477485988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4749964263248203985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137,6 +143,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 4483991893864825598}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: materialIndices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -5537599215918256293, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: GlobalObjectIdHash
