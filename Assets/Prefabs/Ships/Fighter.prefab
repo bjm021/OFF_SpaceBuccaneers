@@ -129,6 +129,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2192435043477485988}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1816703164397221582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 530054667094101866, guid: 04bd4be7db882524580bd2f562ab6f2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2192435043477485988}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &4483991893864825598 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2330417990100368218, guid: 04bd4be7db882524580bd2f562ab6f2c,
@@ -157,6 +163,41 @@ PrefabInstance:
         type: 3}
       propertyPath: materialIndices.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1816703164397221582}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: -5537599215918256293, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}

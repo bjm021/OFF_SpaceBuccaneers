@@ -17,7 +17,7 @@ MonoBehaviour:
   special: 1
   cost: 10
   health: 7
-  moveSpeed: 9
+  moveSpeed: 5
   attack: 2
   attackRange: 20
   attackSeekRange: 25
