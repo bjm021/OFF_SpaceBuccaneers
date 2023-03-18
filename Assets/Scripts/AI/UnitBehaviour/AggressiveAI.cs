@@ -90,6 +90,12 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
             }
             if (_agent.remainingDistance <= _attack.AttackRange)
             {
+                if (_currentlyAttackingUnit.Dead || _currentlyAttacking == null || _currentlyAttackingUnit == null)
+                {
+                    _state = AggressiveState.GoingTo;
+                    FindAndGoToUnit();
+                    return;
+                }
                 DoAttack();
                 return;
             }
@@ -127,6 +133,12 @@ public class AggressiveAI : MonoBehaviour, IAIBehaviour
         }
         else if (_state == AggressiveState.WaitingForAttack)
         {
+            if (_currentlyAttackingUnit.Dead || _currentlyAttacking == null || _currentlyAttackingUnit == null)
+            {
+                _state = AggressiveState.GoingTo;
+                FindAndGoToUnit();
+                return;
+            }
             DoAttack();
         }
     }
