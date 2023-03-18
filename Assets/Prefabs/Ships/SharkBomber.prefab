@@ -108,6 +108,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5609955673399039295, guid: f6bb65b7fdf37634180ac5bb3e89a1ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8223740419666584916, guid: f6bb65b7fdf37634180ac5bb3e89a1ea,
         type: 3}
       propertyPath: m_Layer
@@ -119,7 +124,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2211407446554205490, guid: f6bb65b7fdf37634180ac5bb3e89a1ea, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6bb65b7fdf37634180ac5bb3e89a1ea, type: 3}
@@ -332,6 +338,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SharkBomber
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439448470911241358, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605714073249473024, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605714073249473024, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Name
+      value: Size
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605714073249473024, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605714073249473024, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3718490384228389114, guid: 1839cb2d91665420c813f43a0c53af85, type: 3}

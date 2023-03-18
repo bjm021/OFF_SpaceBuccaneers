@@ -16,5 +16,9 @@ MonoBehaviour:
     type: 3}
   cost: 0
   cooldown: 0
-  empRange: 30
+  empRange: 20
   empStunTime: 5
+  blackHoleRange: 0
+  blackHolePullForce: 0
+  blackHoleDuration: 0
+  spaceLaserWidth: 0
