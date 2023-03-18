@@ -13,7 +13,7 @@ public class BlackHole : Ability
     public override void DoAttack(Vector3 start)
     {
         _start = start;
-        affectedUnits = Physics.OverlapSphere(start, AbilityClass.BlackHoleRange, LayerMask.GetMask("Unit", "Mine"));
+        affectedUnits = Physics.OverlapSphere(start, AbilityClass.BlackHoleRange, LayerMask.GetMask("SpaceLaserLayer", "Mine"));
         for (var i = 0; i < affectedUnits.Length; i++)
         {
             var unitRb = affectedUnits[i].GetComponent<Rigidbody>();
@@ -32,7 +32,7 @@ public class BlackHole : Ability
         affectedRbs.Clear();
         for (int i = 0; i < AbilityClass.BlackHoleDuration; i++)
         {
-            affectedUnits = Physics.OverlapSphere(start, AbilityClass.BlackHoleRange, LayerMask.GetMask("Unit", "Mine"));
+            affectedUnits = Physics.OverlapSphere(start, AbilityClass.BlackHoleRange, LayerMask.GetMask("SpaceLaserLayer", "Mine"));
             for (var i1 = 0; i1 < affectedUnits.Length; i1++)
             {
                 affectedRbs.Add(affectedUnits[i1].GetComponent<Rigidbody>());

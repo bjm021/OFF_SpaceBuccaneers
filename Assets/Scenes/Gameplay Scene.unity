@@ -7939,7 +7939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1393556532
 Transform:
   m_ObjectHideFlags: 0
@@ -11719,7 +11719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundLength: 300
-  metalStartAmount: 25
+  metalStartAmount: 10000
   crystalsStartAmount: 1
   metalAutoGenerationAmount: 1
   metalAutoGenerationInterval: 1
