@@ -23,6 +23,5 @@ MonoBehaviour:
   blackHoleDuration: 0
   spaceLaserWidth: 0
   mineCount: 15
-  mineMinLowerCoordinate: -20
-  mineMaxUpperCoordinate: 20
+  mineRadius: 10
   mineUnitClass: {fileID: 11400000, guid: 144c7025a95855b47afdc509ab4f10c9, type: 2}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4609,7 +4609,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\tDynamic Space Background Lite\t-\tdinV Studio\n\tsector_034 font \t\t\t 
-    \t-\tNeoqueto\n\tSkybox Series Free \t\t\t \t-\tAvionx"
+    \t-\tNeoqueto\n\tPengenalan Regular\t\t\t\t-\tVladimir Nikolic\n\tRoboto\t\t\t\t\t\t\t-\tGoogle
+    Fonts\n\tSkybox Series Free \t\t\t \t-\tAvionx"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e46a2be873d34537bd2db5ab45d584c, type: 2}
   m_sharedMaterial: {fileID: 6320988971262760994, guid: 8e46a2be873d34537bd2db5ab45d584c,
@@ -4637,8 +4638,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11473,7 +11474,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -107}
+  m_AnchoredPosition: {x: 0, y: -88}
   m_SizeDelta: {x: 1200, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1762118731 stripped
