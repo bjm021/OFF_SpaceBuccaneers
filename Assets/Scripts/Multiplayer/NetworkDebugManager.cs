@@ -1,8 +1,10 @@
+using System;
+using System.Collections;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
 
-public class NetworkDebugManager : MonoBehaviour
+public class NetworkDebugManager : NetworkBehaviour
 {
     NetworkManager _networkManager;
     private bool _host;
@@ -42,10 +44,26 @@ public class NetworkDebugManager : MonoBehaviour
         if (_host)
         {
             _networkManager.StartHost();
+            Time.timeScale = 0;
+            Debug.Log("Waiting for client, starting routine");
+            StartCoroutine(ServerClientJoined());
         }
         else
         {
             _networkManager.StartClient();
         }
+        
     }
+    
+    private IEnumerator ServerClientJoined()
+    {
+        while (_networkManager.ConnectedClients.Count < 2)
+        {
+            yield return null;
+        }
+        Debug.Log("Client joined, starting game");
+        Time.timeScale = 1;
+    }
+
+   
 }
