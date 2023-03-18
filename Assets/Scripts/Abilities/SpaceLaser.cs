@@ -7,7 +7,6 @@ public class SpaceLaser : Ability
 {
     public override void DoAttack(Vector3 start)
     {
-        Debug.Log("I AM A SPACE LAAAASE FROM PLAYER " + Owner);
         Transform realStart;
         if (Owner == GameManager.Player.PlayerOne)
         {
@@ -44,8 +43,6 @@ public class SpaceLaser : Ability
     {
         try
         {
-            Debug.Log("Do attack visuals as player " + Owner + " from " + start + "");
-
             Transform realStart;
             if (Owner == GameManager.Player.PlayerOne)
             {
@@ -72,7 +69,6 @@ public class SpaceLaser : Ability
             //beam.material = new Material(Shader.Find("Sprites/Default"));
             beam.useWorldSpace = true;
 
-            Debug.LogWarning("SCORTOTOO");
             StartCoroutine(DestroyBeam(beam));
         } catch (System.Exception e)
         {

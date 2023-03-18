@@ -55,7 +55,6 @@ public class AbilityManager : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void SpawnAbilityServerRpc(Vector3 position, int abilityIndex, int ownerIndex)
     {
-        Debug.LogWarning("Spawnning on server from client with index " + ownerIndex + " being: " + (GameManager.Player)ownerIndex + "");
         SpawnAbility(position, abilityIndex, (GameManager.Player)ownerIndex);
     }
     
