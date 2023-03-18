@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class SniperShoot : Attack
+public class VFXAttack : Attack
 {
-    private LineRenderer _lineRenderer;
+    [SerializeField] private GameObject _shotVFX;
     public override bool SpecificAttack(GameObject target)
     {
         // Run attack on server / host / singleplayer
@@ -14,7 +14,7 @@ public class SniperShoot : Attack
         if (GameManager.Instance.Host) DrawOnClientRpc(gameObject.transform.position, target.transform.position);
 
         //var targetUnit = target.GetComponent<Unit>();
-        
+
         if (target.TryGetComponent(out Mothership mothership))
         {
             return mothership.TakeDamage(Damage) <= 0;
@@ -35,23 +35,9 @@ public class SniperShoot : Attack
 
     private void VisualAttackRender(Vector3 start, Vector3 end)
     {
-        var beam = gameObject.AddComponent<LineRenderer>();
-        beam.startColor = Color.red;
-        beam.endColor = Color.red;
-        beam.startWidth = 0.1f;
-        beam.endWidth = 0.1f;
-        beam.positionCount = 2;
-        beam.SetPosition(0, start);
-        beam.SetPosition(1, end);
-        //beam.material = new Material(Shader.Find("Sprites/Default"));
-        beam.useWorldSpace = true;
-        StartCoroutine(DestroyBeam(beam));
-    }
-    
-
-    private IEnumerator DestroyBeam(LineRenderer beam)
-    {
-        yield return new WaitForSeconds(0.3f);
-        Destroy(beam);
+        Quaternion rotation = Quaternion.LookRotation(end - start);
+        GameObject shot = Instantiate(_shotVFX, start, rotation);
+        shot.transform.localScale = new Vector3(1f, 1f, Vector3.Distance(end, start));
+        Destroy(shot, 0.33f);
     }
 }

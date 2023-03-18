@@ -149,7 +149,7 @@ PrefabInstance:
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: This powerful EMP stunns Enemy nearby Units. Now its easy to blow them
+      value: This powerful EMP stuns nearby enemy units. Now it's easy to blow them
         up with your own Ships.
       objectReference: {fileID: 0}
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,

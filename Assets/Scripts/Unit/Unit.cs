@@ -18,9 +18,9 @@ public class Unit : MonoBehaviour
     public bool Dead { get; private set; }
     public UnitSpawner SpawnedBy { get; private set; } = null;
     
-    public UnityEvent OnDeath = new UnityEvent();
-    public UnityEvent OnShoot = new UnityEvent();
-
+    public UnityEvent OnDeath = new();
+    public UnityEvent<Vector3> OnShoot = new();
+    
     private int _currentHealth;
     private NavMeshAgent _navMeshAgent;
     private Attack _attack;
@@ -28,7 +28,7 @@ public class Unit : MonoBehaviour
     public bool Stunned { get; set; } = false;
 
     private Coroutine _updateAI;
-    
+
     public void Initialize(UnitClass unitClass, GameManager.Player owner, UnitSpawner spawnedBy)
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -133,6 +133,10 @@ public class Unit : MonoBehaviour
         OnDeath.Invoke();
         OnDeath.RemoveAllListeners();
         
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        _navMeshAgent.enabled = false;
+        _viewTrigger.enabled = false;
+
         if (_updateAI != null)
         {
             StopCoroutine(_updateAI);
