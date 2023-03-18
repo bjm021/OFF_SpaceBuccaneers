@@ -42,6 +42,6 @@ public class ParticleAttack : Attack
     {
         Quaternion rotation = Quaternion.LookRotation(end - start);
         GameObject shot = Instantiate(_shotVFX, start, rotation, _target);
-        Destroy(shot, 0.33f);
+        Destroy(shot, 10);
     }
 }
