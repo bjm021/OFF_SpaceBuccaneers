@@ -117,6 +117,7 @@ public class MiningAI : MonoBehaviour, IAIBehaviour
         
         _currentasteroid = tMin;
         _currentAsteroidManager = tMin.GetComponent<Asteroid>();
+        if (_unit.Dead || !_agent.enabled || _unit.Stunned) return;
         _agent.SetDestination(tMin.transform.position);
         StartCoroutine(WaitForNavPath()); 
     }
