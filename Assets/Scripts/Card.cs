@@ -8,7 +8,9 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
+    [SerializeField] private bool isUnit = true;
     [SerializeField] private UnitClass unitClass;
+    [SerializeField] private AbilityClass abilityClass;
     [SerializeField] private TMP_Text costText;
     [FormerlySerializedAs("moveAmount")] [SerializeField] private float hoverMoveAmount;
     [FormerlySerializedAs("moveTime")] [SerializeField] private float hoverMoveTime;
@@ -35,7 +37,15 @@ public class Card : MonoBehaviour
     
     private void Start()
     {
-        costText.text = unitClass.Cost.ToString();
+        if (isUnit)
+        {
+            costText.text = unitClass.Cost.ToString();
+        }
+        else
+        {
+            costText.text = abilityClass.Cost.ToString();
+        }
+        
         _rectTransform = transform.GetChild(0) as RectTransform;
         _startPositionY = _rectTransform.anchoredPosition.y;
     }
@@ -66,7 +76,6 @@ public class Card : MonoBehaviour
     
     private IEnumerator MoveCardCoroutine(bool moveUp)
     {
-        // TODO: Also scale card
         var startPosition = _rectTransform.anchoredPosition.y;
         var endPosition = moveUp ? _startPositionY + hoverMoveAmount : IsSelected ? _startPositionY + selectedOffset : _startPositionY;
         var startScale = _rectTransform.localScale;

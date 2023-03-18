@@ -37,6 +37,7 @@ public class SpaceLaser : Ability
     {
         yield return new WaitForSeconds(1f);
         Destroy(beam);
+        Die();
     }
 
     public override void DoAttackVisuals(Vector3 start = default)

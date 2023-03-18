@@ -23,18 +23,18 @@ PrefabInstance:
     - target: {fileID: 699411685035475048, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Name
-      value: Ability_EMP
+      value: Ability_MineField
       objectReference: {fileID: 0}
     - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: EMP
+      value: Mine Field
       objectReference: {fileID: 0}
-    - target: {fileID: 4023755165785190783, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+    - target: {fileID: 4131456807491295773, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
-      objectReference: {fileID: 0}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 5912202035231240420}
     - target: {fileID: 5048064017367451051, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -140,22 +140,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7236039773045179641, guid: 60ef9dcaf12ed465d9679db75a273ca8,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9ca30f0ddf024a54dbc7e28957be50a6,
-        type: 3}
     - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
       propertyPath: m_text
-      value: This powerful EMP stuns all units in its range. Now it's easy to blow
-        them up with your other Ships.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7588151335047876319, guid: 60ef9dcaf12ed465d9679db75a273ca8,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 35
+      value: Create a mine field on the battlegrounds. These mines explode as soon
+        as ANY ship comes near them. Beware!
       objectReference: {fileID: 0}
     - target: {fileID: 9104874205032184234, guid: 60ef9dcaf12ed465d9679db75a273ca8,
         type: 3}
@@ -166,10 +155,22 @@ PrefabInstance:
         type: 3}
       propertyPath: abilityClass
       value: 
-      objectReference: {fileID: 11400000, guid: 2de0ca6c4bc0d484eab4518f73bcea05,
+      objectReference: {fileID: 11400000, guid: 02f78737109bf6e43bc8080ca20961ae,
         type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60ef9dcaf12ed465d9679db75a273ca8, type: 3}
+--- !u!114 &5912202035231240420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 576832868550354254, guid: 60ef9dcaf12ed465d9679db75a273ca8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6488858157286823338}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

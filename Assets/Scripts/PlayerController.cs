@@ -154,8 +154,6 @@ public class PlayerController : MonoBehaviour
         _spawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
         _nonSpawnableUnitIndicator.transform.GetChild(index - 1).gameObject.SetActive(true);
         
-        // TODO - More cards for abilities?
-        if (index >= 7) return;
         cards[index - 1].IsSelected = true;
     }
 
@@ -173,9 +171,7 @@ public class PlayerController : MonoBehaviour
         {
             child.gameObject.SetActive(false);
         }
-        
-        // TODO - Abiliby cards
-        if (index >= 7) return;
+
         cards[index - 1].IsSelected = false;
     }
 
@@ -227,15 +223,5 @@ public class PlayerController : MonoBehaviour
     public void OnSelectUnit10(InputValue value)
     {
         SetSelectedUnitIndex(10);
-    }
-    
-    public void OnSelectUnit11(InputValue value)
-    {
-        SetSelectedUnitIndex(11);
-    }
-    
-    public void OnSelectUnit12(InputValue value)
-    {
-        SetSelectedUnitIndex(12);
     }
 }

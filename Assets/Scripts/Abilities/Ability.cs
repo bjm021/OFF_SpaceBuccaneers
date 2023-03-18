@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -29,6 +30,11 @@ public abstract class Ability : NetworkBehaviour
         Owner = GameManager.Player.PlayerTwo;
         Debug.LogWarning("ClientRPc  AS pLAYER " + Owner + " from " + start + "");
         DoAttackVisuals(start);
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
  
 }   
