@@ -16,7 +16,7 @@ public class BlackHole : Ability
         affectedUnits = Physics.OverlapSphere(start, AbilityClass.BlackHoleRange, LayerMask.GetMask("SpaceLaserLayer", "Mine"));
         for (var i = 0; i < affectedUnits.Length; i++)
         {
-            var unitRb = affectedUnits[i].GetComponent<Rigidbody>();
+            var unitRb = affectedUnits[i].GetComponentInParent<Rigidbody>();
             if (unitRb == null) continue;
             unitRb.AddForce((start - affectedUnits[i].transform.position).normalized * AbilityClass.BlackHolePullForce,
                 ForceMode.Acceleration);
@@ -35,7 +35,7 @@ public class BlackHole : Ability
             affectedUnits = Physics.OverlapSphere(start, AbilityClass.BlackHoleRange, LayerMask.GetMask("SpaceLaserLayer", "Mine"));
             for (var i1 = 0; i1 < affectedUnits.Length; i1++)
             {
-                affectedRbs.Add(affectedUnits[i1].GetComponent<Rigidbody>());
+                affectedRbs.Add(affectedUnits[i1].GetComponentInParent<Rigidbody>());
             }
 
             yield return new WaitForSeconds(1);

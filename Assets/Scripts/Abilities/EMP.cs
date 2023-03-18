@@ -10,7 +10,7 @@ public class EMP : Ability
         var colliders = Physics.OverlapSphere(start, AbilityClass.EmpRange, LayerMask.GetMask("SpaceLaserLayer"));
         foreach (var c in colliders)
         {
-            var unit = c.GetComponent<Unit>();
+            var unit = c.GetComponentInParent<Unit>();
             if (unit == null) continue;
             unit.Stun(AbilityClass.EmpStunTime);
         }
