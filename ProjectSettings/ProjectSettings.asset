@@ -15,7 +15,7 @@ PlayerSettings:
   companyName: Papaatzes Crew
   productName: Space Buccaneers
   defaultCursor: {fileID: 2800000, guid: 73ba5d5551fc44862ada1ee1b6d5d1fa, type: 3}
-  cursorHotspot: {x: 45, y: 170}
+  cursorHotspot: {x: 8, y: 16}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
