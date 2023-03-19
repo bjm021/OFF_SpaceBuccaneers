@@ -11779,7 +11779,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  roundLength: 900
+  roundLength: 480
   metalStartAmount: 25
   crystalsStartAmount: 1
   metalAutoGenerationAmount: 1
