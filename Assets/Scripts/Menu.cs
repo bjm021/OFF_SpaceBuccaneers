@@ -32,7 +32,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
         _pirateMode = PlayerPrefs.GetInt("PirateMode", 0) == 1;
         _masterVolume = PlayerPrefs.GetFloat("MasterVolume", -10);

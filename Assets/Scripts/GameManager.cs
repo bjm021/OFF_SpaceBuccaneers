@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -28,11 +29,15 @@ public class GameManager : NetworkBehaviour
     #endregion
     
     [SerializeField] private UnityEvent onRoundOver = new UnityEvent();
-    [SerializeField] [Range(90, 900)] private int roundLength;    [Space]
+    [SerializeField] [Range(90, 900)] private int roundLength;
+    [Space]
     [SerializeField] private int metalStartAmount;
     [SerializeField] private int crystalsStartAmount;
     [SerializeField] private int metalAutoGenerationAmount;
     [SerializeField] private int metalAutoGenerationInterval;
+    [Space]
+    [SerializeField] private GameObject playerOneExplosion;
+    [SerializeField] private GameObject playerTwoExplosion;
     [SerializeField] private bool inMultiplayerMode = false; 
 
     private bool _isInRound;
@@ -280,14 +285,36 @@ public class GameManager : NetworkBehaviour
 
     public void EndGame(Player winningPlayer)
     {
+        switch (winningPlayer)
+        {
+            case Player.PlayerOne:
+                playerTwoExplosion.SetActive(true);
+                break;
+            case Player.PlayerTwo:
+                playerOneExplosion.SetActive(true);
+                break;
+        }
+        
         if (Host && inMultiplayerMode)
         {
             RpcEndGameClientRpc((int) winningPlayer);
         }
-
-        Time.timeScale = 0;
+        
         onRoundOver.Invoke();
         UIManager.Instance.DisplayWinScreen(winningPlayer);
+        StartCoroutine(PauseTimeAfterDelay());
+    }
+    
+    private IEnumerator PauseTimeAfterDelay()
+    {
+        float time = 3;
+        while (time > 0)
+        {
+            Time.timeScale = Mathf.Lerp(1, 0, 1 - time / 3);
+            yield return null;
+            time -= Time.deltaTime;
+        }
+        Time.timeScale = 0;
     }
     
     [ClientRpc]
