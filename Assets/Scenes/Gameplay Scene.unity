@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.0008095216, g: 0.004161995, b: 0.0200642, a: 1}
+  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   - {fileID: 1637526185}
   specialAsteroidSpawnRadius: 10
   continuousAsteroidRate: 2
-  continuousAsteroidTimeUnit: 8
+  continuousAsteroidTimeUnit: 6
   maxAsteroidOnScreen: 16
   continuousSpecialAsteroidRate: 2
   continuousSpecialAsteroidTimeUnit: 30
@@ -11763,8 +11763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93591582099b485f9da3df1e7a26ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundLength: 300
-  metalStartAmount: 10000
+  roundLength: 600
+  metalStartAmount: 25
   crystalsStartAmount: 1
   metalAutoGenerationAmount: 1
   metalAutoGenerationInterval: 1
