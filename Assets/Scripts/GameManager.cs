@@ -28,8 +28,7 @@ public class GameManager : NetworkBehaviour
     #endregion
     
     [SerializeField] private UnityEvent onRoundOver = new UnityEvent();
-    [SerializeField] [Range(90, 300)] private int roundLength;
-    [Space]
+    [SerializeField] [Range(90, 900)] private int roundLength;    [Space]
     [SerializeField] private int metalStartAmount;
     [SerializeField] private int crystalsStartAmount;
     [SerializeField] private int metalAutoGenerationAmount;
