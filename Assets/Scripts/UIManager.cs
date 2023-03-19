@@ -52,11 +52,11 @@ public class UIManager : MonoBehaviour
     
     public void ShowSpawnableAreaIndicator(float width, GameManager.Player player, bool active = true)
     {
-        spawnableAreaIndicatorRectTransform.sizeDelta = new Vector2(Screen.width * (1 - width), Screen.height);
-        spawnableAreaIndicatorRectTransform.anchoredPosition = new Vector2(
-            Screen.width * (player == GameManager.Player.PlayerOne ? 
-            width - (width / 2) : - width + (width / 2)), 0);
-        spawnableAreaIndicator.SetActive(active);
+        // spawnableAreaIndicatorRectTransform.sizeDelta = new Vector2(Screen.width * (1 - width), Screen.height);
+        // spawnableAreaIndicatorRectTransform.anchoredPosition = new Vector2(
+        //     Screen.width * (player == GameManager.Player.PlayerOne ? 
+        //     width - (width / 2) : - width + (width / 2)), 0);
+        // spawnableAreaIndicator.SetActive(active);
     }
     
     public void UpdateTimeText(int time, bool recolor = false)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -34,7 +35,10 @@ public class GameManager : NetworkBehaviour
     [SerializeField] private int crystalsStartAmount;
     [SerializeField] private int metalAutoGenerationAmount;
     [SerializeField] private int metalAutoGenerationInterval;
-    [SerializeField] public bool inMultiplayerMode = false; 
+    [Space]
+    [SerializeField] private GameObject playerOneExplosion;
+    [SerializeField] private GameObject playerTwoExplosion;
+    public bool inMultiplayerMode = false; 
 
     private bool _isInRound;
     
@@ -281,15 +285,38 @@ public class GameManager : NetworkBehaviour
 
     public void EndGame(Player winningPlayer)
     {
+        switch (winningPlayer)
+        {
+            case Player.PlayerOne:
+                playerTwoExplosion.SetActive(true);
+                break;
+            case Player.PlayerTwo:
+                playerOneExplosion.SetActive(true);
+                break;
+        }
+        
         if (Host && inMultiplayerMode)
         {
             RpcEndGameClientRpc((int) winningPlayer);
         }
-
-        Time.timeScale = 0;
+        
         onRoundOver.Invoke();
         UIManager.Instance.DisplayWinScreen(winningPlayer);
+        StartCoroutine(PauseTimeAfterDelay());
     }
+    
+    private IEnumerator PauseTimeAfterDelay()
+    {
+        float time = 3;
+        while (time > 0)
+        {
+            Time.timeScale = Mathf.Lerp(1, 0, 1 - time / 3);
+            yield return null;
+            time -= Time.deltaTime;
+        }
+        Time.timeScale = 0;
+    }
+
     
     [ServerRpc(RequireOwnership = false)]
     public void RpcEndGameServerRpc()
@@ -308,7 +335,7 @@ public class GameManager : NetworkBehaviour
         Debug.LogWarning("DONE");
         NetworkManager.Singleton.Shutdown();
     }
-    
+        
     [ClientRpc]
     private void RpcEndGameClientRpc(int playerIndex)
     { 
