@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class NetworkDebugManager : NetworkBehaviour
     NetworkManager _networkManager;
     private bool _host;
     private UnityTransport _utp;
+    
+    [SerializeField] private GameObject _waitingPanel;
+    [SerializeField] private TMP_Text _waitingText;
+    
     private void Awake()
     {
         _networkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
@@ -25,6 +30,7 @@ public class NetworkDebugManager : NetworkBehaviour
         {
             _host = true;
             GameManager.Instance.Host = true;
+            _waitingText.text = "Waiting for client";
             _utp.ConnectionData.ServerListenAddress = networkDataCarrier.IP;
             _utp.ConnectionData.Port = (ushort)networkDataCarrier.Port;
             _utp.ConnectionData.Address = networkDataCarrier.IP;
@@ -32,6 +38,7 @@ public class NetworkDebugManager : NetworkBehaviour
         else
         {
             _host = false;
+            _waitingText.text = "Connecting to server";
             GameManager.Instance.Host = false;
             _utp.ConnectionData.Address = networkDataCarrier.IP;
             _utp.ConnectionData.Port = (ushort)networkDataCarrier.Port;
@@ -44,15 +51,28 @@ public class NetworkDebugManager : NetworkBehaviour
         if (_host)
         {
             _networkManager.StartHost();
+            _waitingPanel.SetActive(true);
             Time.timeScale = 0;
             Debug.Log("Waiting for client, starting routine");
             StartCoroutine(ServerClientJoined());
         }
         else
         {
+            _waitingPanel.SetActive(true);
             _networkManager.StartClient();
+            StartCoroutine(ClientConnection());
         }
         
+    }
+
+    private IEnumerator ClientConnection()
+    {
+        while (!_networkManager.IsConnectedClient)
+        {
+            yield return null;
+        }
+        Debug.Log("Client joined, starting game");
+        StartCoroutine(CountDown());
     }
     
     private IEnumerator ServerClientJoined()
@@ -62,9 +82,18 @@ public class NetworkDebugManager : NetworkBehaviour
             yield return null;
         }
         Debug.Log("Client joined, starting game");
+        StartCoroutine(CountDown());
+    }
+    
+    private IEnumerator CountDown()
+    {
+        for (int i = 3; i > 0; i--)
+        {
+            _waitingText.text = "Starting in: " + i;
+            yield return new WaitForSecondsRealtime(1);
+        }
+        _waitingPanel.SetActive(false);
         Time.timeScale = 1;
-        
-        // TODO - Maybe implementg rteady up system
     }
 
    
