@@ -201,7 +201,6 @@ public class Unit : NetworkBehaviour
     private void ColorUpdateOnClientRpc(int playerIndex)
     {
         if (GameManager.Instance.Host) return;
-        Debug.LogWarning("ON Client and Owner " + Owner);
         for (var index = 0; index < renderers.Length; index++)
         {
             var materials = renderers[index].materials;

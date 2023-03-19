@@ -28,7 +28,7 @@ public class GameManager : NetworkBehaviour
     #endregion
     
     [SerializeField] private UnityEvent onRoundOver = new UnityEvent();
-    [SerializeField] [Range(90, 900)] private int roundLength;
+    [SerializeField] [Range(1, 900)] private int roundLength;
     [Space]
     [SerializeField] private int metalStartAmount;
     [SerializeField] private int crystalsStartAmount;
@@ -289,6 +289,24 @@ public class GameManager : NetworkBehaviour
         Time.timeScale = 0;
         onRoundOver.Invoke();
         UIManager.Instance.DisplayWinScreen(winningPlayer);
+    }
+    
+    [ServerRpc(RequireOwnership = false)]
+    public void RpcEndGameServerRpc()
+    {
+        List<ulong> clientIDs = new List<ulong>();
+        Debug.LogWarning("Disconnect all clients");
+        foreach (var singletonConnectedClient in NetworkManager.Singleton.ConnectedClients)
+        {
+            Debug.LogWarning("Disconnected " + singletonConnectedClient.Key);
+            clientIDs.Add(singletonConnectedClient.Key);
+        }
+        foreach (var clientID in clientIDs)
+        {
+            NetworkManager.Singleton.DisconnectClient(clientID);
+        }
+        Debug.LogWarning("DONE");
+        NetworkManager.Singleton.Shutdown();
     }
     
     [ClientRpc]
