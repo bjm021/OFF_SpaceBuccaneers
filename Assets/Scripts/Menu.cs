@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -71,7 +72,12 @@ public class Menu : MonoBehaviour
     {
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
+        if (sceneIndex == 0 && GameManager.Instance.inMultiplayerMode)
+        {
+            NetworkManager.Singleton.Shutdown();
+        } 
     }
+    
 
     public void LoadNextScene()
     {

@@ -13,6 +13,7 @@ public class NetworkDebugManager : NetworkBehaviour
     
     [SerializeField] private GameObject _waitingPanel;
     [SerializeField] private TMP_Text _waitingText;
+    [SerializeField] private GameObject _toDisableNewGameButton;
     
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class NetworkDebugManager : NetworkBehaviour
 
     private void Start()
     {
+        _toDisableNewGameButton.SetActive(false);
         if (_host)
         {
             _networkManager.StartHost();
