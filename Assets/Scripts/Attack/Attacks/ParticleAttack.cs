@@ -69,10 +69,8 @@ public class ParticleAttack : Attack
     
     private IEnumerator AttackRoutine(GameObject target)
     { 
-        Debug.LogError("PlayChargeSound");
         _audioSource.PlayOneShot(_chargeSound);
         yield return new WaitForSeconds(3f);
-        Debug.LogError("PlayFireSound");
         _audioSource.PlayOneShot(_fireSound);
         DelayedAttack(target);
     }

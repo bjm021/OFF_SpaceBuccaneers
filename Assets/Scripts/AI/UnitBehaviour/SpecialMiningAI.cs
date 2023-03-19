@@ -15,6 +15,7 @@ public class SpecialMiningAI : MonoBehaviour, IAIBehaviour
 
     public void UpdateState()
     {
+        if (_unit.Dead || !_agent.enabled || _unit.Stunned) return;
         if (_state == MiningState.GoingTo)
         {
             if (_agent.remainingDistance < _unit.UnitClass.MiningRange)
@@ -35,7 +36,6 @@ public class SpecialMiningAI : MonoBehaviour, IAIBehaviour
     
     private IEnumerator MiningCoroutine()
     {
-        Debug.Log("Mining Coroutine Started");
         while (true)
         {
             var remaining = _currentAsteroidManager.Mine(_unit.UnitClass.MiningRate);

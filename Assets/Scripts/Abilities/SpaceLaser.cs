@@ -52,12 +52,9 @@ public class SpaceLaser : Ability
         {
             _laserPosition = GameManager.Instance.PlayerTwoMothership.transform.GetChild(0).position;
         }
-        
-        var worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        worldPosition.y = 0;
-            
+
         transform.position = _laserPosition;
-        transform.LookAt(worldPosition);
+        transform.LookAt(start);
         
         Destroy(gameObject, beamTime);
     }
