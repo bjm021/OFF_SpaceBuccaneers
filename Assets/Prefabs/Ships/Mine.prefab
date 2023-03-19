@@ -89,6 +89,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da3ddd1f5d90904479512b0bb2c77362, type: 3}
+--- !u!1 &2754374055325229578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4524455241845494348, guid: da3ddd1f5d90904479512b0bb2c77362,
+    type: 3}
+  m_PrefabInstance: {fileID: 1797948412145741894}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7517279603265825922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8115809194442906820, guid: da3ddd1f5d90904479512b0bb2c77362,
@@ -148,6 +154,11 @@ PrefabInstance:
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 2754374055325229578}
     - target: {fileID: -6301354860588197313, guid: 1839cb2d91665420c813f43a0c53af85,
         type: 3}
       propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[3].m_CallState

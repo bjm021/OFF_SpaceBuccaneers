@@ -154,7 +154,6 @@ public class Unit : NetworkBehaviour
         // TODO: Adjust despawn time
         if (!GameManager.Instance.Host) return;
         var delay = 5f;
-        if (UnitClass.name == "Mine") delay = 2;
         StartCoroutine(DelayedDestroy(delay));
     }
     
