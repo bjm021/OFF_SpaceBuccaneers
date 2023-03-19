@@ -18,7 +18,6 @@ public class EMP : Ability
 
     public override void DoAttackVisuals(Vector3 start = default)
     {
-        // TODO implement
-        throw new System.NotImplementedException();
+
     }
 }

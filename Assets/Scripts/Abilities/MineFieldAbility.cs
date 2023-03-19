@@ -27,7 +27,6 @@ public class MineFieldAbility : Ability
     
     public override void DoAttackVisuals(Vector3 start)
     {
-        // TODO implement
-        throw new System.NotImplementedException();
+
     }
 }

@@ -2393,6 +2393,11 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7265168844404225948, guid: 53a75b47bbff66c4bbdf8cf1d5afd881,
+        type: 3}
+      propertyPath: m_FillClockwise
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8705,6 +8710,11 @@ PrefabInstance:
       propertyPath: m_FillAmount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7265168844404225948, guid: 59388e5b45b8644eb91350f42204af46,
+        type: 3}
+      propertyPath: m_FillClockwise
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9375,8 +9385,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10135,6 +10145,11 @@ PrefabInstance:
     - target: {fileID: 7265168844404225948, guid: 6d2896d3d5d92114ea71242d0c749267,
         type: 3}
       propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7265168844404225948, guid: 6d2896d3d5d92114ea71242d0c749267,
+        type: 3}
+      propertyPath: m_FillClockwise
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -11779,7 +11794,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  roundLength: 900
+  roundLength: 480
   metalStartAmount: 25
   crystalsStartAmount: 1
   metalAutoGenerationAmount: 1
@@ -12034,6 +12049,11 @@ PrefabInstance:
     - target: {fileID: 7265168844404225948, guid: ee77b9a172ba54c2a8826a9eaf7190d7,
         type: 3}
       propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7265168844404225948, guid: ee77b9a172ba54c2a8826a9eaf7190d7,
+        type: 3}
+      propertyPath: m_FillClockwise
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

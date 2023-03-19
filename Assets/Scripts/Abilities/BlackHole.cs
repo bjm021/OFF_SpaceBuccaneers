@@ -59,7 +59,6 @@ public class BlackHole : Ability
 
     public override void DoAttackVisuals(Vector3 start)
     {
-        // TODO implement
-        throw new System.NotImplementedException();
+
     }
 }
