@@ -183,8 +183,12 @@ public class Unit : NetworkBehaviour
             _updateAI = null;
         }
         Stunned = true;
-        _navMeshAgent.isStopped = true;
-        _navMeshAgent.enabled = false;
+        if (_navMeshAgent != null && _navMeshAgent.enabled)
+        {
+            _navMeshAgent.isStopped = true;
+            _navMeshAgent.enabled = false;
+        }
+
         if (_stunCoroutine != null) StopCoroutine(_stunCoroutine);
         _stunCoroutine = StartCoroutine(StunCoroutine(duration));
         if (wasAIOn)

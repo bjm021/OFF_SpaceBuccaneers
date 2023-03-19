@@ -16,13 +16,11 @@ public class ParticleAttack : Attack
 
     private void Start()
     {
-        Debug.LogError("Assigning audio source");
         _audioSource = GetComponent<AudioSource>();
     }
 
     public override bool SpecificAttack(GameObject target)
     {
-        Debug.LogError("INIT CHARGE");
         _audioSource.PlayOneShot(_chargeSound);
         StartCoroutine(AttackRoutine(target));
         return false;
@@ -71,10 +69,8 @@ public class ParticleAttack : Attack
     
     private IEnumerator AttackRoutine(GameObject target)
     { 
-        Debug.LogError("PlayChargeSound");
         _audioSource.PlayOneShot(_chargeSound);
         yield return new WaitForSeconds(3f);
-        Debug.LogError("PlayFireSound");
         _audioSource.PlayOneShot(_fireSound);
         DelayedAttack(target);
     }
