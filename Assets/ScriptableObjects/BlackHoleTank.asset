@@ -18,10 +18,10 @@ MonoBehaviour:
   cost: 50
   health: 40
   moveSpeed: 2.5
-  attack: 20
-  attackRange: 20
-  attackSeekRange: 20
-  specialAttackSeekRange: 1
+  attack: 1
+  attackRange: 17
+  attackSeekRange: 17
+  specialAttackSeekRange: 20
   attackCooldown: 0.25
   behaviour: 0
   miningRate: 0

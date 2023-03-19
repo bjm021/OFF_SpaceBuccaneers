@@ -290,6 +290,11 @@ PrefabInstance:
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Overridden
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8456643125889411765, guid: 1839cb2d91665420c813f43a0c53af85,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3718490384228389114, guid: 1839cb2d91665420c813f43a0c53af85, type: 3}
     m_RemovedGameObjects: []
@@ -330,3 +335,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shotVFX: {fileID: 6279257580214205455, guid: 1465367d3b5844c41815ea804b5bd58e,
     type: 3}
+  _chargeSound: {fileID: 8300000, guid: 770b702caf34ac34691a6b337bda23c9, type: 3}
+  _fireSound: {fileID: 8300000, guid: 3d5c74f9929da214e97e606e4f257b56, type: 3}
