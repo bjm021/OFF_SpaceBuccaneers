@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityPrefab: {fileID: 6343964736018802436, guid: 30e63054c5cf0914ebb0553a1170cf29,
     type: 3}
-  cost: 40
+  cost: 30
   cooldown: 0
   empRange: 0
   empStunTime: 0
