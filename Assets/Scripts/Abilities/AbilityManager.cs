@@ -39,12 +39,12 @@ public class AbilityManager : NetworkBehaviour
     {
         switch (owner)
         {
-            case GameManager.Player.PlayerOne when GameManager.Instance.PlayerOneMetal < abilityClass.Cost:
+            case GameManager.Player.PlayerOne when GameManager.Instance.PlayerOneCrystals < abilityClass.Cost:
                 return false;
             case GameManager.Player.PlayerOne:
                 GameManager.Instance.RemoveResource(GameManager.Player.PlayerOne, GameManager.ResourceType.Crystals, abilityClass.Cost);
                 break;
-            case GameManager.Player.PlayerTwo when GameManager.Instance.PlayerTwoMetal < abilityClass.Cost:
+            case GameManager.Player.PlayerTwo when GameManager.Instance.PlayerTwoCrystals < abilityClass.Cost:
                 return false;
             case GameManager.Player.PlayerTwo:
                 GameManager.Instance.RemoveResource(GameManager.Player.PlayerTwo, GameManager.ResourceType.Crystals, abilityClass.Cost);
