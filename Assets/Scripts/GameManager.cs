@@ -26,7 +26,7 @@ public class GameManager : NetworkBehaviour
 
     #endregion
     
-    [SerializeField] [Range(90, 300)] private int roundLength;
+    [SerializeField] [Range(90, 900)] private int roundLength;
     [Space]
     [SerializeField] private int metalStartAmount;
     [SerializeField] private int crystalsStartAmount;
