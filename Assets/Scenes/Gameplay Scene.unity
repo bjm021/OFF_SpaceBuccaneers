@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 752b949db8bba4606b56bd951afd3579,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: edfe7093a70474131a6893a9cd75bd04,
     type: 2}
 --- !u!196 &4
@@ -11763,7 +11764,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93591582099b485f9da3df1e7a26ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundLength: 300
+  onRoundOver:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1867936412}
+        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
+        m_MethodName: DeactivateInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  roundLength: 90
   metalStartAmount: 10000
   crystalsStartAmount: 1
   metalAutoGenerationAmount: 1

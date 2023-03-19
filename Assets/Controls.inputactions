@@ -112,24 +112,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "SelectUnit11",
-                    "type": "Button",
-                    "id": "a4b684b1-9e5b-498d-91bb-d97fa8fdecf1",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SelectUnit12",
-                    "type": "Button",
-                    "id": "a24719a9-0c90-480b-b89f-60aabb2fda05",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -251,28 +233,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "SelectUnit10",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "954bf358-34ca-4447-9cf3-aa233785b007",
-                    "path": "<Keyboard>/minus",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SelectUnit11",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c11bd017-2865-40be-8818-6eec6dbf4e0b",
-                    "path": "<Keyboard>/equals",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SelectUnit12",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
