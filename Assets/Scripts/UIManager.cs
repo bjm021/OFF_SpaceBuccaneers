@@ -103,14 +103,14 @@ public class UIManager : MonoBehaviour
         {
             pauseMenu.SetActive(true);
             playerController.enabled = false;
-            Time.timeScale = 0;
+            if (!GameManager.Instance.inMultiplayerMode) Time.timeScale = 0;
         }
         else
         {
             pauseMenu.SetActive(false);
             pauseSettingsMenu.SetActive(false);
             playerController.enabled = true;
-            Time.timeScale = 1;
+            if (!GameManager.Instance.inMultiplayerMode) Time.timeScale = 1;
         }
     }
 
