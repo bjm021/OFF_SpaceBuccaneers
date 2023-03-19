@@ -80,8 +80,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
                 
-                
-                
                 DeselectUnit(_selectedUnitIndex);
             }
         }
