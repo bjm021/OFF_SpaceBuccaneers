@@ -18,15 +18,15 @@ public class AbilityIndicator : MonoBehaviour
     {
         if (isMineField)
         {
-            transform.localScale = new Vector3(abilityClass.MineRadius, 0.5f, abilityClass.MineRadius);
+            transform.localScale = new Vector3(abilityClass.MineRadius * 2, 0.5f, abilityClass.MineRadius * 2);
         }
         else if (isEmp)
         {
-            transform.localScale = new Vector3(abilityClass.EmpRange, 0.5f, abilityClass.EmpRange);
+            transform.localScale = new Vector3(abilityClass.EmpRange * 2, 0.5f, abilityClass.EmpRange * 2);
         }
         else if (isBlackHole)
         {
-            transform.localScale = new Vector3(abilityClass.BlackHoleRange, 0.5f, abilityClass.BlackHoleRange);
+            transform.localScale = new Vector3(abilityClass.BlackHoleRange * 2, 0.5f, abilityClass.BlackHoleRange * 2);
         }
         else if (isLaser)
         {
