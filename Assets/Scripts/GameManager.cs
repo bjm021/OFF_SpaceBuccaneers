@@ -38,7 +38,7 @@ public class GameManager : NetworkBehaviour
     [Space]
     [SerializeField] private GameObject playerOneExplosion;
     [SerializeField] private GameObject playerTwoExplosion;
-    [SerializeField] private bool inMultiplayerMode = false; 
+    public bool inMultiplayerMode = false; 
 
     private bool _isInRound;
     
