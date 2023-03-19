@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class GameManager : NetworkBehaviour
@@ -26,8 +27,8 @@ public class GameManager : NetworkBehaviour
 
     #endregion
     
-    [SerializeField] [Range(90, 900)] private int roundLength;
-    [Space]
+    [SerializeField] private UnityEvent onRoundOver = new UnityEvent();
+    [SerializeField] [Range(90, 900)] private int roundLength;    [Space]
     [SerializeField] private int metalStartAmount;
     [SerializeField] private int crystalsStartAmount;
     [SerializeField] private int metalAutoGenerationAmount;
@@ -285,7 +286,7 @@ public class GameManager : NetworkBehaviour
         }
 
         Time.timeScale = 0;
-
+        onRoundOver.Invoke();
         UIManager.Instance.DisplayWinScreen(winningPlayer);
     }
     
