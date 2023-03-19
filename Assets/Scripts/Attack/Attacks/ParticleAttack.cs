@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -6,10 +7,28 @@ using UnityEngine;
 public class ParticleAttack : Attack
 {
     [SerializeField] private GameObject _shotVFX;
+    [SerializeField] private AudioClip _chargeSound;
+    [SerializeField] private AudioClip _fireSound;
+    private AudioSource _audioSource;
     
     private Transform _target;
-    
+
+
+    private void Start()
+    {
+        Debug.LogError("Assigning audio source");
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     public override bool SpecificAttack(GameObject target)
+    {
+        Debug.LogError("INIT CHARGE");
+        _audioSource.PlayOneShot(_chargeSound);
+        StartCoroutine(AttackRoutine(target));
+        return false;
+    }
+
+    public void DelayedAttack(GameObject target)
     {
         _target = target.transform;
         
@@ -22,12 +41,17 @@ public class ParticleAttack : Attack
         
         if (target.TryGetComponent(out Mothership mothership))
         {
-            return mothership.TakeDamage(Damage) <= 0;
+            mothership.TakeDamage(Damage);
         } 
         else
         {
             var unit = target.GetComponent<Unit>();
-            return unit.TakeDamage(Damage) <= 0;
+            var self = gameObject.GetComponent<Unit>();
+            if (self.UnitClass.name == "HackingHarpoon")
+            {
+                unit.Stun(2.5f);
+            }
+            unit.TakeDamage(Damage);
         }
     }
 
@@ -43,5 +67,15 @@ public class ParticleAttack : Attack
         Quaternion rotation = Quaternion.LookRotation(end - start);
         GameObject shot = Instantiate(_shotVFX, start, rotation, _target);
         Destroy(shot, 10);
+    }
+    
+    private IEnumerator AttackRoutine(GameObject target)
+    { 
+        Debug.LogError("PlayChargeSound");
+        _audioSource.PlayOneShot(_chargeSound);
+        yield return new WaitForSeconds(3f);
+        Debug.LogError("PlayFireSound");
+        _audioSource.PlayOneShot(_fireSound);
+        DelayedAttack(target);
     }
 }

@@ -131,6 +131,7 @@ public class Unit : NetworkBehaviour
 
     private void Die()
     {
+        Dead = true;
         OnDeath.Invoke();
         if (GameManager.Instance.Host) KillOnClientRpc();
         OnDeath.RemoveAllListeners();
@@ -152,7 +153,9 @@ public class Unit : NetworkBehaviour
 
         // TODO: Adjust despawn time
         if (!GameManager.Instance.Host) return;
-        StartCoroutine(DelayedDestroy(5f));
+        var delay = 5f;
+        if (UnitClass.name == "Mine") delay = 2;
+        StartCoroutine(DelayedDestroy(delay));
     }
     
     public IEnumerator DelayedDestroy(float delay)
