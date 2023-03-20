@@ -70,7 +70,7 @@ public class ParticleAttack : Attack
     private IEnumerator AttackRoutine(GameObject target)
     { 
         _audioSource.PlayOneShot(_chargeSound);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         _audioSource.PlayOneShot(_fireSound);
         DelayedAttack(target);
     }

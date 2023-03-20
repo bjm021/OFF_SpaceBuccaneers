@@ -1275,20 +1275,20 @@ MonoBehaviour:
   - {fileID: 3263972991104819190, guid: 4237cdbd9b12342cb8d4c562f6457c7f, type: 3}
   asteroidCount: 20
   asteroidSpawnPoints:
-  - {fileID: 1909785643}
-  - {fileID: 1160657358}
-  - {fileID: 277534502}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   asteroidSpawnRadius: 15
   specialAsteroidCount: 5
   specialAsteroidSpawnPoints:
-  - {fileID: 1633613107}
-  - {fileID: 1637526185}
+  - {fileID: 0}
+  - {fileID: 0}
   specialAsteroidSpawnRadius: 10
-  continuousAsteroidRate: 2
+  continuousAsteroidRate: 3
   continuousAsteroidTimeUnit: 6
   maxAsteroidOnScreen: 16
-  continuousSpecialAsteroidRate: 2
-  continuousSpecialAsteroidTimeUnit: 30
+  continuousSpecialAsteroidRate: 3
+  continuousSpecialAsteroidTimeUnit: 25
   maxSpecialAsteroidOnScreen: 10
   multiplayerBehaviour: 1
 --- !u!4 &273571422
@@ -1892,7 +1892,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -1907,7 +1907,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -2897,9 +2897,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityClasses:
-  - {fileID: 11400000, guid: 02f78737109bf6e43bc8080ca20961ae, type: 2}
-  - {fileID: 11400000, guid: 2de0ca6c4bc0d484eab4518f73bcea05, type: 2}
   - {fileID: 11400000, guid: 42a7c9636df6141468084194337289ac, type: 2}
+  - {fileID: 11400000, guid: 2de0ca6c4bc0d484eab4518f73bcea05, type: 2}
+  - {fileID: 11400000, guid: 02f78737109bf6e43bc8080ca20961ae, type: 2}
   - {fileID: 11400000, guid: e92663d8e8a35e045ae48f8165b9e799, type: 2}
   multiplayerBehaviour: 1
 --- !u!114 &533461580
@@ -3824,7 +3824,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -3839,7 +3839,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -6555,9 +6555,9 @@ RectTransform:
   - {fileID: 1439636975}
   - {fileID: 985887595}
   - {fileID: 1220062611}
-  - {fileID: 2140252427}
-  - {fileID: 436603357}
   - {fileID: 1791440139}
+  - {fileID: 436603357}
+  - {fileID: 2140252427}
   - {fileID: 1475613962}
   m_Father: {fileID: 96502515}
   m_RootOrder: -1
@@ -9466,7 +9466,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -9481,7 +9481,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -10145,7 +10145,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -10160,7 +10160,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -10679,7 +10679,7 @@ PrefabInstance:
     - target: {fileID: 7158731156364021687, guid: 6d2896d3d5d92114ea71242d0c749267,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7158731156364021687, guid: 6d2896d3d5d92114ea71242d0c749267,
         type: 3}
@@ -11068,7 +11068,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -11083,7 +11083,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -12124,7 +12124,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: spawnDelay
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -12139,7 +12139,7 @@ PrefabInstance:
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
       propertyPath: unitsOnScreenLimit
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7818216273064794381, guid: 3561e674d43fd490f9c2745628bfa19b,
         type: 3}
@@ -12721,7 +12721,7 @@ PrefabInstance:
     - target: {fileID: 7158731156364021687, guid: ee77b9a172ba54c2a8826a9eaf7190d7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7158731156364021687, guid: ee77b9a172ba54c2a8826a9eaf7190d7,
         type: 3}
