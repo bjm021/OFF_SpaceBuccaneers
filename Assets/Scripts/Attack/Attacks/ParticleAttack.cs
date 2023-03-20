@@ -62,8 +62,11 @@ public class ParticleAttack : Attack
 
     private void VisualAttackRender(Vector3 start, Vector3 end)
     {
+        if (!GameManager.Instance.Host) return;
         Quaternion rotation = Quaternion.LookRotation(end - start);
         GameObject shot = Instantiate(_shotVFX, start, rotation, _target);
+        if (GameManager.Instance.inMultiplayerMode) shot.GetComponent<NetworkObject>().Spawn();
+        
         Destroy(shot, 10);
     }
     

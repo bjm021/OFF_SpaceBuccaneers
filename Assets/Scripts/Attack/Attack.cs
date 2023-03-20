@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Attack : NetworkBehaviour
 {
+    
+    private AudioSource _unitAudioSource;
     public int Damage { get; private set; }
     public float Cooldown { get; private set; }
     public float AttackRange { get; private set; }
@@ -14,6 +16,8 @@ public abstract class Attack : NetworkBehaviour
         Damage = damage;
         Cooldown = cooldown;
         AttackRange = attackRange;
+        _unitAudioSource = GetComponent<AudioSource>();
+        InitializeObjectClientRpc();
     }
     
     public bool DoAttack(GameObject target, Unit self)
@@ -30,14 +34,30 @@ public abstract class Attack : NetworkBehaviour
         if (Vector3.Distance(gameObject.transform.position, target.transform.position)-2 > AttackRange) return false;
         _inCooldown = true;
         self.OnShoot.Invoke(target.transform.position);
+        PlaySoundOnCLientRpc();
         var warErNichtDerBeste = SpecificAttack(target);
         StartCoroutine(CooldownRoutine());
         return warErNichtDerBeste;
     }
 
+    [ClientRpc]
+    private void InitializeObjectClientRpc()
+    {
+        if (GameManager.Instance.Host) return;
+        _unitAudioSource = GetComponent<AudioSource>();
+    }
+    
+    [ClientRpc]
+    private void PlaySoundOnCLientRpc()
+    {
+        if (GameManager.Instance.Host) return;
+        if (_unitAudioSource != null) _unitAudioSource.Play();
+    }
+
     public bool AttackMothership(GameObject mothership, Unit self)
     {
         if (_inCooldown) return false;
+        PlaySoundOnCLientRpc();
         self.OnShoot.Invoke(mothership.transform.position);
         _inCooldown = true;
         var result = SpecificAttack(mothership);

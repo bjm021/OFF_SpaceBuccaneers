@@ -214,7 +214,6 @@ public class Unit : NetworkBehaviour
     private void KillOnClientRpc()
     {
         if (GameManager.Instance.Host) return;
-        Debug.LogWarning("KillOnClientRpc");
         Die();
     }
 }

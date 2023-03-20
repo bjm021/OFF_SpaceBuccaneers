@@ -307,7 +307,7 @@ public class GameManager : NetworkBehaviour
     
     private IEnumerator PauseTimeAfterDelay()
     {
-        float time = 1f;
+        float time = 1.25f;
         while (time > 0)
         {
             Time.timeScale = Mathf.Lerp(1, 0, 1 - time);
