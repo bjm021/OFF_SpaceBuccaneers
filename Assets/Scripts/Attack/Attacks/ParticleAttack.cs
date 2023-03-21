@@ -62,15 +62,18 @@ public class ParticleAttack : Attack
 
     private void VisualAttackRender(Vector3 start, Vector3 end)
     {
+        if (!GameManager.Instance.Host) return;
         Quaternion rotation = Quaternion.LookRotation(end - start);
         GameObject shot = Instantiate(_shotVFX, start, rotation, _target);
+        if (GameManager.Instance.inMultiplayerMode) shot.GetComponent<NetworkObject>().Spawn();
+        
         Destroy(shot, 10);
     }
     
     private IEnumerator AttackRoutine(GameObject target)
     { 
         _audioSource.PlayOneShot(_chargeSound);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         _audioSource.PlayOneShot(_fireSound);
         DelayedAttack(target);
     }

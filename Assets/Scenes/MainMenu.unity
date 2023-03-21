@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0008095468, g: 0.004161891, b: 0.02006406, a: 1}
+  m_IndirectSpecularColor: {r: 0.00080954505, g: 0.004162026, b: 0.020064274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4755,9 +4755,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\tDynamic Space Background Lite\t-\tdinV Studio\n\tsector_034 font \t\t\t 
-    \t-\tNeoqueto\n\tPengenalan Regular\t\t\t\t-\tVladimir Nikolic\n\tRoboto\t\t\t\t\t\t\t-\tGoogle
-    Fonts\n\tSkybox Series Free \t\t\t \t-\tAvionx"
+  m_text: "\tURP Toon Shader\t\t\t\t\t- \tVladislav kantaev\n\tDynamic Space Background
+    Lite\t-\tdinV Studio\n\tSkybox Series Free \t\t\t \t-\tAvionx\n\tsector_034 font
+    \t\t\t  \t-\tNeoqueto\n\tPengenalan Regular\t\t\t\t-\tVladimir Nikolic"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e46a2be873d34537bd2db5ab45d584c, type: 2}
   m_sharedMaterial: {fileID: 6320988971262760994, guid: 8e46a2be873d34537bd2db5ab45d584c,

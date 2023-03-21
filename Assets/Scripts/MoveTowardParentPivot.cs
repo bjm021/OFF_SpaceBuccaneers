@@ -18,13 +18,14 @@ public class MoveTowardParentPivot : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.Host) return;
         if (time > 0)
         {
             transform.position = Vector3.Lerp(_startPosition, transform.parent.position, 1 - time / _startTime);
             time -= Time.deltaTime;
         }
         else
-        {
+        { 
             Destroy(gameObject);
         }
     }

@@ -19,7 +19,7 @@ MonoBehaviour:
   health: 0
   moveSpeed: 0
   attack: 5
-  attackRange: 8
+  attackRange: 6
   attackSeekRange: 6
   specialAttackSeekRange: 6
   attackCooldown: 0

@@ -25,6 +25,6 @@ MonoBehaviour:
   attackCooldown: 1
   behaviour: 4
   miningRate: 1
-  miningTimeUnitLength: 2
+  miningTimeUnitLength: 1.5
   miningRange: 4
   mothershipAttackDistance: 40
