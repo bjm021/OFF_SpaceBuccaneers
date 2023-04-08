@@ -117,9 +117,9 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "be58d9e1-243e-44ea-b3a4-6f3108a125f7",
+                    "id": "85774a98-aa56-4863-b4d1-0c2b665adad5",
                     "path": "<Pointer>/press",
-                    "interactions": "",
+                    "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "",
                     "action": "Click",

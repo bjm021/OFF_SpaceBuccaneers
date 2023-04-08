@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     
     public void OnClick(InputValue value)
     {
-        if (value.isPressed && !_onCooldown)
+        if (!value.isPressed && !_onCooldown)
         {
             if (_selectedUnitIndex == 0)
             {
