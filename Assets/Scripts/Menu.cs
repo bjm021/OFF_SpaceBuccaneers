@@ -21,6 +21,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private AudioClip pirateAudioClip;
     [Space]
     [SerializeField] CanvasScaler canvasScaler;
+    [SerializeField] private bool manageScale;
     
     private float _masterVolume;
     private float _musicVolume;
@@ -144,8 +145,9 @@ public class Menu : MonoBehaviour
         pirateModeText.SetActive(pirateMode);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        if (!manageScale) return;
         var aspectRatio = (float) Screen.width / Screen.height;
         if (aspectRatio < 16f/9f)
         {
