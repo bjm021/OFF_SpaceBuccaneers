@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject unitIndicator;
     [SerializeField] private float cooldown = 1f;
     [SerializeField] private Card[] cards;
+    [SerializeField] private float spawnableAreaOffsetFromMiddle = 30;
     
     private GameObject _spawnableUnitIndicator;
     private GameObject _nonSpawnableUnitIndicator;
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if ((clickPosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || clickPosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo) 
+                    if ((unitIndicator.transform.position.x < spawnableAreaOffsetFromMiddle*-1 && player == GameManager.Player.PlayerOne || unitIndicator.transform.position.x > spawnableAreaOffsetFromMiddle && player == GameManager.Player.PlayerTwo) 
                         && UnitManager.Instance.SpawnUnit(hit.point, UnitManager.Instance.UnitClasses[_selectedUnitIndex-1], player))
                     {
                         StartCoroutine(SpawnUnitCooldown());
@@ -87,7 +88,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        
         var mousePosition = Pointer.current.position.ReadValue();
+        
+        // DEBUG: Draw line on calculated x
+        //
+           
+        //Debug.LogError(unitIndicator.transform.position.x + " " + unitIndicator.transform.position.y + " " + unitIndicator.transform.position.z);
         
         unitIndicator.transform.position = _mainCamera.ScreenToWorldPoint(mousePosition);
         unitIndicator.transform.position = new Vector3(unitIndicator.transform.position.x, 10, unitIndicator.transform.position.z);
@@ -96,8 +103,7 @@ public class PlayerController : MonoBehaviour
         
         if (_selectedUnitIndex < 7) // Unit
         {
-
-            if (mousePosition.x < Screen.width * spawnArea && player == GameManager.Player.PlayerOne || mousePosition.x > Screen.width * (1 - spawnArea) && player == GameManager.Player.PlayerTwo)
+            if (unitIndicator.transform.position.x < spawnableAreaOffsetFromMiddle*-1 && player == GameManager.Player.PlayerOne || unitIndicator.transform.position.x > spawnableAreaOffsetFromMiddle && player == GameManager.Player.PlayerTwo)
             {
                 if (UnitManager.Instance.UnitClasses[_selectedUnitIndex - 1].Cost <= GameManager.Instance.GetResource(player, GameManager.ResourceType.Metal))
                 {
@@ -153,7 +159,7 @@ public class PlayerController : MonoBehaviour
     {
         _selectedUnitIndex = index;
         UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player);
-        
+
         foreach (Transform child in _spawnableUnitIndicator.transform)
         {
             child.gameObject.SetActive(false);

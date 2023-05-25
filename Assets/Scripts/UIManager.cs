@@ -46,17 +46,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text winScreenText;
     [Space]
     [SerializeField] private GameObject spawnableAreaIndicator;
-    [SerializeField] private RectTransform spawnableAreaIndicatorRectTransform;
+    [SerializeField] private GameObject playerOneRedArea;
+    [SerializeField] private GameObject playerTwoRedArea;
     [Space]
     [SerializeField] private Image[] cooldownImages;
     
     public void ShowSpawnableAreaIndicator(float width, GameManager.Player player, bool active = true)
     {
-        // spawnableAreaIndicatorRectTransform.sizeDelta = new Vector2(Screen.width * (1 - width), Screen.height);
-        // spawnableAreaIndicatorRectTransform.anchoredPosition = new Vector2(
-        //     Screen.width * (player == GameManager.Player.PlayerOne ? 
-        //     width - (width / 2) : - width + (width / 2)), 0);
-        // spawnableAreaIndicator.SetActive(active);
+        if (player == GameManager.Player.PlayerOne)
+        {
+            playerOneRedArea.SetActive(active);
+        }
+        else
+        {
+            playerTwoRedArea.SetActive(active);
+        }
+        spawnableAreaIndicator.SetActive(active);
     }
     
     public void UpdateTimeText(int time, bool recolor = false)
