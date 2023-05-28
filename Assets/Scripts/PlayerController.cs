@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
     private void SelectUnit(int index)
     {
         _selectedUnitIndex = index;
-        UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player);
+        if (index < 7) UIManager.Instance.ShowSpawnableAreaIndicator(spawnArea, player);
 
         foreach (Transform child in _spawnableUnitIndicator.transform)
         {
