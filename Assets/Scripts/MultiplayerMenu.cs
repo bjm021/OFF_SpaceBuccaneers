@@ -30,10 +30,10 @@ public class MultiplayerMenu : MonoBehaviour
             }
         }
         
-        localIPText.text = _localIP;
-        //inputField.text = _localIP;
-        multiplayerButton.interactable = false;
-        multiplayerButtonText.text = "join as Client";
+        //localIPText.text = _localIP;
+        inputField.text = "192.168.10.10";
+        //multiplayerButton.interactable = false;
+        //multiplayerButtonText.text = "join as Client";
     }
 
     public void MultiplayerButtonClicked()
